@@ -1,0 +1,36 @@
+name: ci 
+on:
+  push:
+    branches:
+      - master 
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      - run: pip install mkdocs-material
+      # - run: pip install mkdocs-table-reader-plugin  # not important
+      # - run: pip install mkdocs-live-edit-plugin # not important
+      - run: pip install pillow cairosvg
+      # - run: pip install mkdocs-minify-plugin # not important
+      - run: pip install mkdocs-awesome-pages-plugin
+      # - run: pip install mkdocs-video # not important
+      # - run: pip install mkdocs-plotly-plugin 
+      - run: pip install mike
+      - run: pip install mkdocs-charts-plugin
+      # minify
+      # - run: pip install mkdocs-minify-plugin
+      - run: mkdocs gh-deploy --force
+
+# Custom domain
+    #   - run: echo "collegehive.in" > ./site/CNAME 
