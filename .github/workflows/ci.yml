@@ -18,22 +18,16 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material
-      # - run: pip install mkdocs-table-reader-plugin  # not important
-      # - run: pip install mkdocs-live-edit-plugin # not important
-      - run: pip install pillow cairosvg
-      # - run: pip install mkdocs-minify-plugin # not important
-      - run: pip install mkdocs-awesome-pages-plugin
-      # - run: pip install mkdocs-video # not important
-      # - run: pip install mkdocs-plotly-plugin 
-      - run: pip install mike
-      - run: pip install mkdocs-charts-plugin
-      # implement this here cd docs ,cd 2th_sem, mkdocs build,cd .. ,cd 4th_sem, mkdocs build,cd ..,cd ..,mkdocs build, mkdocs serve
-      - run: cd docs && cd 2th_sem && mkdocs build && cd .. && cd 4th_sem && mkdocs build && cd .. && cd .. && mkdocs build && mkdocs serve
-
-      # minify
-      # - run: pip install mkdocs-minify-plugin
+      - run: pip install mkdocs-material pillow cairosvg mkdocs-awesome-pages-plugin mike mkdocs-charts-plugin
+      # Build MkDocs projects in subdirectories
+      - run: |
+          cd docs/2th_sem
+          mkdocs build
+          cd ../4th_sem
+          mkdocs build
+          cd ../..
+          mkdocs build
+      # Deploy to GitHub Pages
       - run: mkdocs gh-deploy --force
-
-# Custom domain
-    #   - run: echo "collegehive.in" > ./site/CNAME 
+      # Uncomment and use the following if you have a custom domain
+      # - run: echo "collegehive.in" > ./site/CNAME
