@@ -28,8 +28,9 @@ jobs:
       # - run: pip install mkdocs-plotly-plugin 
       - run: pip install mike
       - run: pip install mkdocs-charts-plugin
-      # run run.sh
-      - run: bash run.sh
+      # implement this here cd docs ,cd 2th_sem, mkdocs build,cd .. ,cd 4th_sem, mkdocs build,cd ..,cd ..,mkdocs build, mkdocs serve
+      - run: cd docs && cd 2th_sem && mkdocs build && cd .. && cd 4th_sem && mkdocs build && cd .. && cd .. && mkdocs build && mkdocs serve
+
       # minify
       # - run: pip install mkdocs-minify-plugin
       - run: mkdocs gh-deploy --force
