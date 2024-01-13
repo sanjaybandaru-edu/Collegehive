@@ -128,9 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# also bat files
-*.bat
-```
+# also bat files exclude run.bat
 
+*.bat
 # also site folder
 /site
