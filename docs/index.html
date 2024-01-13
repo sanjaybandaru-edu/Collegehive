@@ -111,12 +111,54 @@
 
                         <!-- bba text -->
                         <p style="font-size: 18px; font-weight: bold; color:burlywood">BBA</p>
-                        <div class="d-flex">
+                        <!-- <div class="d-flex">
                             <div class="mbr-section-btn padding-left "><a class="btn btn-secondary display-4" href="2nd_sem\site\index.html">Go to 2nd Sem Notes</a></div>
                         
     
                             <div class="mbr-section-btn padding-left margin-left"><a class="btn btn-secondary display-4" href="4th_sem\site\index.html">Go to 4th Sem Notes</a></div>
+                        </div> -->
+                        <div class="d-flex justify-content-around">
+                            <a class="btn btn-secondary sem-button" href="2nd_sem/site/index.html">Go to 2nd Sem Notes</a>
+                            <a class="btn btn-secondary sem-button" href="3rd_sem/site/index.html">Go to 3rd Sem Notes</a>
+                            <a class="btn btn-secondary sem-button" href="4th_sem/site/index.html">Go to 4th Sem Notes</a>
                         </div>
+<style>.d-flex {
+    display: flex;
+    justify-content: space-around; /* This will space out your buttons evenly */
+    padding: 20px;
+}
+
+.sem-button {
+    font-size: 1.25rem; /* display-4 equivalent font size */
+    padding: 10px 20px; /* Padding for larger click area */
+    margin: 0 10px; /* Margin for spacing between buttons */
+    border-radius: 50px; /* Rounded corners */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.sem-button:hover, .sem-button:focus {
+
+    transform: scale(1.1); /* Slightly increase the button size */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Add a subtle shadow */
+    border: 2px solid #0056b3; /* Add or change the border */
+    text-decoration: none; /* Ensures the text is not underlined on hover */
+    background-color: transparent !important;
+    border-color: #ed9b82 !important;
+    color: #ffffff !important;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    .sem-button {
+        margin-bottom: 10px; /* Add space between stacked buttons */
+    }
+}
+</style>                        
                       </div>
                   </div>
               </div>
