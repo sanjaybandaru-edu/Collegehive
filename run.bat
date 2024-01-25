@@ -1,6 +1,6 @@
 cd docs
 
-cd 2th_sem
+cd 2nd_sem
 
 mkdocs build
 
