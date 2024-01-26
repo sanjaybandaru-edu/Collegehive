@@ -6,6 +6,12 @@ mkdocs build
 
 cd ..
 
+cd 3rd_sem
+
+mkdocs build
+
+cd ..
+
 cd 4th_sem
 
 mkdocs build
