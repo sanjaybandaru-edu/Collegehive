@@ -20,10 +20,7 @@ jobs:
           path: .cache
       - run: pip install mkdocs-material pillow cairosvg mkdocs-awesome-pages-plugin mike mkdocs-charts-plugin
       # Build MkDocs projects in subdirectories
-      - run: cd docs/2nd_sem && mkdocs build
-      - run: cd docs/3rd_sem && mkdocs build
-      - run: cd docs/4th_sem && mkdocs build
-      - run: mkdocs build
+      - run: cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
       # Deploy to GitHub Pages
       - run: mkdocs gh-deploy --force
       # Uncomment and use the following if you have a custom domain
