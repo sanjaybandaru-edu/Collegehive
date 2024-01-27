@@ -18,6 +18,7 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
+
       - run: pip install mkdocs-material pillow cairosvg mkdocs-awesome-pages-plugin mike mkdocs-charts-plugin
       # Build MkDocs projects in subdirectories
       - run: cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
@@ -26,13 +27,18 @@ jobs:
       # Deploy to GitHub Pages
       # - run: mkdocs gh-deploy --force
       
-      - run: git checkout -B gh-pages
-        # Assuming your index.html is in the root directory after mkdocs build
-        # You can adjust the path as necessary
-      - run:  cp index.html site/
-      - run:  cd site
-      - run:  git add .
-      - run:  git commit -m "Deploy to GitHub Pages"
-      - run:  git push origin gh-pages --force
+      # - run: git checkout -B gh-pages
+      #   # Assuming your index.html is in the root directory after mkdocs build
+      #   # You can adjust the path as necessary
+      # - run:  cp index.html site/
+      # - run:  cd site
+      # - run:  git add .
+      # - run:  git commit -m "Deploy to GitHub Pages"
+      # - run:  git push origin gh-pages --force
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
       # Uncomment and use the following if you have a custom domain
       # - run: echo "collegehive.in" > ./site/CNAME
