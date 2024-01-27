@@ -26,7 +26,7 @@ jobs:
       # Deploy to GitHub Pages
       # - run: mkdocs gh-deploy --force
        - name: Deploy to GitHub Pages
-        run: |
+       - run: |
           git checkout -B gh-pages
           # Assuming your index.html is in the root directory after mkdocs build
           # You can adjust the path as necessary
