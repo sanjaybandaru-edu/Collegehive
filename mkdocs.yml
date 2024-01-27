@@ -6,6 +6,7 @@ site_description: >-
   It is a platform for students to learn from each other and grow together.
 
 site_url: https://testing.collegehive.in
+docs_dir: docs/.
 
 
 
@@ -59,13 +60,6 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to light mode
 
-
-nav:
-  - Home: 'index.html'
-  - Test : "../index.html"
-  - Second Semester: 'docs/2nd_sem/index.md'
-  - Third Semester: 'docs/3rd_sem/index.md'
-  - Fourth Semester: 'docs/4th_sem/index.md'
 
 markdown_extensions:
   - meta
