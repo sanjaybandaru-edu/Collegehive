@@ -109,9 +109,9 @@
                         <!-- bba text -->
                         <p style="font-size: 18px; font-weight: bold; color:burlywood">BBA</p>
                         <div class="d-flex justify-content-around">
-                            <a class="btn btn-secondary sem-button" href="2nd_sem/site/index.html">Go to 2nd Sem Notes</a>
-                            <a class="btn btn-secondary sem-button" href="3rd_sem/site/index.html">Go to 3rd Sem Notes</a>
-                            <a class="btn btn-secondary sem-button" href="4th_sem/site/index.html">Go to 4th Sem Notes</a>
+                            <a class="btn btn-secondary sem-button" href="2nd_sem/site/home.html">Go to 2nd Sem Notes</a>
+                            <a class="btn btn-secondary sem-button" href="3rd_sem/site/home.html">Go to 3rd Sem Notes</a>
+                            <a class="btn btn-secondary sem-button" href="4th_sem/site/home.html">Go to 4th Sem Notes</a>
                         </div>
 <style>.d-flex {
     display: flex;
