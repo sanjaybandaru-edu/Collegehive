@@ -1,17 +1,6 @@
-# Welcome to MkDocs
+## Courses
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+|Course Code|Course Name|Credits|Category|
+|---|---|---|---|
+|BBA 331|[Financial Management](FM/Unit-1%20Introduction%20to%20Financial%20management/1.1%20Meaning%20of%20finance%20and%20financial%20management.md)|4|Core|
+|BBA 333|[Marketing Management](MM/Unit-1%20Introduction%20to%20Marketing%20Fundamentals/1.1%20Meaning%20Definition%20marketing.md)|4|Core|
