@@ -1,0 +1,30 @@
+# Decision Rules
+
+
+| Technique | Accepting Criteria for Single or Independent Project(s) | Accepting Criteria for Mutually Exclusive Projects |
+|-----------|-----------------------------------------------------------|--------------------------------------------------------|
+| DPB       | Less than the Target Period                                | Shortest Payback Period                                 |
+| ARR       | Above the Target Rate                                      | With the highest ARR                                    |
+| NPV       | A positive NPV                                             | With the highest positive NPV                           |
+| IRR       | Higher than the Target Rate (Cost of Capital)              | With the highest IRR                                    |
+
+In this table:
+
+- **DPB** stands for Discounted Payback Period, but if you're referring to the traditional method, it should be just "Payback Period" (PB).
+- **ARR** is Accounting Rate of Return.
+- **NPV** is Net Present Value.
+- **IRR** is Internal Rate of Return.
+
+**For Single or Independent Projects**:
+- **Payback Period (PB)**: The project is acceptable if its payback period is less than the target period set by the company.
+- **ARR**: A project is considered good if its ARR is above the company’s target rate.
+- **NPV**: Projects with a positive NPV should be accepted as they are expected to add value to the company.
+- **IRR**: If a project’s IRR exceeds the target rate or the company’s cost of capital, it is acceptable.
+
+**For Mutually Exclusive Projects** (where you must choose one among several projects):
+- **Payback Period**: The project with the shortest payback period is preferred.
+- **ARR**: The project with the highest ARR is preferred.
+- **NPV**: Among competing projects, the one with the highest positive NPV is chosen because it is expected to add the most value.
+- **IRR**: The project with the highest IRR is preferred, provided the IRR is above the cost of capital.
+
+This decision matrix allows companies to evaluate investment opportunities in a structured way to determine the best use of capital for maximized returns.
