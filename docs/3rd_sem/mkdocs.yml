@@ -97,9 +97,9 @@ extra:
     provider: mike
   social:
     - icon: fontawesome/brands/linkedin  
-      link: https://www.linkedin.com/company/college-hives/
+      link: https://www.linkedin.com/company/collegehives/
     - icon: fontawesome/brands/instagram
-      link: https://www.instagram.com/college.hive/  
+      link: https://www.instagram.com/CollegeHive.in  
   generator: false    
 
 
