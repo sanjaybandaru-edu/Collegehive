@@ -1,1 +1,1 @@
-cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs serve
+cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
