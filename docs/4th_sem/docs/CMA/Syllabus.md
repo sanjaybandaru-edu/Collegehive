@@ -14,6 +14,9 @@ hide:
 | Max Marks                   | 100                           |
 | Credits                     | 4                             |
 
+
+![image](https://github.com/Collegehive/Notes/assets/159722383/4041bb7b-7793-4971-92aa-c6d4ac6e4c86)
+
 ## Course Description
 
 This course explores the fundamentals of cost and management accounting, focusing on cost sheet preparation, materials, labor, overheads costing, financial statement analysis, and management reporting, which are essential for financial decision-making in the accounting and finance domain.

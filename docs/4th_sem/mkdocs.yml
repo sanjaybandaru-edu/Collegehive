@@ -95,6 +95,9 @@ markdown_extensions:
 extra:
   version:
     provider: mike
+  analytics:
+    provider: google
+    property: G-M16XXN4ERH  
   social:
     - icon: fontawesome/brands/linkedin  
       link: https://www.linkedin.com/company/collegehives/
