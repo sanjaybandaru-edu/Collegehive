@@ -150,5 +150,5 @@ plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
-copyright: Copyright &copy; 2023 Sanjay Bandaru
+copyright: Copyright &copy; 2024 College Hive
 
