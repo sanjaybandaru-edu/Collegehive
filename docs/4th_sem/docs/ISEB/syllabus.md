@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # INFORMATION SYSTEMS AND E-BUSINESS - BBH434
 
 ## Course Information
