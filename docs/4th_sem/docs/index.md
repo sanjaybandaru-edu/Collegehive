@@ -5,7 +5,7 @@
 |BBA 431|[Cost and Management Accounting](CMA/Syllabus.html)|4|Core|
 |BBA 432|[Entrepreneurship Development](ED/Syllabus.html)|4|Core|
 |BBA 433|[Research Methodology](RM/Syllabus.html)|4|Core|
-|BBH 434|[Information System and E-Business](ISEB/Syllabus.html)|4|Branch Specific (HONS)|
+|BBH 434|[Information System and E-Business](ISEB/syllabus.html)|4|Branch Specific (HONS)|
 |BBH 435|[Company Law and Corporate Governance](CLCG/Syllabus.html)|4|Branch Specific (HONS)|
 |BFIB 441A|[Global Business](GB/Syllabus.html)|4|Branch Specific (FIB)|
 |BFIB 441B|[Security Analysis and Portfolio Management](SAPM/Syllabus.html)|4|Branch Specific (FIB)|
