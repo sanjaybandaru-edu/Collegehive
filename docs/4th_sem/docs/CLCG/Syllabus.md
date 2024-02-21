@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 ## COMPANY LAW AND CORPORATE GOVERNANCE - BBH435
 
 ## Course Information
