@@ -12,6 +12,10 @@
 |BFIB 442A|[International Marketing](IM/Syllabus.html)|4|Branch Specific (FIB)|
 |BFIB 442B|[Social Finance](SF/Syllabus.html)|4|Branch Specific (FIB)|
 
+## Resources
+
+- Telegram Group For BBA 2025 Notes and Materials : [Click here to Join](https://t.me/+SSqYMGoRJVo3NDI9)
+
 
 
 
