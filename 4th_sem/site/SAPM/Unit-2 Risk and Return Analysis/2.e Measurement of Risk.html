@@ -14499,37 +14499,58 @@
 
 
 <h1 id="measurement-of-return-and-risk">Measurement of Return and Risk<a class="headerlink" href="#measurement-of-return-and-risk" title="Permanent link">&para;</a></h1>
-<p>Risk is measured by the variability of returns, the assignments of probabilities and the calculation of expected values of returns. Standard deviation is defined as the square root of the mean of the squared deviations, where deviations are measured by the difference between the outcome and the expected mean value of all values.</p>
-<p>Standard deviation can be applied when the mean is the same. However, the coefficient of variance is the relative measure of the degree of uncertainty. Standard deviation is misleading when a comparison is to be made between two series or two projects or portfolios if they differ in size and mean. The coefficient of variation is the correct technique in such cases. The higher the coefficient of variation, the more risky is the project or portfolio.</p>
+<p>Risk is quantified by the variability of returns, through assigning probabilities and calculating the expected values of returns. The standard deviation, which represents the spread of a set of numbers, is calculated as the square root of the average of the squared deviations from the mean. These deviations are the differences between each outcome and the mean value of all values.</p>
+<p>While standard deviation is useful when means are identical, the coefficient of variance provides a relative measure of risk, especially useful for comparing datasets or projects that vary in size and mean. The coefficient of variance represents the degree of variation relative to the mean, offering a more accurate gauge of risk in comparisons. Generally, a higher coefficient of variation signals greater risk.</p>
 <h2 id="rate-of-return">Rate of Return<a class="headerlink" href="#rate-of-return" title="Permanent link">&para;</a></h2>
-<p>The rate of return is calculated using the formula:
-<span class="arithmatex">\(<span class="arithmatex">\(R_i = \\frac{(P_1 - P_0) + D_1}{P_0}\)</span>\)</span>
-where:
-- <span class="arithmatex">\(<span class="arithmatex">\(R_i\)</span>\)</span> is the rate of return
-- <span class="arithmatex">\(<span class="arithmatex">\(P_1\)</span>\)</span> is the ending price
-- <span class="arithmatex">\(<span class="arithmatex">\(P_0\)</span>\)</span> is the beginning price
-- <span class="arithmatex">\(<span class="arithmatex">\(D_1\)</span>\)</span> is the dividend</p>
+<p>The rate of return is determined using the formula:</p>
+<ul>
+<li><strong>Rate of Return</strong>:<ul>
+<li><span class="arithmatex" style="font-size: 150%;">\(R_i = \frac{(P_1 - P_0) + D_1}{P_0}\)</span></li>
+</ul>
+</li>
+</ul>
+<p>Where:
+- <span class="arithmatex">\(R_i\)</span> = Rate of return,
+- <span class="arithmatex">\(P_1\)</span> = Ending price,
+- <span class="arithmatex">\(P_0\)</span> = Beginning price,
+- <span class="arithmatex">\(D_1\)</span> = Dividend.</p>
 <h2 id="expected-rate-of-return">Expected Rate of Return<a class="headerlink" href="#expected-rate-of-return" title="Permanent link">&para;</a></h2>
-<p>The expected rate of return is given by the formula:
-<span class="arithmatex">\(<span class="arithmatex">\(\\bar{X} = \\sum_{i=1}^{n} X_i p(X_i)\)</span>\)</span>
-where:
-- <span class="arithmatex">\(<span class="arithmatex">\(\\bar{X}\)</span>\)</span> is the expected value of return
-- <span class="arithmatex">\(<span class="arithmatex">\(X_i\)</span>\)</span> is the return in state <span class="arithmatex">\(<span class="arithmatex">\(i\)</span>\)</span>
-- <span class="arithmatex">\(<span class="arithmatex">\(p(X_i)\)</span>\)</span> is the probability of state <span class="arithmatex">\(<span class="arithmatex">\(i\)</span>\)</span></p>
+<p>The expected rate of return is calculated by:</p>
+<ul>
+<li><strong>Expected Rate of Return</strong>:<ul>
+<li><span class="arithmatex" style="font-size: 150%;">\(\bar{X} = \sum_{i=1}^{n} X_i p(X_i)\)</span></li>
+</ul>
+</li>
+</ul>
+<p>Where:
+- <span class="arithmatex">\(\bar{X}\)</span> = Expected value of return,
+- <span class="arithmatex">\(X_i\)</span> = Return in state <span class="arithmatex">\(i\)</span>,
+- <span class="arithmatex">\(p(X_i)\)</span> = Probability of state <span class="arithmatex">\(i\)</span>.</p>
 <h2 id="risk">Risk<a class="headerlink" href="#risk" title="Permanent link">&para;</a></h2>
 <h3 id="variance">Variance<a class="headerlink" href="#variance" title="Permanent link">&para;</a></h3>
-<p>Variance, a measure of risk, is calculated as:
-<span class="arithmatex">\(<span class="arithmatex">\(\\sigma^2 = \\sum_{i=1}^{n} [(X_i - \\bar{X})^2 p(X_i)]\)</span>\)</span>
-where:
-- <span class="arithmatex">\(<span class="arithmatex">\(\\sigma^2\)</span>\)</span> is the variance
-- <span class="arithmatex">\(<span class="arithmatex">\(X_i\)</span>\)</span> is the return in state <span class="arithmatex">\(<span class="arithmatex">\(i\)</span>\)</span>
-- <span class="arithmatex">\(<span class="arithmatex">\(\\bar{X}\)</span>\)</span> is the expected value of return
-- <span class="arithmatex">\(<span class="arithmatex">\(p(X_i)\)</span>\)</span> is the probability of state <span class="arithmatex">\(<span class="arithmatex">\(i\)</span>\)</span></p>
+<p>Variance, which measures risk, is calculated as follows:</p>
+<ul>
+<li><strong>Variance</strong>:<ul>
+<li><span class="arithmatex" style="font-size: 150%;">\(\sigma^2 = \sum_{i=1}^{n} [(X_i - \bar{X})^2 p(X_i)]\)</span></li>
+</ul>
+</li>
+</ul>
+<p>Where:
+- <span class="arithmatex">\(\sigma^2\)</span> = Variance,
+- <span class="arithmatex">\(X_i\)</span> = Return in state <span class="arithmatex">\(i\)</span>,
+- <span class="arithmatex">\(\bar{X}\)</span> = Expected value of return,
+- <span class="arithmatex">\(p(X_i)\)</span> = Probability of state <span class="arithmatex">\(i\)</span>.</p>
 <h3 id="standard-deviation">Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permanent link">&para;</a></h3>
-<p>The standard deviation, which is the square root of variance, is:
-<span class="arithmatex">\(<span class="arithmatex">\(\\sigma = \\sqrt{\\sigma^2}\)</span>\)</span>
-where:
-- <span class="arithmatex">\(<span class="arithmatex">\(\\sigma\)</span>\)</span> is the standard deviation</p>
+<p>The standard deviation, or the square root of the variance, is represented by:</p>
+<ul>
+<li><strong>Standard Deviation</strong>:<ul>
+<li><span class="arithmatex" style="font-size: 150%;">\(\sigma = \sqrt{\sigma^2}\)</span></li>
+</ul>
+</li>
+</ul>
+<p>Where:
+- <span class="arithmatex">\(\sigma\)</span> = Standard deviation.</p>
+<p>This formulaic approach allows for a systematic evaluation of the potential return and associated risks of investment opportunities, providing investors with the tools needed to make informed decisions.</p>
 
 
 
