@@ -95,6 +95,8 @@ markdown_extensions:
 extra:
   version:
     provider: mike
+  status:
+    new: Important for Exam  
   analytics:
     provider: google
     property: G-M16XXN4ERH  
