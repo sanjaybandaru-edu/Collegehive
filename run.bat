@@ -1,1 +1,1 @@
-cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
+cd docs/2nd_sem && python3 -m mkdocs build && cd ../3rd_sem && python3 -m mkdocs build && cd ../4th_sem && python3 -m mkdocs build && cd ../.. && python3 -m mkdocs build
