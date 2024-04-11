@@ -14962,14 +14962,45 @@ let conversationHistory = [
     - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
     - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
     - Dont give Output in Markdown format and any points, cause it is should be plain text.
-    - Make Sure Outpur is less than 150 words
+    - Make Sure Output is less than 150 words
     About CollegeHive and Hive Notes:
     - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
     - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
     - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
     I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
   }
+  
+
 ];
+const article = document.querySelector('article.md-content__inner.md-typeset');
+
+// Create an array to store the extracted content
+const extractedContent = [];
+
+// Helper function to extract text content from an element
+function extractTextContent(element) {
+  if (element.tagName.toLowerCase() === 'table') {
+    // Handle tables separately
+    extractedContent.push(`<table>${element.outerHTML}</table>`);
+  } else if (element.tagName.toLowerCase() === 'ul' || element.tagName.toLowerCase() === 'ol') {
+    // Handle unordered and ordered lists
+    const listItems = Array.from(element.querySelectorAll('li')).map(li => li.textContent);
+    extractedContent.push(`<${element.tagName.toLowerCase()}>${listItems.join('')}</${element.tagName.toLowerCase()}>`);
+  } else {
+    extractedContent.push(element.textContent);
+  }
+}
+
+// Traverse the article element and extract content from h2, h3, p, table, ul, ol, and li elements
+const elements = article.querySelectorAll('h2, h3, p, table, ul, ol, li');
+elements.forEach(element => {
+  extractTextContent(element);
+});
+const joinedString = extractedContent.join(' ');
+console.log(joinedString);
+
+  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString + "Dont mention about collegehive, if i asked for page content[[[[it is very important,dont forget]]]]" });
+
     $(function() {
       var INDEX = 0;
 
