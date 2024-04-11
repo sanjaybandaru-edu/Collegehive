@@ -15196,6 +15196,28 @@ Looking for better internship Opportunites?
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
+
+let conversationHistory = [
+  {
+    "role": "system",
+    "content": `
+    I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
+    (Mention only if needed)
+    Key points:
+    - I will communicate in simple, clear English for easy understanding.
+    - I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
+    - I will reject any user queries that involve inappropriate, offensive, or unethical content.
+    - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
+    - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
+    - Dont give Output in Markdown format and any points, cause it is should be plain text.
+    - Make Sure Outpur is less than 150 words
+    About CollegeHive and Hive Notes:
+    - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
+    - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
+    - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
+    I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
+  }
+];
     $(function() {
       var INDEX = 0;
 
@@ -15241,44 +15263,16 @@ Looking for better internship Opportunites?
     }, 300);      }
 
       function sendMessageToGrok(message) {
+        conversationHistory.push({ "role": "user", "content": message });
         const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
         const apiKey = "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";
 
         const requestBody = {
-          "messages": [
-             {   
-                "role": "system",
-                "content": `
-                I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
-                (Mention only if needed)
-Key points:
-
-- I will communicate in simple, clear English for easy understanding.
-- I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
-- I will reject any user queries that involve inappropriate, offensive, or unethical content.
-- I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
-- My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
-- Dont give Output in Markdown format and any points, cause it is should be plain text.
-- Make Sure Outpur is less than 150 words
-
-About CollegeHive and Hive Notes:
-
-- CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
-- Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
-- The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
-
-I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach.                `,
-              },
-            {
-
-              "role": "user",
-              "content": message
-            }
-          ],
+          "messages": conversationHistory,
           "model": "mixtral-8x7b-32768",
-          "temperature": 0.7,
-          "max_tokens": 2048,
-          "top_p": 1,
+          "temperature": 0.5,
+          "max_tokens": 32768,
+          "top_p": 0.5,
           "stream": false,
           "stop": null
         };
@@ -15293,6 +15287,7 @@ I will strive to provide helpful information to users in a professional, brief, 
           data: JSON.stringify(requestBody),
           success: function(response) {
             const grokResponse = response.choices[0].message.content;
+            conversationHistory.push({ "role": "assistant", "content": grokResponse});
             generate_message(grokResponse, 'user');
           },
           error: function(error) {
