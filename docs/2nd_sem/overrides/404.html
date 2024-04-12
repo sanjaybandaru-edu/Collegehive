@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>404</h1>
+            <p>Page not found</p>
+        </div>
+    </div>
+
+    <!-- a button to redirect to home page  -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/" class="btn btn-primary">Home</a>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!-- autom -->
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Find the link element by its class name
+      var link = document.querySelector('.btn-primary');
+
+      // Simulate a click on the link
+      link.click();
+  });
+</script>
+
+{% endblock %}
