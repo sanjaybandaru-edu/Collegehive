@@ -11334,6 +11334,7 @@ Looking for better internship Opportunites?
 <div id="body">
   <div id="chat-circle" class="btn btn-raised">
     <i class="fa fa-comments"></i>
+   </div>
   <div class="chat-box">
     <div class="chat-box-header">
       Hive Chat
@@ -11361,11 +11362,8 @@ Looking for better internship Opportunites?
     </div>
     <div class="chat-input">
       <div id="suggestion-buttons" class="suggestion-buttons">
-        <!-- <button onclick="chooseSuggestion('Explain me this page content')">Explain me this page content</button>
-        <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>         -->
-        <button onclick="chooseSuggestion('Provide a detailed summary of the content on this page.')">Summarize Page Content</button>
-<button onclick="chooseSuggestion('Break down the content into easy-to-understand points.')">Simplify Content for Easy Understanding</button>
-
+        <button onclick="chooseSuggestion('Explain me this page content')">Explain me this page content</button>
+        <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>        
       </div>
       
       
@@ -11492,7 +11490,7 @@ console.log(joinedString);
           str += " <img src=\'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' />";}
         str += " </span>";
         str += " <div class=\"cm-msg-text\">";
-        str += msg.replace(/\n/g, "<br>");
+        str += msg;
         str += " </div>";
         str += " </div>";
         $(".chat-logs").append(str);
