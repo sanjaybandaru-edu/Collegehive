@@ -11,7 +11,7 @@ site_url: https://www.collegehive.in
 
 theme:
   name: material
-  # custom_dir: overrides
+  custom_dir: overrides
   config:
     static_templates:
       - 404.html
