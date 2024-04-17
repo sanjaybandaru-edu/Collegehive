@@ -1,4 +1,4 @@
-# Blueprints and Resources
+# Blueprint and Videos
 
 
 ## CMA Blueprint For End-Sem
@@ -40,6 +40,12 @@
         msallowfullscreen="msallowfullscreen" 
         oallowfullscreen="oallowfullscreen" 
         webkitallowfullscreen="webkitallowfullscreen" frameborder="0"></iframe>
+=== "Financial Statement Analysis"
+    <iframe src="https://www.youtube.com/embed?playlist=zHwq3HlT4kY,oabDlcPzIAI,aKum_RSvTVs,xD9jqORPrNM,BiSsmmOZsVI,cQyPM0kkA4k&fs=1" width="800" height="450" allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen" frameborder="0"></iframe>        
 
 ## Blueprint for Exam
 
