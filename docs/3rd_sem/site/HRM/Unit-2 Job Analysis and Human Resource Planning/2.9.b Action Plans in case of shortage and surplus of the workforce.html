@@ -11494,13 +11494,14 @@ console.log(joinedString);
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        const apiUrl = "https://api.openai.com/v1/chat/completions";        
-        const apiKey = "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";
+        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        const apiKey = "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";
+
         const requestBody = {
           "messages": conversationHistory,
-          "model": "gpt-4-turbo-2024-04-09",
+          "model": "mixtral-8x7b-32768",
           "temperature": 0.5,
-          // "max_tokens": 32768,
+          "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
