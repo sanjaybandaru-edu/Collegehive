@@ -16189,8 +16189,19 @@ console.log(joinedString);
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        const apiUrl = "https://api.openai.com/v1/chat/completions";        
-        const apiKey = "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";
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        // send a request to collegehive.in/key.html and get file content as apikey
+        $.ajax({
+          url: "https://collegehive.in/key.html",
+          type: "GET",
+          success: function(response) {
+            const apikey = response; // Assuming the API key is returned as plain text
+            // Continue with the rest of your code using the apikey
+          },
+          error: function(error) {
+            console.error("Error:", error);
+          }
+        });
         const requestBody = {
           "messages": conversationHistory,
           "model": "gpt-4-turbo-2024-04-09",
