@@ -556,7 +556,10 @@ Looking for better internship Opportunites?
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="apikey.js"></script>
   <script>
+
+
 
 let custom_instruction = `
     I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
@@ -683,14 +686,13 @@ console.log(joinedString);
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions";        
+        const apiKey = "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";
         const requestBody = {
           "messages": conversationHistory,
-          "model": "mixtral-8x7b-32768",
+          "model": "gpt-4-turbo-2024-04-09",
           "temperature": 0.5,
-          "max_tokens": 32768,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
