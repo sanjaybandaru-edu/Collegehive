@@ -16053,7 +16053,7 @@ Looking for better internship Opportunites?
     </div>
     <div class="chat-input">
       <div id="suggestion-buttons" class="suggestion-buttons">
-        <button onclick="chooseSuggestion('Explain me this page content')">Explain me this page content</button>
+        <button onclick="chooseSuggestion('Explain me this page content in 500 words')">Explain me this page content</button>
         <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>        
       </div>
       
@@ -16065,33 +16065,48 @@ Looking for better internship Opportunites?
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="apikey.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
   <script>
 
 
 
 let custom_instruction = `
-    I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
-    (Mention only if needed)
-    Key points:
-    - I will communicate in simple, clear English for easy understanding.
-    - I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
-    - I will reject any user queries that involve inappropriate, offensive, or unethical content.
-    - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
-    - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
-    - Dont give Output in Markdown format and any points, cause it is should be plain text.
-    - Make Sure Output is less than 150 words
+I am Hive Chat, an AI assistant created by CollegeHive, a platform providing notes founded by Sanjay Bandaru, Aman Thoyaj, and other students from Christ University. I help users with their queries, maintaining a professional, polite, and respectful demeanor.
 
-    VERY IMPORTANT POINTS TO REMEMBER:
-    [[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
+Here's what you can expect from me:
 
-    About CollegeHive and Hive Notes:
-    - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
-    - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
-    - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
-    I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
+I will provide proper explanations and clear understanding of topic to help you fully understand concepts.
+I will not respond to inappropriate, offensive, or unethical content. If necessary, I will disengage politely.
+I won't give output in markdown syntax means (*,#) wont be in output , output will contain \n if necessary.
+I will give Output less than 500 words
+
+CollegeHive is the Student Community Platform where it multiple Services which students needs. Under Collegehive : Hive Notes and Forum are Operating now.
+Hive Notes is a notes-providing platform where students can access these notes to prepare for semester exams. offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
+
+I am here to provide helpful information briefly and concisely, adhering to the platform's standards and a respectful, ethical approach.`
+    
+// let custdom_instruction = `
+//     I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
+//     (Mention only if needed)
+//     Key points:
+//     - I will communicate in simple, clear English for easy understanding.
+//     - I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
+//     - I will reject any user queries that involve inappropriate, offensive, or unethical content.
+//     - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
+//     - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
+//     - Dont give Output in Markdown format and any points, cause it is should be plain text.
+//     - Make Sure Output is less than 150 words
+
+//     VERY IMPORTANT POINTS TO REMEMBER:
+//     [[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
+
+//     About CollegeHive and Hive Notes:
+//     - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
+//     - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
+//     - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
+//     I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
   
-
 let conversationHistory = [
   {
     "role": "system",
@@ -16112,7 +16127,7 @@ document.getElementById('clear-chat').addEventListener('click', function() {
 ];
 
   // once history is cleared, show the suggestion buttons again
-  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString + "Dont mention about collegehive, if i asked for page content[[[[it is very important,dont forget]]]]" });
+  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString });
 
   $('.suggestion-buttons').show();
 });
@@ -16142,9 +16157,9 @@ elements.forEach(element => {
   extractTextContent(element);
 });
 const joinedString = extractedContent.join(' ');
-console.log(joinedString);
+// console.log(joinedString);
 
-  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString + "Dont mention about collegehive, if i asked for page content[[[[it is very important,dont forget]]]]" });
+  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString });
 
     $(function() {
       var INDEX = 0;
@@ -16172,6 +16187,22 @@ console.log(joinedString);
     $("#chat-input").val('');
     sendMessageToGrok(msg);
   });
+  function scrollToBottom() {
+        var chatLogs = $(".chat-logs");
+        if (chatLogs.length > 0) {
+            // Ensures that at least one element exists
+            var lastChatLog = chatLogs.last(); // Targets the last chat log container if multiple exist
+            var scrollHeight = lastChatLog.prop('scrollHeight');
+            if (scrollHeight) {
+                lastChatLog.animate({ scrollTop: scrollHeight }, 1000);
+            } else {
+                console.log("Scroll height is undefined.");
+            }
+        } else {
+            console.log("No chat logs found.");
+        }
+    }
+
 
       function generate_message(msg, type) {
         INDEX++;
@@ -16184,30 +16215,22 @@ console.log(joinedString);
           str += " <img src=\'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' />";}
         str += " </span>";
         str += " <div class=\"cm-msg-text\">";
-        str += msg;
+        str += msg.replace(/\n/g, "<br>");
         str += " </div>";
         str += " </div>";
         $(".chat-logs").append(str);
         $("#cm-msg-" + INDEX).hide().fadeIn(300);
         setTimeout(function() {
-        $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[1].scrollHeight }, 1000);
-    }, 300);      }
+        scrollToBottom();
+
+    }, 1000);      }
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
         const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // send a request to collegehive.in/key.html and get file content as apikey
-        $.ajax({
-          url: "https://collegehive.in/key.html",
-          type: "GET",
-          success: function(response) {
-            const apikey = response; // Assuming the API key is returned as plain text
-            // Continue with the rest of your code using the apikey
-          },
-          error: function(error) {
-            console.error("Error:", error);
-          }
-        });
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
           "model": "gpt-4-turbo-2024-04-09",
