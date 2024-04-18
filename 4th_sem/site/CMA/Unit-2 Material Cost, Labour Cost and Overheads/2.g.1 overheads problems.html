@@ -15692,7 +15692,7 @@ Looking for better internship Opportunites?
     </div>
     <div class="chat-input">
       <div id="suggestion-buttons" class="suggestion-buttons">
-        <button onclick="chooseSuggestion('Explain me this page content in 500 words')">Explain me this page content</button>
+        <button onclick="chooseSuggestion('Explain me this page contents')">Explain me this page content</button>
         <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>        
       </div>
       
@@ -15712,13 +15712,17 @@ Looking for better internship Opportunites?
 
 let custom_instruction = `
 I am Hive Chat, an AI assistant created by CollegeHive, a platform providing notes founded by Sanjay Bandaru, Aman Thoyaj, and other students from Christ University. I help users with their queries, maintaining a professional, polite, and respectful demeanor.
-
+(Mention only if needed about collegehive)
 Here's what you can expect from me:
 
-I will provide proper explanations and clear understanding of topic to help you fully understand concepts.
+I will provide proper explanations and clear understanding of topic to help you fully understand concepts but with brevity and concise 
 I will not respond to inappropriate, offensive, or unethical content. If necessary, I will disengage politely.
 I won't give output in markdown syntax means (*,#) wont be in output , output will contain \n if necessary.
-I will give Output less than 500 words
+Any Output will be less than 500 words
+
+VERY IMPORTANT POINTS TO REMEMBER:
+[[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
+
 
 CollegeHive is the Student Community Platform where it multiple Services which students needs. Under Collegehive : Hive Notes and Forum are Operating now.
 Hive Notes is a notes-providing platform where students can access these notes to prepare for semester exams. offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
@@ -15830,8 +15834,9 @@ const joinedString = extractedContent.join(' ');
         var chatLogs = $(".chat-logs");
         if (chatLogs.length > 0) {
             // Ensures that at least one element exists
-            var lastChatLog = chatLogs.last(); // Targets the last chat log container if multiple exist
-            var scrollHeight = lastChatLog.prop('scrollHeight');
+            var lastChatLog = $(".chat-logs").last(); // Targets the last chat log container
+            var previousToLastChatLog = lastChatLog.prev(); // Targets the previous chat log container
+            var scrollHeight = previousToLastChatLog.prop('scrollHeight');
             if (scrollHeight) {
                 lastChatLog.animate({ scrollTop: scrollHeight }, 1000);
             } else {
@@ -15866,15 +15871,28 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        let key = 'hello';
-        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        // let key = 'hello';
+        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "gpt-3.5-turbo",
+        //   "temperature": 0.7,
+        //   // "max_tokens": 32768,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
+
+        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        const apiKey = "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";
+
         const requestBody = {
           "messages": conversationHistory,
-          "model": "gpt-4-turbo-2024-04-09",
+          "model": "mixtral-8x7b-32768",
           "temperature": 0.7,
-          // "max_tokens": 32768,
+          "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
