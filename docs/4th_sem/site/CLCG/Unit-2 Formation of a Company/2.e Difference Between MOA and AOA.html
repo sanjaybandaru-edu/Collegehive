@@ -15921,7 +15921,7 @@ const joinedString = extractedContent.join(' ');
           str += " <img src=\'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' />";}
         str += " </span>";
         str += " <div class=\"cm-msg-text\">";
-        str += msg.replace(/\n/g, "<br>");
+        str += msg.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>");
         str += " </div>";
         str += " </div>";
         $(".chat-logs").append(str);
@@ -15952,9 +15952,9 @@ const joinedString = extractedContent.join(' ');
 
         const requestBody = {
           "messages": conversationHistory,
-          "model": "mixtral-8x7b-32768",
+          "model": "llama3-70b-8192",
           "temperature": 0.7,
-          "max_tokens": 32768,
+          // "max_tokens": 8192,
           "top_p": 0.5,
           "stream": false,
           "stop": null
