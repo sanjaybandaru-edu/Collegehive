@@ -1,5 +1,13 @@
 ## Courses 
 
+<audio controls style="width: 100%;">
+  <source src="../../../audio/4th_sem/index.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+
+
 |Course Code|Course Name|Credits|Category|
 |---|---|---|---|
 |BBA 431|[Cost and Management Accounting](CMA/Syllabus.html)|4|Core|

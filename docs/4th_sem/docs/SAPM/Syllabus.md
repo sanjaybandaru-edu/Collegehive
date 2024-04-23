@@ -4,6 +4,12 @@ hide:
 ---
 ## SECURITY ANALYSIS AND PORTFOLIO MANAGEMENT - BFIB441B
 
+<audio controls style="width: 100%;">
+  <source src="../../../../audio/4th_sem/SAPM/Syllabus.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
 ## Course Information
 
 | Department                  | Business and Management (BGR) |
