@@ -1,9 +1,5 @@
 ## Courses 
 
-<audio controls style="width: 100%;">
-  <source src="../../../audio/4th_sem/index.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
 
 

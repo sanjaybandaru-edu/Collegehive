@@ -1,11 +1,5 @@
 # Blueprint and Videos
 
-<audio controls style="width: 100%;">
-  <source src="../../../../audio/4th_sem/CMA/c.1 blueprint & resources.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-
 
 ## CMA Blueprint For End-Sem
 
