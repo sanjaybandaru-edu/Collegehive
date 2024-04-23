@@ -15214,10 +15214,6 @@ Looking for better internship Opportunites?
 
 
 <h1 id="sapm-videos">SAPM Videos<a class="headerlink" href="#sapm-videos" title="Permanent link">&para;</a></h1>
-<p><audio controls style="width: 100%;">
-  <source src="../../../../audio/4th_sem/SAPM/c.1 blueprint & resources.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio></p>
 <h2 id="resources-for-end-sem">Resources For End Sem<a class="headerlink" href="#resources-for-end-sem" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Sharpe Single Index Model</label><label for="__tabbed_1_2">Sharpe's /Treyner’s/ Jensen’s Measure</label><label for="__tabbed_1_3">Calculation of portfolio return and risk of more than 1 securities</label><label for="__tabbed_1_4">Expected rate of return</label><label for="__tabbed_1_5">Portfolio return</label><label for="__tabbed_1_6">Individual Return and variance</label></div>
 <div class="tabbed-content">
@@ -15942,32 +15938,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({

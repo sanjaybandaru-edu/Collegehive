@@ -15264,6 +15264,10 @@ Looking for better internship Opportunites?
 
 
 <h1 id="understanding-positioning-in-marketing">Understanding Positioning in Marketing<a class="headerlink" href="#understanding-positioning-in-marketing" title="Permanent link">&para;</a></h1>
+<p><audio controls style="width: 100%;">
+  <source src="../../../../../audio/4th_sem/IM/Unit-2 International Segmentation and Positioning/2.d Positioning.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
 <p>Positioning is all about how you make people think of your brand or product compared to others. It's like telling your story in a way that shows what's special about you and why people should pick you over others. When companies go global, they need to keep their main message but also make sure it fits well with people from different places.</p>
 <p><img alt="image" src="https://github.com/Collegehive/Notes/assets/159722383/1548815b-676b-4e0f-9ab6-f111cd984056" /></p>
 <h2 id="how-to-make-a-positioning-strategy">How to Make a Positioning Strategy<a class="headerlink" href="#how-to-make-a-positioning-strategy" title="Permanent link">&para;</a></h2>
@@ -15965,32 +15969,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({

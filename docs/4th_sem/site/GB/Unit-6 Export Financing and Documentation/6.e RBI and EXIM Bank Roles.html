@@ -15534,6 +15534,10 @@ Looking for better internship Opportunites?
 
 
 <h1 id="roles-and-functions-of-exim-bank-and-rbi-in-india">Roles and Functions of EXIM Bank and RBI in India<a class="headerlink" href="#roles-and-functions-of-exim-bank-and-rbi-in-india" title="Permanent link">&para;</a></h1>
+<p><audio controls style="width: 100%;">
+  <source src="../../../../../audio/4th_sem/GB/Unit-6 Export Financing and Documentation/6.e RBI and EXIM Bank Roles.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
 <h2 id="export-import-bank-of-india-exim-bank">Export-Import Bank of India (EXIM Bank)<a class="headerlink" href="#export-import-bank-of-india-exim-bank" title="Permanent link">&para;</a></h2>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
 <p>EXIM Bank, operated by the Government of India, is a key financial institution that facilitates international trade by offering financing and insurance services to businesses involved in exporting and importing.</p>
@@ -16337,32 +16341,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({

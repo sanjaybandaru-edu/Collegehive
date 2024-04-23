@@ -15234,6 +15234,10 @@ Looking for better internship Opportunites?
 
 
 <h1 id="targeting-and-target-market-strategy-options">Targeting and Target Market Strategy Options<a class="headerlink" href="#targeting-and-target-market-strategy-options" title="Permanent link">&para;</a></h1>
+<p><audio controls style="width: 100%;">
+  <source src="../../../../../audio/4th_sem/IM/Unit-2 International Segmentation and Positioning/2.c Targeting and Target Market Strategy Options.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
 <p>Targeting is the practice where companies figure out which groups of customers are most likely to buy their products or services. This method helps businesses focus their marketing efforts on these specific segments, maximizing the efficiency and effectiveness of their strategies.</p>
 <p>For instance, Microsoft tends to use the same design and advertisements for all its customers, aiming for a broad appeal across various segments. On the other hand, Dairy Queen offers a more personalized experience, allowing customers to design their own cakes, catering to those looking for a unique touch. Similarly, luxury brands like Tiffany &amp; Co. send personalized letters to their customers, targeting those who value exclusivity and a personalized shopping experience.
 <img alt="image" src="https://github.com/Collegehive/Notes/assets/159722383/88c1632d-697d-4481-affe-0c522ec6ccb4" /></p>
@@ -15922,32 +15926,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({

@@ -15270,6 +15270,10 @@ Looking for better internship Opportunites?
 
 
 <h1 id="mergers-and-acquisitions-joint-ventures">Mergers and Acquisitions &amp; Joint Ventures<a class="headerlink" href="#mergers-and-acquisitions-joint-ventures" title="Permanent link">&para;</a></h1>
+<p><audio controls style="width: 100%;">
+  <source src="../../../../../audio/4th_sem/GB/Unit-2 Modes of Entering Global Business/2.g Management Contracts.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
 <h2 id="mergers-and-acquisitions">Mergers and Acquisitions<a class="headerlink" href="#mergers-and-acquisitions" title="Permanent link">&para;</a></h2>
 <p>Mergers and acquisitions (M&amp;A) involve a domestic company merging with or purchasing a foreign company to enter international markets. This strategy provides immediate access to manufacturing facilities, marketing networks, new technology, or patent rights.</p>
 <h2 id="example-coca-colas-entry-into-india">Example: Coca-Cola's Entry into India<a class="headerlink" href="#example-coca-colas-entry-into-india" title="Permanent link">&para;</a></h2>
@@ -15987,32 +15991,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({

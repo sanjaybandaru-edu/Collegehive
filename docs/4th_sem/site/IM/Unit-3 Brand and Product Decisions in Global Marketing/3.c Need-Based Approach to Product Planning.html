@@ -15318,6 +15318,10 @@ Looking for better internship Opportunites?
 
 
 <h1 id="need-based-approach-to-product-planning-catering-to-diverse-desires-in-international-marketing">Need-Based Approach to Product Planning: Catering to Diverse Desires in International Marketing<a class="headerlink" href="#need-based-approach-to-product-planning-catering-to-diverse-desires-in-international-marketing" title="Permanent link">&para;</a></h1>
+<p><audio controls style="width: 100%;">
+  <source src="../../../../../audio/4th_sem/IM/Unit-3 Brand and Product Decisions in Global Marketing/3.c Need-Based Approach to Product Planning.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></p>
 <p>In a world increasingly connected, a one-size-fits-all approach to product planning simply won't cut it. This is especially true in international marketing, where cultural nuances, diverse needs, and unique desires reign supreme. Enter the <strong>need-based approach</strong>, a strategic philosophy that prioritizes understanding and catering to these local variations.</p>
 <h2 id="going-beyond-translation-understanding-local-needs">Going Beyond Translation: Understanding Local Needs<a class="headerlink" href="#going-beyond-translation-understanding-local-needs" title="Permanent link">&para;</a></h2>
 <p>The heart of this approach lies in <strong>thorough market research</strong>. Forget about simple translations and adaptations. Instead, delve deep into:</p>
@@ -16034,32 +16038,32 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-3.5-turbo",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        const apiKey = "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";
-
+        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama3-70b-8192",
+          "model": "gpt-3.5-turbo",
           "temperature": 0.7,
-          "max_tokens": 8192,
+          // "max_tokens": 32768,
           "top_p": 0.5,
           "stream": false,
           "stop": null
         };
+
+        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        // const apiKey = "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";
+
+        // const requestBody = {
+        //   "messages": conversationHistory,
+        //   "model": "llama3-70b-8192",
+        //   "temperature": 0.7,
+        //   "max_tokens": 8192,
+        //   "top_p": 0.5,
+        //   "stream": false,
+        //   "stop": null
+        // };
         hideSuggestionButtons();
 
         $.ajax({
