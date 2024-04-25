@@ -296,7 +296,7 @@
                                         <!-- <a class="item-link ajax-portfolio" href="https://www.linkedin.com/in/sanjaybandaru" data-id="1"> -->
                                             <a class="item-link" href="docs/ass/images/member1.png" data-rel="prettyPhoto[portfolio]">
 
-                                            <img src="docs/ass/images/member1.png" alt="Portfolio 1">
+                                            <img src="docs/ass/images/member1.png" alt="Portfolio 1" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Sanjay Bandaru</p>
@@ -310,7 +310,7 @@
 
                                     <div id="p-item-2" class="grid-item element-item p-one-half image">
                                         <a class="item-link" href="docs/ass/images/aman.jpg" data-rel="prettyPhoto[portfolio]">
-                                            <img src="docs/ass/images/aman.jpg" alt="Portfolio 2">
+                                            <img src="docs/ass/images/aman.jpg" alt="Portfolio 2" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Aman Thoyaj</p>
@@ -322,7 +322,7 @@
 
                                     <div id="p-item-3" class="grid-item element-item p-one-third image">
                                         <a class="item-link" href="docs/ass/images/VC_pic.jpg" data-rel="prettyPhoto[portfolio]">
-                                            <img src="docs/ass/images/VC_pic.jpg" alt="Portfolio 3">
+                                            <img src="docs/ass/images/VC_pic.jpg" alt="Portfolio 3" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Vin Cyrus</p>
@@ -333,7 +333,7 @@
                                     </div>
                                     <div id="p-item-4" class="grid-item element-item p-one-third">
                                         <a class="item-link" href="docs/ass/images/lasya.jpg" data-rel="prettyPhoto[portfolio]">
-                                            <img src="docs/ass/images/lasya_small.jpg" alt="Portfolio 4">
+                                            <img src="docs/ass/images/lasya_small.jpg" alt="Portfolio 4" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Lasya Tatavarthy</p>
@@ -344,7 +344,7 @@
                                     </div>
                                     <div id="p-item-5" class="grid-item element-item p-one-third">
                                         <a class="item-link" href="docs/ass/images/rakshita.jpg" data-rel="prettyPhoto[portfolio]">
-                                            <img src="docs/ass/images/rakshita_small.jpg" alt="Portfolio 5">
+                                            <img src="docs/ass/images/rakshita_small.jpg" alt="Portfolio 5" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Rakshita Sanghvi</p>
@@ -355,7 +355,7 @@
                                     </div>
                                     <div id="p-item-6" class="grid-item element-item p-one-third image">
                                         <a class="item-link" href="docs/ass/images/Ankit.jpg" data-rel="prettyPhoto[portfolio]">
-                                            <img src="docs/ass/images/Ankit.jpg" alt="Portfolio 6">
+                                            <img src="docs/ass/images/Ankit.jpg" alt="Portfolio 6" class="lazyload">
                                             <div class="portfolio-text-holder">
                                                 <div class="portfolio-text-wrapper">
                                                     <p class="portfolio-text">Ankit Sharma</p>
@@ -622,6 +622,34 @@
                     }
                 });
             });
+
+            document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img.lazyload"));
+
+    if ("IntersectionObserver" in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazyload");
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(function(lazyImage) {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.remove("lazyload");
+        });
+    }
+});
+
         </script>
         
 
