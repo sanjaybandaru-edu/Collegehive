@@ -26,7 +26,7 @@ body {
 body.gold .header h2 ,
 body.gold p,
 body.gold > * > * :not(.contact-btn) {
-    filter: invert(1) brightness(4.7);
+    filter: invert(1) brightness(4.7) opacity(0.5);
 }
 body.gold .header h2 a{
     filter: hue-rotate(0deg);
@@ -50,6 +50,10 @@ body.gold .content-section ::before,
 body.gold .content-section ::after{
     filter: invert(1) brightness(4.4) opacity(1);
 }
+body.gold .selection-item ::after{
+    filter: invert(1) brightness(4.4) opacity(1);
+}
+
 
 h2 {
     font-family: 'Hubot-Sans', sans-serif;
@@ -759,21 +763,21 @@ p {
 }
 
 .selection-item a {
-    color: #00008B; /* Dark Blue */
+    color: #f0f0f0; /* Dark Blue */
     transition: color 0.3s ease;
 }
 
 .selection-item a:hover {
     color: #0000FF; /* Light Blue */
 }
-
+/* <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> */
 </style>
 </head>
 <body>
     <!-- design inspired by https://www.authkit.com/ -->
 <div class="header">
     <h2><a href="https://collegehive.in" target="_blank" rel="noopener noreferrer">Hive</a></h2>
-    <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
+    <div class="mid-spot"></div>
     <button class="contact-btn">
       <span class="glow"></span>
       <span class="contact-btn-content">Contact Us</span>
