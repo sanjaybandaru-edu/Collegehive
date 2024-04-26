@@ -1,0 +1,850 @@
+{% extends "base.html" %}
+
+
+<!-- Announcement bar -->
+{% block announce %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  For updates follow us on 
+
+  <!-- instagram -->
+
+  <a href="https://www.instagram.com/collegehive.in/">
+    <span class="twemoji instagram">
+      {% include ".icons/fontawesome/brands/instagram.svg" %}
+    </span>
+    <strong>Instagram</strong>
+
+  </a>
+  and
+
+
+
+  <!-- linkedlin -->
+
+<a href="https://www.linkedin.com/company/college-hives/">
+    <span class="twemoji linkedin">
+      {% include ".icons/fontawesome/brands/linkedin.svg" %}
+    </span>
+    <strong>LinkedIn</strong>
+
+</a>
+
+.
+
+Looking for better internship Opportunites?   
+
+<a href="https://forms.gle/kAy6hHVLnW8cReTb8">Apply Here!</a>
+  
+<!-- Check out our Fun time page for some fun stuff ,
+
+<a href="https://collegehive.in/Other/funtime.html">
+    <span class="twemoji fun">
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+    </span>
+    <strong>Fun Time</strong>
+</a> -->
+
+
+<!-- just like dropdown button with list to select from,but make it as drop up button that is for choosing music type and a play pause button -->
+
+
+<!-- HTML -->
+
+<!-- HTML -->
+
+
+{% endblock %}
+
+
+{% block content %}
+
+{{ super() }}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+
+  #chat-circle {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: #5A5EB9;
+    width: 80px;
+    height: 80px;  
+    border-radius: 50%;
+    color: white;
+    padding: 28px;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .btn#my-btn {
+       background: white;
+      padding-top: 13px;
+      padding-bottom: 12px;
+      border-radius: 45px;
+      padding-right: 40px;
+      padding-left: 40px;
+      color: #5865C3;
+  }
+  #chat-overlay {
+      background: rgba(255,255,255,0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: none;
+  }
+  
+  
+  .chat-box {
+    display:none;
+    background: #efefef;
+    position:fixed;
+    right:30px;
+    bottom:50px;  
+    width:500px;
+    max-width: 85vw;
+    max-height:90vh;
+    border-radius:5px;  
+  /*   box-shadow: 0px 5px 35px 9px #464a92; */
+    box-shadow: 0px 5px 35px 9px #212596;
+  }
+  .chat-box-toggle {
+    float:right;
+    margin-right:15px;
+    cursor:pointer;
+  }
+  .chat-box-header {
+    background: #5A5EB9;
+    height:70px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px; 
+    color:white;
+    text-align:center;
+    font-size:20px;
+    padding-top:17px;
+  }
+  .chat-box-body {
+    position: relative;  
+    height:450px;  
+    height:auto;
+    border:1px solid #ccc;  
+    overflow: hidden;
+  }
+  .chat-box-body:after {
+    content: "";
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=');
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:100%;
+    position: absolute;
+    z-index: -1;   
+  }
+  #chat-input {
+    background: #f4f7f9;
+    width:100%; 
+    position:relative;
+    height:47px;  
+    padding-top:10px;
+    padding-right:50px;
+    padding-bottom:10px;
+    padding-left:15px;
+    border:none;
+    resize:none;
+    outline:none;
+    border:1px solid #ccc;
+    color:#888;
+    border-top:none;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    overflow:hidden;  
+  }
+  .chat-input > form {
+      margin-bottom: 0;
+  }
+  #chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ccc;
+  }
+  #chat-input::-moz-placeholder { /* Firefox 19+ */
+    color: #ccc;
+  }
+  #chat-input:-ms-input-placeholder { /* IE 10+ */
+    color: #ccc;
+  }
+  #chat-input:-moz-placeholder { /* Firefox 18- */
+    color: #ccc;
+  }
+  .chat-submit {  
+    position:absolute;
+    bottom:3px;
+    right:10px;
+    background: transparent;
+    box-shadow:none;
+    border:none;
+    border-radius:50%;
+    color:#5A5EB9;
+    width:35px;
+    height:35px;  
+  }
+  .chat-logs {
+    padding:15px; 
+    height:370px;
+    overflow-y:scroll;
+  }
+  
+  .chat-logs::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+  }
+  
+  .chat-logs::-webkit-scrollbar
+  {
+      width: 5px;  
+      background-color: #F5F5F5;
+  }
+  
+  .chat-logs::-webkit-scrollbar-thumb
+  {
+      background-color: #5A5EB9;
+  }
+  
+  
+  
+  @media only screen and (max-width: 500px) {
+     .chat-logs {
+          height:40vh;
+      }
+  }
+  
+  .chat-msg.user > .msg-avatar img {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    float:left;
+    width:15%;
+  }
+  .chat-msg.self > .msg-avatar img {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    float:right;
+    width:15%;
+  }
+  .cm-msg-text {
+    background:white;
+    padding:10px 15px 10px 15px;  
+    color:#666;
+    max-width:75%;
+    float:left;
+    margin-left:10px; 
+    position:relative;
+    margin-bottom:20px;
+    border-radius:30px;
+    font-size: 14px; 
+  }
+  .chat-msg {
+    clear:both;    
+  }
+  .chat-msg.self > .cm-msg-text {  
+    float:right;
+    margin-right:10px;
+    background: #5A5EB9;
+    color:white;
+  }
+  .cm-msg-button>ul>li {
+    list-style:none;
+    float:left;
+    width:50%;
+  }
+  .cm-msg-button {
+      clear: both;
+      margin-bottom: 70px;
+  }
+
+  #center-text {          
+    display: flex;
+    flex: 1;
+    flex-direction:column; 
+    justify-content: center;
+    align-items: center;  
+    height:100%;
+  }
+  
+  #chat-circle {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: #5A5EB9;
+    width: 60px;
+    height: 60px;  
+    border-radius: 50%;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+  }
+  
+  #chat-circle:hover {
+    transform: scale(1.1);
+  }
+  
+  .chat-box {
+    display:none;
+    background: #efefef;
+    position:fixed;
+    right:30px;
+    bottom:50px;  
+    width:350px;
+    max-width: 85vw;
+    max-height:100vh;
+    border-radius:5px;
+    box-shadow: 0px 5px 35px 9px #ccc;
+  }
+  
+  .chat-box-toggle {
+    float:right;
+    margin-right:15px;
+    cursor:pointer;
+  }
+  
+  .chat-box-header {
+    background: #5A5EB9;
+    height:70px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px; 
+    color:white;
+    text-align:center;
+    font-size:20px;
+    padding-top:17px;
+  }
+  
+  .chat-box-body {
+    position: relative;  
+    height:370px;  
+    height:auto;
+    border:1px solid #ccc;  
+    overflow: hidden;
+  }
+  
+  .chat-box-body:after {
+    content: "";
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=');
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height:100%;
+    position: absolute;
+    z-index: -1;   
+  }
+
+  #chat-input {
+    background: #f4f7f9;
+    width:100%;
+    position:relative;
+    height:47px;
+    padding-top:10px;
+    padding-right:50px;
+    padding-bottom:10px;
+    padding-left:15px;
+    border:none;
+    resize:none;
+    outline:none;
+    border:1px solid #ccc;
+    color:#888;
+    border-top:none;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    overflow:hidden;
+    }
+    .chat-input > form {
+    margin-bottom: 0;
+    }
+    #chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari /
+    color: #ccc;
+    }
+    #chat-input::-moz-placeholder { / Firefox 19+ /
+    color: #ccc;
+    }
+    #chat-input:-ms-input-placeholder { / IE 10+ /
+    color: #ccc;
+    }
+    #chat-input:-moz-placeholder { / Firefox 18- */
+    color: #ccc;
+    }
+    .chat-submit {
+    position:absolute;
+    bottom:3px;
+    right:10px;
+    background: transparent;
+    box-shadow:none;
+    border:none;
+    border-radius:50%;
+    color:#5A5EB9;
+    width:35px;
+    height:35px;
+    transition: all 0.3s;
+    }
+    .chat-submit:hover {
+    transform: scale(1.1);
+    }
+    .chat-logs {
+    padding:15px;
+    height:370px;
+    overflow-y:scroll;
+    }
+    .chat-logs::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    }
+    .chat-logs::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+    }
+    .chat-logs::-webkit-scrollbar-thumb {
+    background-color: #5A5EB9;
+    }
+    @media only screen and (max-width: 500px) {
+    .chat-logs {
+    height:40vh;
+    }
+    }
+    .chat-msg.user > .msg-avatar img {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    float:left;
+    width:15%;
+    }
+    .chat-msg.self > .msg-avatar img {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    float:right;
+    width:15%;
+    }
+    .cm-msg-text {
+    background:white;
+    padding:10px 15px 10px 15px;
+    color:#666;
+    max-width:100%;
+    float:left;
+    margin-left:10px;
+    position:relative;
+    margin-bottom:20px;
+    border-radius:30px;
+    }
+    .chat-msg {
+    clear:both;
+    }
+    .chat-msg.self > .cm-msg-text {
+    float:right;
+    margin-right:10px;
+    background: #5A5EB9;
+    color:white;
+    }
+    .cm-msg-button>ul>li {
+    list-style:none;
+    float:left;
+    width:50%;
+    }
+    .cm-msg-button {
+    clear: both;
+    margin-bottom: 70px;
+    }
+    .suggestion-buttons {
+  position: absolute;
+  width: 100%;
+  bottom: 50px; /* Adjust as needed to place above the input field */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around; /* This will space out your buttons evenly */
+}
+
+.suggestion-buttons button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  background-color: #5A5EB9;
+  color: white;
+  border-radius: 40px; /* Rounded corners */
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestion-buttons button:hover {
+  background-color: #777;
+}
+
+.clear-chat {
+  position: absolute;
+  right: 300px;
+  top: 7%;  
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.clear-chat:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+
+  </style>
+
+<div id="body">
+  <div id="chat-circle" class="btn btn-raised">
+    <i class="fa fa-comments"></i>
+  <div class="chat-box">
+    <div class="chat-box-header">
+      Hive Chat
+      <span class="chat-box-toggle"><i class="fa fa-times"></i></span>
+      <span id="clear-chat" class="clear-chat"><i class="fa fa-trash"></i></span>
+
+    </div>
+    <div class="chat-box-body">
+      <div class="chat-logs">
+        <div id="cm-msg-1" class="chat-msg user">
+          <span class="msg-avatar">
+            <img src="https://collegehive.in/docs/ass/images/download%20-%20Copy.png" />
+          </span>
+
+          <div class="cm-msg-text">
+            Hi, I'm Hive Chat, an AI assistant created by CollegeHive.<br>
+            How can I help you today?<br>
+
+      
+
+          </div>
+        </div>
+
+      </div><!--chat-log -->
+    </div>
+    <div class="chat-input">
+      <div id="suggestion-buttons" class="suggestion-buttons">
+        <!-- <button onclick="chooseSuggestion('Explain me this page content')">Explain me this page content</button>
+        <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>         -->
+        <button onclick="chooseSuggestion('Provide a detailed summary of the content on this page.')">Summarize Page Content</button>
+<button onclick="chooseSuggestion('Break down the content into easy-to-understand points.')">Simplify Content for Easy Understanding</button>
+
+      </div>
+      
+      
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button type="submit" class="chat-submit" id="chat-submit"><i class="fa fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+let custom_instruction = `
+    I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
+    (Mention only if needed)
+    Key points:
+    - I will communicate in simple, clear English for easy understanding.
+    - I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
+    - I will reject any user queries that involve inappropriate, offensive, or unethical content.
+    - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
+    - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
+    - Dont give Output in Markdown format and any points, cause it is should be plain text.
+    - Make Sure Output is less than 150 words
+
+    VERY IMPORTANT POINTS TO REMEMBER:
+    [[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
+
+    About CollegeHive and Hive Notes:
+    - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
+    - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
+    - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
+    I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
+  
+
+let conversationHistory = [
+  {
+    "role": "system",
+    "content": custom_instruction}
+  
+];
+
+document.getElementById('clear-chat').addEventListener('click', function() {
+  // Clear the chat messages from the logs except the first log
+  $('.chat-logs').html($('.chat-logs').children().first());
+  console.log('Chat history cleared');
+  // Optionally reset the conversationHistory if you're tracking the chat state
+  conversationHistory = [
+  {
+    "role": "system",
+    "content": custom_instruction}
+  
+];
+
+  // once history is cleared, show the suggestion buttons again
+  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString + "Dont mention about collegehive, if i asked for page content[[[[it is very important,dont forget]]]]" });
+
+  $('.suggestion-buttons').show();
+});
+
+const article = document.querySelector('article.md-content__inner.md-typeset');
+
+// Create an array to store the extracted content
+const extractedContent = [];
+
+// Helper function to extract text content from an element
+function extractTextContent(element) {
+  if (element.tagName.toLowerCase() === 'table') {
+    // Handle tables separately
+    extractedContent.push(`<table>${element.outerHTML}</table>`);
+  } else if (element.tagName.toLowerCase() === 'ul' || element.tagName.toLowerCase() === 'ol') {
+    // Handle unordered and ordered lists
+    const listItems = Array.from(element.querySelectorAll('li')).map(li => li.textContent);
+    extractedContent.push(`<${element.tagName.toLowerCase()}>${listItems.join('')}</${element.tagName.toLowerCase()}>`);
+  } else {
+    extractedContent.push(element.textContent);
+  }
+}
+
+// Traverse the article element and extract content from h2, h3, p, table, ul, ol, and li elements
+const elements = article.querySelectorAll('h2, h3, p, table, ul, ol, li');
+elements.forEach(element => {
+  extractTextContent(element);
+});
+const joinedString = extractedContent.join(' ');
+console.log(joinedString);
+
+  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString + "Dont mention about collegehive, if i asked for page content[[[[it is very important,dont forget]]]]" });
+
+    $(function() {
+      var INDEX = 0;
+
+  // Submit message on Enter key press
+  $("#chat-input").keydown(function(e) {
+    if (e.which === 13) {
+      e.preventDefault();
+      var msg = $(this).val();
+      if (msg.trim() !== '') {
+        generate_message(msg, 'self');
+        $(this).val('');
+        sendMessageToGrok(msg);
+      }
+    }
+  });
+
+  $("#chat-submit").click(function(e) {
+    e.preventDefault();
+    var msg = $("#chat-input").val();
+    if (msg.trim() === '') {
+      return false;
+    }
+    generate_message(msg, 'self');
+    $("#chat-input").val('');
+    sendMessageToGrok(msg);
+  });
+
+      function generate_message(msg, type) {
+        INDEX++;
+        var str = "";
+        str += "<div id='cm-msg-" + INDEX + "' class=\"chat-msg " + type + "\">";
+        str += " <span class=\"msg-avatar\">";
+        if (type === 'user'){
+          str += " <img src=\'https://collegehive.in/docs/ass/images/download%20-%20Copy.png' />";}
+        else{
+          str += " <img src=\'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' />";}
+        str += " </span>";
+        str += " <div class=\"cm-msg-text\">";
+        str += msg.replace(/\n/g, "<br>");
+        str += " </div>";
+        str += " </div>";
+        $(".chat-logs").append(str);
+        $("#cm-msg-" + INDEX).hide().fadeIn(300);
+        setTimeout(function() {
+        $(".chat-logs").stop().animate({ scrollTop: $(".chat-logs")[1].scrollHeight }, 1000);
+    }, 300);      }
+
+      function sendMessageToGrok(message) {
+        conversationHistory.push({ "role": "user", "content": message });
+        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        const apiKey = "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";
+
+        const requestBody = {
+          "messages": conversationHistory,
+          "model": "mixtral-8x7b-32768",
+          "temperature": 0.5,
+          "max_tokens": 32768,
+          "top_p": 0.5,
+          "stream": false,
+          "stop": null
+        };
+        hideSuggestionButtons();
+
+        $.ajax({
+          url: apiUrl,
+          type: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+          },
+          data: JSON.stringify(requestBody),
+          success: function(response) {
+            const grokResponse = response.choices[0].message.content;
+            conversationHistory.push({ "role": "assistant", "content": grokResponse});
+            generate_message(grokResponse, 'user');
+            
+
+          },
+          error: function(error) {
+            console.error("Error:", error);
+          }
+        });
+      }
+
+          $("#chat-circle").click(function() {
+        $("#chat-circle").toggle('scale');
+        $(".chat-box").toggle('scale');
+      });
+
+      $(".chat-box-toggle").click(function() {
+        $("#chat-circle").toggle('scale');
+        $(".chat-box").toggle('scale');
+      });
+    });
+
+
+    function chooseSuggestion(text) {
+  document.getElementById('chat-input').value = text;
+  document.getElementById('suggestion-buttons').style.display = 'none'; // This will hide the suggestions after choosing one
+}
+
+// Call this function after the chatbot sends its first response
+function hideSuggestionButtons() {
+  document.getElementById('suggestion-buttons').style.display = 'none';
+}
+
+
+  </script>
+
+<!-- ------------- -->
+
+
+<div id="playPauseBtn" class="play">🎶</div>
+
+<audio loop id="player">
+    <source src="https://collegehive-audio.s3.ap-south-1.amazonaws.com/lofi.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+
+<style>
+#playPauseBtn {
+  display: inline-block;
+  width: 50px; /* Added fixed width to prevent size change */
+  height: 50px; /* Added fixed height to prevent size change */
+  line-height: 50px; /* Center the emoji vertically */
+  text-align: center; /* Center the emoji horizontally */
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  outline: #000000;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  user-select: none;
+}
+
+#playPauseBtn:hover {
+  background-color: #45a049;
+}
+
+#playPauseBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.playing {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+}
+</style>
+
+<script>
+var player = document.getElementById('player');
+var playPauseBtn = document.getElementById('playPauseBtn');
+var isPlaying = false;
+
+playPauseBtn.addEventListener('click', function() {
+  isPlaying = !isPlaying;
+  if (isPlaying) {
+    player.play();
+    playPauseBtn.classList.add('playing');
+    playPauseBtn.textContent = '⏸️';
+  } else {
+    player.pause();
+    playPauseBtn.classList.remove('playing');
+    playPauseBtn.textContent = '🎶';
+  }
+});
+</script>
+
+
+{% endblock %}
+
+{% block footer %}
+<div id="shownhide" class="show">Hide</div>
+
+<style>
+  /* user selection diabled of shownhide button */
+  #shownhide {
+  display: inline-block;
+  width: 50px; /* Added fixed width to prevent size change */
+  user-select: none;
+  }
+</style>
+
+<script>
+var shownhide = document.getElementById('shownhide');
+var isShown = true;
+
+shownhide.addEventListener('click', function() {
+  isShown = !isShown;
+  if (isShown) {
+    document.getElementById("playPauseBtn").style.display = "block";
+    shownhide.textContent = 'Hide';
+  } else {
+    document.getElementById("playPauseBtn").style.display = "none";
+    shownhide.textContent = 'Show';
+  }
+});  
+</script>
+
+
+{{ super() }}
+{% endblock %}
