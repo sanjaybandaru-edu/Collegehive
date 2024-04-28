@@ -4,7 +4,6 @@ hide:
 ---
 ## SECURITY ANALYSIS AND PORTFOLIO MANAGEMENT - BFIB441B
 
-
 ## Course Information
 
 | Department                  | Business and Management (BGR) |
