@@ -9,14 +9,14 @@ Sharpe's ratio is a tool used to help investors understand the return of an inve
 
 The Sharpe ratio is calculated by subtracting the risk-free rate of return from the mean rate of return of the asset, and then dividing the result by the standard deviation of the asset's returns:
 
-```math
-Sharpe\ Ratio (S_i) = \frac{\bar{R_i} - R_f}{\sigma_i}
-```
+
+$Sharpe\ Ratio (S_i) = \frac{\bar{R_i} - R_f}{\sigma_i}$
+
 
 Where:
-- \( \bar{R_i} \) = Mean rate of return of the asset
+- \( R_i \) = Mean rate of return of the asset
 - \( R_f \) = Risk-free rate of return
-- \( \sigma_i \) = Standard deviation of the asset’s returns (risk)
+- \( sigma_i \) = Standard deviation of the asset’s returns (risk)
 
 ### Interpretation
 
@@ -30,14 +30,14 @@ Jensen's Alpha is a performance measure that represents the average return on a 
 
 Jensen's Alpha is calculated as follows:
 
-```math
-Jensen's\ Alpha = \bar{R_i} - (R_f + \beta_i (R_m - R_f))
-```
+
+$Jensen's\ Alpha = \bar{R_i} - (R_f + \beta_i (R_m - R_f))$
+
 
 Where:
-- \( \bar{R_i} \) = Actual portfolio return
+- \(R_i \) = Actual portfolio return
 - \( R_f \) = Risk-free rate
-- \( \beta_i \) = Portfolio’s beta
+- \( beta_i \) = Portfolio’s beta
 - \( R_m \) = Average market return
 
 ### Interpretation
@@ -52,14 +52,14 @@ Treynor's Ratio is similar to the Sharpe ratio, but instead of using total risk 
 
 Treynor's Ratio is calculated by dividing the excess return over the risk-free rate by the portfolio's beta:
 
-```math
-Treynor's\ Ratio = \frac{\bar{R_i} - R_f}{\beta_i}
-```
+
+$Treynor's\ Ratio = \frac{\bar{R_i} - R_f}{\beta_i}$
+
 
 Where:
-- \( \bar{R_i} \) = Mean rate of return of the portfolio
+- \( R_i \) = Mean rate of return of the portfolio
 - \( R_f \) = Risk-free rate
-- \( \beta_i \) = Beta of the portfolio
+- \( beta_i \) = Beta of the portfolio
 
 ### Interpretation
 
