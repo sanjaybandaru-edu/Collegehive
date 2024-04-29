@@ -5274,32 +5274,36 @@ const joinedString = extractedContent.join(' ');
 
       function sendMessageToGrok(message) {
         conversationHistory.push({ "role": "user", "content": message });
-        const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        let key = 'hello';
-        let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        const requestBody = {
-          "messages": conversationHistory,
-          "model": "gpt-3.5-turbo",
-          "temperature": 0.7,
-          // "max_tokens": 32768,
-          "top_p": 0.5,
-          "stream": false,
-          "stop": null
-        };
-
-        // const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        // const apiKey = "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";
-
+        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
+        // let key = 'hello';
+        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
+        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
         // const requestBody = {
         //   "messages": conversationHistory,
-        //   "model": "llama3-70b-8192",
+        //   "model": "gpt-4-turbo-2024-04-09",
         //   "temperature": 0.7,
-        //   "max_tokens": 8192,
+        //   // "max_tokens": 32768,
         //   "top_p": 0.5,
         //   "stream": false,
         //   "stop": null
         // };
+
+        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
+        let key = 'hello';
+        let encrypted = "U2FsdGVkX192prb32pn3hjWlbz4TeZ3hXhtXYVOz7lX5HSv2mZj1Wk1C8pZFG4d4zrB820HpS2vNL7lpCBPrMAb+i8p22zSP86hfM47Elfk=";
+        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+
+
+
+        const requestBody = {
+          "messages": conversationHistory,
+          "model": "llama3-70b-8192",
+          "temperature": 0.7,
+          "max_tokens": 8192,
+          "top_p": 0.5,
+          "stream": false,
+          "stop": null
+        };
         hideSuggestionButtons();
 
         $.ajax({
