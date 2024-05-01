@@ -746,6 +746,7 @@ const joinedString = extractedContent.join(' ');
         let key = 'hello';
         let encrypted = "U2FsdGVkX192prb32pn3hjWlbz4TeZ3hXhtXYVOz7lX5HSv2mZj1Wk1C8pZFG4d4zrB820HpS2vNL7lpCBPrMAb+i8p22zSP86hfM47Elfk=";
         let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+        // console.log(apiKey);
 
 
 
