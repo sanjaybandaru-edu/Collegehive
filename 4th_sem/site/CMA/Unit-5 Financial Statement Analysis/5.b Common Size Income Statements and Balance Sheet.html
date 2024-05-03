@@ -15585,19 +15585,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 <style>
 
 
-  #chat-circle {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    background: #5A5EB9;
-    width: 80px;
-    height: 80px;  
-    border-radius: 50%;
-    color: white;
-    padding: 28px;
-    cursor: pointer;
-    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  }
+
   
   .btn#my-btn {
        background: white;
@@ -15798,7 +15786,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     height:100%;
   }
   
-  #chat-circle {
+  /* #chat-circle {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -15811,13 +15799,30 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     cursor: pointer;
     box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     transition: all 0.3s;
-  }
-  
-  #chat-circle:hover {
+  } */
+  #chat-circle {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: #5A5EB9;
+    width: 130px; /* Adjusted for space for text and image */
+    height: 60px;
+    border-radius: 50px; /* Adjusted corner radius */
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between the image and the text */
+}
+
+#chat-circle:hover {
     transform: scale(1.1);
-  }
-  
-  .chat-box {
+}
+
+.chat-box {
     display:none;
     background: #efefef;
     position:fixed;
@@ -15828,7 +15833,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     max-height:100vh;
     border-radius:5px;
     box-shadow: 0px 5px 35px 9px #ccc;
-  }
+}
   
   .chat-box-toggle {
     float:right;
@@ -16032,8 +16037,11 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
 <div id="body">
   <div id="chat-circle" class="btn btn-raised">
-    <i class="fa fa-comments"></i>
+    <span style="color: white; vertical-align: middle;">Ask AI</span>
+    <img src="https://collegehive.in/docs/ass/images/Ch-logo.png" alt="Chat Icon" style="height: 80%; vertical-align: middle;">
+    <!-- <i class="fa fa-comments"></i> -->
    </div>
+
   <div class="chat-box">
     <div class="chat-box-header">
       Hive Chat
