@@ -978,7 +978,7 @@ ul.milestone-holder .milestone-num-k:after {
 
 .grid {
     width: calc(100% + 30px);
-    margin-left: -15px;
+    margin-left: -50px;
     position: relative;
     display: block;
     overflow: hidden;
@@ -1027,7 +1027,7 @@ ul.milestone-holder .milestone-num-k:after {
     font-size: 18px;
     line-height: 100%;
     font-weight: 700;
-    color: #fff;
+    color: #00ffee;
     margin-bottom: 0;
     padding-bottom: 10px;
 }
