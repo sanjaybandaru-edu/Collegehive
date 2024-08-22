@@ -11,6 +11,7 @@ site_url: https://www.collegehive.in
 
 theme:
   name: material
+  logo: assets/logo.png
   custom_dir: overrides
   config:
     static_templates:
@@ -43,21 +44,23 @@ theme:
     - toc.follow
     # - toc.integrate 
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: light blue
-      toggle:
-        icon: material/lightbulb
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: black
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to light mode
+  # Palette toggle for light mode
+  - media: '(prefers-color-scheme: light)'
+    scheme: mesop-light
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
 
+  # Palette toggle for dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: mesop-dark
+    toggle:
+      icon: material/brightness-4
+      name: Switch to system preference
+
+  
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - meta
