@@ -38,23 +38,35 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
   <tbody>
     <tr>
       <td>BBA 1.1</td>
-      <td><a href="MI/Module_01_MANAGERIAL_FUNCTIONS/1.a_Concept_of_Management.html">Management Innovation</a></td>
+      <td><a href="TAX/Module_01_INTRODUCTION_TO_TAXATION/1.a_Legal_enactments_governing_Income_Tax_in_India.html">Taxation Laws</a></td>
     </tr>
     <tr>
-      <td>BBA 1.2</td>
-      <td><a href="FA/Module_01_INTRODUCTION_TO_ACCOUNTANCY/1.a_Introduction_to_Accountancy.html">Fundamentals of Accountancy</a></td>
-    </tr>
-    <tr>
-      <td>BBA 1.3</td>
-      <td><a href="MM/Module_01_FUNDAMENTALS_OF_MARKETING/1.a_Introduction_to_Marketing.html">Marketing Management</a></td>
-    </tr>
-    <tr>
-      <td>BBH 1.4</td>
-      <td><a href="DF/Module_01_Fundamentals_of_Computer/1.a_Introduction_to_Computers.md">Digital Fluency</a></td>
+      <td>BBA 1.1</td>
+      <td><a href="SM/Unit_01_Introduction_to_Strategic_Management/1.a_Meaning_and_Definition_of_Strategic_Management.html">Strategic Management</a></td>
     </tr>
   </tbody>
 </table>
   </div>
+
+  <div class="reason-box">
+    <div class="reason-title">Gen</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Course Code</th>
+          <th>Course Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BBA 1.1</td>
+          <td><a href="MI/Module_01_MANAGERIAL_FUNCTIONS/1.a_Concept_of_Management.html">Management Innovation</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
   <div class="reason-box">
     <div class="reason-title">Hons</div>
     <table>
@@ -67,24 +79,16 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
       <tbody>
         <tr>
           <td>BBA 1.1</td>
-          <td><a href="MI/Module_01_MANAGERIAL_FUNCTIONS/1.a_Concept_of_Management.html">Management Innovation</a></td>
+          <td><a href="GB/Unit-1 Introduction to Global Business/1.a Evolution of International Business.html">Global Business</a></td>
         </tr>
         <tr>
-          <td>BBA 1.2</td>
-          <td><a href="FA/Module_01_INTRODUCTION_TO_ACCOUNTANCY/1.a_Introduction_to_Accountancy.html">Fundamentals of Accountancy</a></td>
-        </tr>
-        <tr>
-          <td>BBA 1.3</td>
-          <td><a href="MM/Module_01_FUNDAMENTALS_OF_MARKETING/1.a_Introduction_to_Marketing.html">Marketing Management</a></td>
-        </tr>
-        <tr>
-          <td>BBH 1.4</td>
-          <td><a href="DF/Module_01_Fundamentals_of_Computer/1.a_Introduction_to_Computers.md">Digital Fluency</a></td>
+          <td>BBA 1.1</td>
+          <td><a href="FD/Module_01_Introduction_to_Derivatives/1.a_Concept_of_Derivatives.html">Financial Derivatives</a></td>
         </tr>
       </tbody>
     </table>
   </div>
-   <div class="reason-box">
+  <div class="reason-box">
     <div class="reason-title">FIB</div>
     <table>
       <thead>
@@ -96,19 +100,7 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
       <tbody>
         <tr>
           <td>BBA 1.1</td>
-          <td><a href="MI/Module_01_MANAGERIAL_FUNCTIONS/1.a_Concept_of_Management.html">Management Innovation</a></td>
-        </tr>
-        <tr>
-          <td>BBA 1.2</td>
-          <td><a href="FA/Module_01_INTRODUCTION_TO_ACCOUNTANCY/1.a_Introduction_to_Accountancy.html">Fundamentals of Accountancy</a></td>
-        </tr>
-        <tr>
-          <td>BBA 1.3</td>
-          <td><a href="MM/Module_01_FUNDAMENTALS_OF_MARKETING/1.a_Introduction_to_Marketing.html">Marketing Management</a></td>
-        </tr>
-        <tr>
-          <td>BBH 1.4</td>
-          <td><a href="DF/Module_01_Fundamentals_of_Computer/1.a_Introduction_to_Computers.md">Digital Fluency</a></td>
+          <td><a href="BA/Unit_01_Introduction_and_Overview/1.a_The_Customer_Acquisition_Cycle.html">Business Analysis and Internation Client Negotiation</a></td>
         </tr>
       </tbody>
     </table>
