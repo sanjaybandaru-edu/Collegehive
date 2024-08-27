@@ -89,6 +89,10 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
           <td>BBA 1.1</td>
           <td><a href="SAPM/Unit-1 Introduction to Investment and Investment Avenues/1.a Meaning of investment.html">Security Analysis and Portfolio Analysis</a></td>
         </tr>
+        <tr>
+          <td>BBA 1.1</td>
+          <td><a href="TAR/Module_01_Introduction/1.b_Objective_Framework.html">Talent Acquisition and Retention</a></td>
+        </tr>
       </tbody>
     </table>
   </div>
