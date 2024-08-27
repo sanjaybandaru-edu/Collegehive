@@ -85,6 +85,10 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
           <td>BBA 1.1</td>
           <td><a href="FD/Module_01_Introduction_to_Derivatives/1.a_Concept_of_Derivatives.html">Financial Derivatives</a></td>
         </tr>
+        <tr>
+          <td>BBA 1.1</td>
+          <td><a href="SAPM/Unit-1 Introduction to Investment and Investment Avenues/1.a Meaning of investment.md">Security Analysis and Portfolio Analysis</a></td>
+        </tr>
       </tbody>
     </table>
   </div>
