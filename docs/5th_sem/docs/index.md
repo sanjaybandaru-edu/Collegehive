@@ -93,6 +93,10 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
           <td>BBA 1.1</td>
           <td><a href="TAR/Module_01_Introduction/1.b_Objective_Framework.html">Talent Acquisition and Retention</a></td>
         </tr>
+        <tr>
+          <td>BBA 1.1</td>
+          <td><a href="RMA/Module_01_Introduction_to_retailing/1.a_Reasons_for_studying_retailing.md">Retail Marketing and Analytics</a></td>
+        </tr>
       </tbody>
     </table>
   </div>
