@@ -6,7 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.a_The_Customer_Acquisition_Cycle.html</loc>
+         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.a.a_Understanding%20the%20Sales%20Funnel.html</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.a.b_The_Customer_Acquisition_Cycle.html</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -16,7 +21,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.c_Territory_Mapping_Presales_Function_and_Process.html</loc>
+         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.c.a_Territory_Mapping.html</loc>
+         <lastmod>2024-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.collegehive.in/BA/Unit_01_Introduction_and_Overview/1.c.b_Presales_Function_and_Process.html</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -62,11 +72,6 @@
     </url>
     <url>
          <loc>https://www.collegehive.in/BA/Unit_03_Implementing_the_Plan/3.b_Requirement_Planning_and_Communication.html</loc>
-         <lastmod>2024-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.collegehive.in/BA/Unit_03_Implementing_the_Plan/3.c_Requirement_Engineering_and_Elicitation.html</loc>
          <lastmod>2024-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
