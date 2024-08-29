@@ -97,6 +97,10 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
           <td>BBA 1.1</td>
           <td><a href="RMA/Module_01_Introduction_to_retailing/1.a_Reasons_for_studying_retailing.html">Retail Marketing and Analytics</a></td>
         </tr>
+        <tr>
+          <td>BBA 1.1</td>
+          <td><a href="CBNM/Module_01_Introduction_to_Consumer_Behavior/1.a_Key_Terms_and_Concept.html">Consumer Behaviour and Neuro Marketing</a></td>
+        </tr>
       </tbody>
     </table>
   </div>
