@@ -112,7 +112,7 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
       <tbody>
         <tr>
           <td>BBA 1.1</td>
-          <td><a href="BA/Unit_01_Introduction_and_Overview/1.a_The_Customer_Acquisition_Cycle.html">Business Analysis and Internation Client Negotiation</a></td>
+          <td><a href="BA/Unit_01_Introduction_and_Overview/1.a.a_Understanding the Sales Funnel.html">Business Analysis and Internation Client Negotiation</a></td>
         </tr>
         <tr>
           <td>BBA 1.1</td>
