@@ -1,0 +1,160 @@
+site_name: College Hive
+site_author: Sanjay Bandaru
+
+site_description: >-
+  College Hive is a platform for students to share their knowledge and experiences with other students. 
+  It is a platform for students to learn from each other and grow together.
+
+site_url: https://www.collegehive.in
+
+
+
+theme:
+  name: material
+  logo: assets/logo.png
+  custom_dir: overrides
+  config:
+    static_templates:
+      - 404.html
+      
+
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.path
+    # - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate 
+  palette:
+  # Palette toggle for light mode
+  - media: '(prefers-color-scheme: light)'
+    scheme: mesop-light
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
+
+  # Palette toggle for dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: mesop-dark
+    toggle:
+      icon: material/brightness-4
+      name: Switch to system preference
+
+  
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - meta
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true    
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true        
+  # - pymdownx.superfences:
+  #     custom_fences:        
+  #       - name: plotly
+  #         class: mkdocs-plotly
+  #         format: !!python/name:mkdocs_plotly_plugin.fences.fence_plotly
+          
+extra:
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-M16XXN4ERH  
+  social:
+    - icon: fontawesome/brands/linkedin  
+      link: https://www.linkedin.com/company/collegehives/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/CollegeHive.in  
+  generator: false    
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  # - table-reader ## IMPORTANT: This plugin must be installed for it to work, pip install mkdocs-table-reader-plugin
+  # - glightbox
+  # - live-edit ## IMPORTANT: This plugin must be installed for it to work, pip install mkdocs-live-edit-plugin - by this plugin you can edit the markdown file in the browser itself
+  # - mkdocs-video # for this to work , all .md files should not be empty, it should have some content
+  # - plotly
+  # - minify:
+  #     minify_html: true
+  #     minify_js: true
+  #     minify_css: true
+  #     htmlmin_opts:
+  #         remove_comments: true
+  #     cache_safe: true
+  # - awesome-pages
+  - offline
+  # - kroki:
+  #     kroki_url: https://kroki.io
+  #     kroki_theme: default
+  #     kroki_diagrams:
+  #       - blockdiag
+  #       - bpmn
+  #       - bytefield
+  #       - ditaa
+  #       - erd
+  #       - excalidraw
+  #       - graphviz
+  #       - mermaid
+  #       - nomnoml
+  #       - packetdiag
+  #       - plantuml
+  #       - seqdiag
+  #       - svgbob
+  #       - umlet
+
+  
+  
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+copyright: Copyright &copy; 2024 College Hive
+
