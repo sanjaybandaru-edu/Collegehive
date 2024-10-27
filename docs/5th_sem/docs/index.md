@@ -120,7 +120,7 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
         </tr>
         <tr>
           <td>BBA 1.1</td>
-          <td><a href="ISCM/Module_01_INTRODUCTION_TO_SUPPLY_CHAIN_AND_GLOBAL_STRATEGY/1.a_Insight_into_global_trade_and_global_supply_chains.md">International Supply Chain Management</a></td>
+          <td><a href="ISCM/Module_01_INTRODUCTION_TO_SUPPLY_CHAIN_AND_GLOBAL_STRATEGY/1.a_Insight_into_global_trade_and_global_supply_chains.html">International Supply Chain Management</a></td>
         </tr>
       </tbody>
     </table>
