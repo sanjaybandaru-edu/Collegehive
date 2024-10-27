@@ -48,7 +48,7 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
 </table>
   </div>
 
-  <div class="reason-box">
+  <!-- <div class="reason-box">
     <div class="reason-title">Gen</div>
     <table>
       <thead>
@@ -64,7 +64,7 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
 
 
   <div class="reason-box">
