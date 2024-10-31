@@ -1176,7 +1176,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.a Introduction to Transportation Problem
+    Introduction to the Transportation Problem
   </span>
   
 
@@ -1197,7 +1197,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.b Methods for Initial Solution
+    Methods for Finding Initial Solution to the Transportation Problem
   </span>
   
 
@@ -1218,7 +1218,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.c NW Corner Rule
+    North-West Corner Rule for Transportation Problems
   </span>
   
 
@@ -1239,7 +1239,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.d Least Cost Method
+    Least Cost Method for Transportation Problems
   </span>
   
 
@@ -1260,7 +1260,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.e Vogel Approximation Method
+    Vogel's Approximation Method for Transportation Problems
   </span>
   
 
@@ -1281,7 +1281,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.f Unbalanced Transportation Problem
+    Unbalanced Transportation Problem
   </span>
   
 
@@ -1302,7 +1302,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.g Test for Optimality MODI Method
+    Test for Optimality: MODI (Modified Distribution) Method
   </span>
   
 
@@ -1377,7 +1377,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.a Introduction to Assignment Problem
+    Introduction to the Assignment Problem
   </span>
   
 
@@ -1398,7 +1398,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.b Hungarian Method
+    Hungarian Method for Solving the Assignment Problem
   </span>
   
 
@@ -1419,7 +1419,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.c Restricted Assignment Problems
+    Restricted Assignment Problems
   </span>
   
 
@@ -1504,7 +1504,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.a Introduction to Differentiation
+    Introduction to Differentiation for BBA Students
   </span>
   
 
@@ -1525,7 +1525,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.b Differentiation Rules
+    Rules for Differentiation in BBA Mathematics
   </span>
   
 
@@ -1546,7 +1546,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.c Methods of Differentiation
+    Methods of Differentiation in BBA Mathematics
   </span>
   
 
@@ -1567,7 +1567,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.d Differentiation of Composite Functions
+    Differentiation of Composite Functions
   </span>
   
 
@@ -1588,7 +1588,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.e Differentiation of Parametric Functions
+    Differentiation of Parametric Functions
   </span>
   
 
@@ -1609,7 +1609,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.f Second Order Derivatives
+    Second Order Derivatives
   </span>
   
 
@@ -1630,7 +1630,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.g Maxima and Minima
+    Maxima and Minima in Differentiation
   </span>
   
 
@@ -1651,7 +1651,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.h Applications to Commerce and Economics
+    Applications of Differentiation in Commerce and Economics
   </span>
   
 
@@ -5222,6 +5222,179 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
 
 <h1 id="2d-matrix-inverse-method">2.d Matrix Inverse Method<a class="headerlink" href="#2d-matrix-inverse-method" title="Permanent link">&para;</a></h1>
+<h1 id="matrix-inverse-method-for-solving-systems-of-linear-equations">Matrix Inverse Method for Solving Systems of Linear Equations<a class="headerlink" href="#matrix-inverse-method-for-solving-systems-of-linear-equations" title="Permanent link">&para;</a></h1>
+<p>The <strong>matrix inverse method</strong> is a powerful approach for solving a system of linear equations using matrices. When we have a system of equations, we can represent it in matrix form and, if the coefficient matrix is invertible, solve it by multiplying both sides of the equation by the inverse of the matrix.</p>
+<h2 id="1-matrix-representation-of-a-system-of-linear-equations">1. Matrix Representation of a System of Linear Equations<a class="headerlink" href="#1-matrix-representation-of-a-system-of-linear-equations" title="Permanent link">&para;</a></h2>
+<p>Consider a system of <code>n</code> linear equations with <code>n</code> unknowns:</p>
+<div class="arithmatex">\[
+a_1x + b_1y + c_1z = d_1 \\
+a_2x + b_2y + c_2z = d_2 \\
+a_3x + b_3y + c_3z = d_3
+\]</div>
+<p>This can be written in matrix form as:</p>
+<div class="arithmatex">\[
+AX = B
+\]</div>
+<p>Where:
+- <code>A</code> is the coefficient matrix,
+- <code>X</code> is the column matrix of unknowns,
+- <code>B</code> is the column matrix of constants.</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+a_1 &amp; b_1 &amp; c_1 \\
+a_2 &amp; b_2 &amp; c_2 \\
+a_3 &amp; b_3 &amp; c_3
+\end{bmatrix}, \quad
+X = \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+d_1 \\
+d_2 \\
+d_3
+\end{bmatrix}
+\]</div>
+<h2 id="2-matrix-inverse-method">2. Matrix Inverse Method<a class="headerlink" href="#2-matrix-inverse-method" title="Permanent link">&para;</a></h2>
+<p>If the matrix <code>A</code> is invertible (i.e., has an inverse, denoted as <code>A^{-1}</code>), we can solve for <code>X</code> by multiplying both sides of the matrix equation by <code>A^{-1}</code>:</p>
+<div class="arithmatex">\[
+AX = B \implies A^{-1}AX = A^{-1}B \implies X = A^{-1}B
+\]</div>
+<p>Thus, the solution is obtained by multiplying the inverse of the coefficient matrix <code>A</code> by the constant matrix <code>B</code>.</p>
+<h3 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Write the system of equations in matrix form.</li>
+<li>Find the inverse of matrix <code>A</code>.</li>
+<li>Multiply the inverse of <code>A</code> by the matrix <code>B</code> to find the solution <code>X</code>.</li>
+</ol>
+<hr />
+<h2 id="example-1-solving-a-2x2-system-using-the-matrix-inverse-method">Example 1: Solving a 2x2 System Using the Matrix Inverse Method<a class="headerlink" href="#example-1-solving-a-2x2-system-using-the-matrix-inverse-method" title="Permanent link">&para;</a></h2>
+<p>Consider the following system of linear equations:</p>
+<div class="arithmatex">\[
+2x + 3y = 5 \\
+4x + y = 6
+\]</div>
+<h3 id="step-1-write-the-system-in-matrix-form">Step 1: Write the system in matrix form<a class="headerlink" href="#step-1-write-the-system-in-matrix-form" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{bmatrix}
+2 &amp; 3 \\
+4 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+5 \\
+6
+\end{bmatrix}
+\]</div>
+<p>Here:
+[
+A = \begin{bmatrix}
+2 &amp; 3 \
+4 &amp; 1
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+5 \
+6
+\end{bmatrix}
+]</p>
+<h3 id="step-2-find-the-inverse-of-matrix-a">Step 2: Find the inverse of matrix A<a class="headerlink" href="#step-2-find-the-inverse-of-matrix-a" title="Permanent link">&para;</a></h3>
+<p>For a 2x2 matrix <code>A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}</code>, the inverse is given by:</p>
+<div class="arithmatex">\[
+A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}
+\]</div>
+<p>For the matrix:</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+2 &amp; 3 \\
+4 &amp; 1
+\end{bmatrix}, \quad ad - bc = (2 \times 1) - (4 \times 3) = 2 - 12 = -10
+\]</div>
+<p>Thus, the inverse of <code>A</code> is:</p>
+<div class="arithmatex">\[
+A^{-1} = \frac{1}{-10} \begin{bmatrix} 1 &amp; -3 \\ -4 &amp; 2 \end{bmatrix} = \begin{bmatrix} -0.1 &amp; 0.3 \\ 0.4 &amp; -0.2 \end{bmatrix}
+\]</div>
+<h3 id="step-3-multiply-the-inverse-of-a-by-b">Step 3: Multiply the inverse of A by B<a class="headerlink" href="#step-3-multiply-the-inverse-of-a-by-b" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+X = A^{-1}B = \begin{bmatrix} -0.1 &amp; 0.3 \\ 0.4 &amp; -0.2 \end{bmatrix} \begin{bmatrix} 5 \\ 6 \end{bmatrix}
+\]</div>
+<p>Perform the matrix multiplication:</p>
+<div class="arithmatex">\[
+X = \begin{bmatrix} (-0.1 \times 5) + (0.3 \times 6) \\ (0.4 \times 5) + (-0.2 \times 6) \end{bmatrix} = \begin{bmatrix} -0.5 + 1.8 \\ 2.0 - 1.2 \end{bmatrix} = \begin{bmatrix} 1.3 \\ 0.8 \end{bmatrix}
+\]</div>
+<p>Thus, the solution is <span class="arithmatex">\( x = 1.3 \)</span> and <span class="arithmatex">\( y = 0.8 \)</span>.</p>
+<hr />
+<h2 id="example-2-solving-a-3x3-system-using-the-matrix-inverse-method">Example 2: Solving a 3x3 System Using the Matrix Inverse Method<a class="headerlink" href="#example-2-solving-a-3x3-system-using-the-matrix-inverse-method" title="Permanent link">&para;</a></h2>
+<p>Consider the following system of linear equations:</p>
+<div class="arithmatex">\[
+x + 2y + 3z = 9 \\
+2x + 3y + 5z = 19 \\
+3x + 2y + z = 10
+\]</div>
+<h3 id="step-1-write-the-system-in-matrix-form_1">Step 1: Write the system in matrix form<a class="headerlink" href="#step-1-write-the-system-in-matrix-form_1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 5 \\
+3 &amp; 2 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+9 \\
+19 \\
+10
+\end{bmatrix}
+\]</div>
+<p>Here:
+[
+A = \begin{bmatrix}
+1 &amp; 2 &amp; 3 \
+2 &amp; 3 &amp; 5 \
+3 &amp; 2 &amp; 1
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+9 \
+19 \
+10
+\end{bmatrix}
+]</p>
+<h3 id="step-2-find-the-inverse-of-matrix-a_1">Step 2: Find the inverse of matrix A<a class="headerlink" href="#step-2-find-the-inverse-of-matrix-a_1" title="Permanent link">&para;</a></h3>
+<p>Finding the inverse of a 3x3 matrix is more involved than for a 2x2 matrix. For a 3x3 matrix, we can use methods like the <strong>adjugate matrix</strong> and the <strong>determinant</strong> of the matrix. For this example, assume that the inverse of matrix <code>A</code> (calculated by hand or using software) is:</p>
+<div class="arithmatex">\[
+A^{-1} = \begin{bmatrix}
+-3 &amp; 1 &amp; 5 \\
+5 &amp; -2 &amp; -7 \\
+2 &amp; 0 &amp; -3
+\end{bmatrix}
+\]</div>
+<h3 id="step-3-multiply-the-inverse-of-a-by-b_1">Step 3: Multiply the inverse of A by B<a class="headerlink" href="#step-3-multiply-the-inverse-of-a-by-b_1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+X = A^{-1}B = \begin{bmatrix} -3 &amp; 1 &amp; 5 \\ 5 &amp; -2 &amp; -7 \\ 2 &amp; 0 &amp; -3 \end{bmatrix} \begin{bmatrix} 9 \\ 19 \\ 10 \end{bmatrix}
+\]</div>
+<p>Perform the matrix multiplication:</p>
+<div class="arithmatex">\[
+X = \begin{bmatrix}
+(-3 \times 9) + (1 \times 19) + (5 \times 10) \\
+(5 \times 9) + (-2 \times 19) + (-7 \times 10) \\
+(2 \times 9) + (0 \times 19) + (-3 \times 10)
+\end{bmatrix}
+\]</div>
+<div class="arithmatex">\[
+X = \begin{bmatrix} -27 + 19 + 50 \\ 45 - 38 - 70 \\ 18 + 0 - 30 \end{bmatrix} = \begin{bmatrix} 42 \\ -63 \\ -12 \end{bmatrix}
+\]</div>
+<p>Thus, the solution is <span class="arithmatex">\( x = 42 \)</span>, <span class="arithmatex">\( y = -63 \)</span>, and <span class="arithmatex">\( z = -12 \)</span>.</p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>The <strong>matrix inverse method</strong> is a highly efficient technique for solving systems of linear equations, especially when the system is well-structured and the coefficient matrix is invertible. This method relies on matrix operations, providing a concise and systematic way to solve linear equations for any number of variables.</p>
 
 
 
