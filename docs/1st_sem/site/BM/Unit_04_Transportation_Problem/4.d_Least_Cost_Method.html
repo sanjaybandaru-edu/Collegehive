@@ -26,7 +26,7 @@
     
     
       
-        <title>4.d Least Cost Method - College Hive</title>
+        <title>Least Cost Method for Transportation Problems - College Hive</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4d-least-cost-method" class="md-skip">
+        <a href="#least-cost-method-for-transportation-problems" class="md-skip">
           Skip to content
         </a>
       
@@ -202,7 +202,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.d Least Cost Method
+              Least Cost Method for Transportation Problems
             
           </span>
         </div>
@@ -1166,7 +1166,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.a Introduction to Transportation Problem
+    Introduction to the Transportation Problem
   </span>
   
 
@@ -1187,7 +1187,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.b Methods for Initial Solution
+    Methods for Finding Initial Solution to the Transportation Problem
   </span>
   
 
@@ -1208,7 +1208,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.c NW Corner Rule
+    North-West Corner Rule for Transportation Problems
   </span>
   
 
@@ -1234,15 +1234,150 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Least Cost Method for Transportation Problems
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="4.d_Least_Cost_Method.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    4.d Least Cost Method
+    Least Cost Method for Transportation Problems
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-apply-the-least-cost-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Apply the Least Cost Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-the-cell-with-the-lowest-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find the cell with the lowest cost.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-allocate-as-much-as-possible-to-a-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Allocate as much as possible to A-Z.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-find-the-next-lowest-cost-in-the-remaining-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Find the next lowest cost in the remaining matrix.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-allocate-to-a-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Allocate to A-X.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-find-the-next-lowest-cost-in-the-remaining-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Find the next lowest cost in the remaining matrix.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-allocate-to-b-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Allocate to B-Y.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-allocate-the-remaining-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Allocate the remaining units.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Allocation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1260,7 +1395,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.e Vogel Approximation Method
+    Vogel's Approximation Method for Transportation Problems
   </span>
   
 
@@ -1281,7 +1416,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.f Unbalanced Transportation Problem
+    Unbalanced Transportation Problem
   </span>
   
 
@@ -1302,7 +1437,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.g Test for Optimality MODI Method
+    Test for Optimality: MODI (Modified Distribution) Method
   </span>
   
 
@@ -1377,7 +1512,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.a Introduction to Assignment Problem
+    Introduction to the Assignment Problem
   </span>
   
 
@@ -1398,7 +1533,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.b Hungarian Method
+    Hungarian Method for Solving the Assignment Problem
   </span>
   
 
@@ -1419,7 +1554,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.c Restricted Assignment Problems
+    Restricted Assignment Problems
   </span>
   
 
@@ -1504,7 +1639,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.a Introduction to Differentiation
+    Introduction to Differentiation for BBA Students
   </span>
   
 
@@ -1525,7 +1660,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.b Differentiation Rules
+    Rules for Differentiation in BBA Mathematics
   </span>
   
 
@@ -1546,7 +1681,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.c Methods of Differentiation
+    Methods of Differentiation in BBA Mathematics
   </span>
   
 
@@ -1567,7 +1702,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.d Differentiation of Composite Functions
+    Differentiation of Composite Functions
   </span>
   
 
@@ -1588,7 +1723,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.e Differentiation of Parametric Functions
+    Differentiation of Parametric Functions
   </span>
   
 
@@ -1609,7 +1744,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.f Second Order Derivatives
+    Second Order Derivatives
   </span>
   
 
@@ -1630,7 +1765,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.g Maxima and Minima
+    Maxima and Minima in Differentiation
   </span>
   
 
@@ -1651,7 +1786,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.h Applications to Commerce and Economics
+    Applications of Differentiation in Commerce and Economics
   </span>
   
 
@@ -5206,6 +5341,119 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-apply-the-least-cost-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Apply the Least Cost Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-find-the-cell-with-the-lowest-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Find the cell with the lowest cost.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-allocate-as-much-as-possible-to-a-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Allocate as much as possible to A-Z.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-find-the-next-lowest-cost-in-the-remaining-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Find the next lowest cost in the remaining matrix.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-allocate-to-a-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Allocate to A-X.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-find-the-next-lowest-cost-in-the-remaining-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Find the next lowest cost in the remaining matrix.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-allocate-to-b-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Allocate to B-Y.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-allocate-the-remaining-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Allocate the remaining units.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Allocation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5221,7 +5469,167 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
                   
 
 
-<h1 id="4d-least-cost-method">4.d Least Cost Method<a class="headerlink" href="#4d-least-cost-method" title="Permanent link">&para;</a></h1>
+<h1 id="least-cost-method-for-transportation-problems">Least Cost Method for Transportation Problems<a class="headerlink" href="#least-cost-method-for-transportation-problems" title="Permanent link">&para;</a></h1>
+<p>The Least Cost Method (LCM) is a technique used to find an initial feasible solution for transportation problems in linear programming. The goal of the LCM is to minimize the initial transportation cost by selecting the cell with the lowest transportation cost and making allocations there first. This method often results in a better starting solution compared to the North-West Corner Rule.</p>
+<iframe src="https://www.youtube.com/embed?playlist=Ow3XWYnPgSM&fs=1" width="800" height="450" allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen" frameborder="0"></iframe>
+
+<h2 id="steps-to-apply-the-least-cost-method">Steps to Apply the Least Cost Method<a class="headerlink" href="#steps-to-apply-the-least-cost-method" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Identify the cell with the lowest transportation cost</strong> in the entire cost matrix.</li>
+<li><strong>Allocate as much as possible</strong> to that cell without exceeding the supply or demand.</li>
+<li><strong>Adjust the supply and demand</strong> based on the allocation:</li>
+<li>Subtract the allocated amount from both the corresponding row's supply and the column's demand.</li>
+<li><strong>Cross out the row or column</strong> if the supply or demand is exhausted.</li>
+<li>If both are exhausted simultaneously, cross out one and reduce the remaining demand/supply of the other to zero.</li>
+<li><strong>Repeat steps 1-4</strong> until all supplies and demands are met.</li>
+</ol>
+<h2 id="example-problem">Example Problem<a class="headerlink" href="#example-problem" title="Permanent link">&para;</a></h2>
+<p>Consider three factories (A, B, C) supplying goods to three warehouses (X, Y, Z). The transportation costs per unit, supplies, and demands are given below:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+<th>Supply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>30</td>
+</tr>
+<tr>
+<td>B</td>
+<td>5</td>
+<td>4</td>
+<td>8</td>
+<td>40</td>
+</tr>
+<tr>
+<td>C</td>
+<td>5</td>
+<td>6</td>
+<td>8</td>
+<td>20</td>
+</tr>
+<tr>
+<td><strong>Demand</strong></td>
+<td><strong>20</strong></td>
+<td><strong>50</strong></td>
+<td><strong>20</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-1-find-the-cell-with-the-lowest-cost">Step 1: Find the cell with the lowest cost.<a class="headerlink" href="#step-1-find-the-cell-with-the-lowest-cost" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The lowest cost is 1 (A-Z).</li>
+</ul>
+<h3 id="step-2-allocate-as-much-as-possible-to-a-z">Step 2: Allocate as much as possible to A-Z.<a class="headerlink" href="#step-2-allocate-as-much-as-possible-to-a-z" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The supply at A is 30, and the demand at Z is 20.</li>
+<li>Allocate 20 units to A-Z (minimum of 30 and 20).</li>
+<li>Update the remaining supply at A to <code>30 - 20 = 10</code>, and the remaining demand at Z to <code>20 - 20 = 0</code>.</li>
+<li>Cross out column Z because the demand is met.</li>
+</ul>
+<h3 id="step-3-find-the-next-lowest-cost-in-the-remaining-matrix">Step 3: Find the next lowest cost in the remaining matrix.<a class="headerlink" href="#step-3-find-the-next-lowest-cost-in-the-remaining-matrix" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The next lowest cost is 2 (A-X).</li>
+</ul>
+<h3 id="step-4-allocate-to-a-x">Step 4: Allocate to A-X.<a class="headerlink" href="#step-4-allocate-to-a-x" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The supply at A is now 10, and the demand at X is 20.</li>
+<li>Allocate 10 units to A-X (minimum of 10 and 20).</li>
+<li>Update the remaining supply at A to <code>10 - 10 = 0</code>, and the remaining demand at X to <code>20 - 10 = 10</code>.</li>
+<li>Cross out row A because the supply is exhausted.</li>
+</ul>
+<h3 id="step-5-find-the-next-lowest-cost-in-the-remaining-matrix">Step 5: Find the next lowest cost in the remaining matrix.<a class="headerlink" href="#step-5-find-the-next-lowest-cost-in-the-remaining-matrix" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The remaining costs are:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The next lowest cost is 4 (B-Y).</li>
+</ul>
+<h3 id="step-6-allocate-to-b-y">Step 6: Allocate to B-Y.<a class="headerlink" href="#step-6-allocate-to-b-y" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The supply at B is 40, and the demand at Y is 50.</li>
+<li>Allocate 40 units to B-Y (minimum of 40 and 50).</li>
+<li>Update the remaining supply at B to <code>40 - 40 = 0</code>, and the remaining demand at Y to <code>50 - 40 = 10</code>.</li>
+<li>Cross out row B because the supply is exhausted.</li>
+</ul>
+<h3 id="step-7-allocate-the-remaining-units">Step 7: Allocate the remaining units.<a class="headerlink" href="#step-7-allocate-the-remaining-units" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The only remaining cell is C-Y with a demand of 10 and a supply of 20.</li>
+<li>Allocate 10 units to C-Y.</li>
+<li>Update the remaining supply at C to <code>20 - 10 = 10</code>, and the remaining demand at Y to <code>10 - 10 = 0</code>.</li>
+</ul>
+<h2 id="final-allocation">Final Allocation<a class="headerlink" href="#final-allocation" title="Permanent link">&para;</a></h2>
+<p>The allocations are as follows:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>10</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0</td>
+<td>40</td>
+<td>0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The Least Cost Method aims to minimize the initial transportation cost by prioritizing cells with the lowest cost.</li>
+<li>This method provides a better starting solution compared to the North-West Corner Rule, but further optimization may be required using techniques like the stepping-stone method or the MODI (Modified Distribution) method to achieve the optimal solution.</li>
+</ul>
 
 
 
@@ -6099,7 +6507,7 @@ shownhide.addEventListener('click', function() {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="4.c_NW_Corner_Rule.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4.c NW Corner Rule">
+          <a href="4.c_NW_Corner_Rule.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: North-West Corner Rule for Transportation Problems">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -6109,20 +6517,20 @@ shownhide.addEventListener('click', function() {
                 Previous
               </span>
               <div class="md-ellipsis">
-                4.c NW Corner Rule
+                North-West Corner Rule for Transportation Problems
               </div>
             </div>
           </a>
         
         
           
-          <a href="4.e_Vogel_Approximation_Method.html" class="md-footer__link md-footer__link--next" aria-label="Next: 4.e Vogel Approximation Method">
+          <a href="4.e_Vogel_Approximation_Method.html" class="md-footer__link md-footer__link--next" aria-label="Next: Vogel&#39;s Approximation Method for Transportation Problems">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                4.e Vogel Approximation Method
+                Vogel's Approximation Method for Transportation Problems
               </div>
             </div>
             <div class="md-footer__button md-icon">

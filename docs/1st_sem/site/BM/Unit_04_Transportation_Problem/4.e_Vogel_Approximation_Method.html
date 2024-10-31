@@ -26,7 +26,7 @@
     
     
       
-        <title>4.e Vogel Approximation Method - College Hive</title>
+        <title>Vogel's Approximation Method for Transportation Problems - College Hive</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4e-vogel-approximation-method" class="md-skip">
+        <a href="#vogels-approximation-method-for-transportation-problems" class="md-skip">
           Skip to content
         </a>
       
@@ -202,7 +202,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.e Vogel Approximation Method
+              Vogel's Approximation Method for Transportation Problems
             
           </span>
         </div>
@@ -1166,7 +1166,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.a Introduction to Transportation Problem
+    Introduction to the Transportation Problem
   </span>
   
 
@@ -1187,7 +1187,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.b Methods for Initial Solution
+    Methods for Finding Initial Solution to the Transportation Problem
   </span>
   
 
@@ -1208,7 +1208,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.c NW Corner Rule
+    North-West Corner Rule for Transportation Problems
   </span>
   
 
@@ -1229,7 +1229,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.d Least Cost Method
+    Least Cost Method for Transportation Problems
   </span>
   
 
@@ -1255,15 +1255,177 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vogel's Approximation Method for Transportation Problems
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="4.e_Vogel_Approximation_Method.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    4.e Vogel Approximation Method
+    Vogel's Approximation Method for Transportation Problems
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-apply-vogels-approximation-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Apply Vogel's Approximation Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-calculate-the-penalties-for-each-row-and-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Calculate the penalties for each row and column.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-identify-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Identify the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-allocate-to-the-cell-with-the-lowest-cost-in-column-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Allocate to the cell with the lowest cost in column Z.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-recalculate-the-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Recalculate the penalties.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-allocate-to-the-row-or-column-with-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Allocate to the row or column with the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-allocate-to-the-cell-with-the-lowest-cost-in-column-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Allocate to the cell with the lowest cost in column X.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-recalculate-the-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Recalculate the penalties.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-allocate-to-the-row-or-column-with-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Allocate to the row or column with the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-allocate-to-the-cell-with-the-lowest-cost-in-column-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Allocate to the cell with the lowest cost in column Y.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-allocate-the-remaining-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Allocate the remaining units.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Allocation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,7 +1443,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.f Unbalanced Transportation Problem
+    Unbalanced Transportation Problem
   </span>
   
 
@@ -1302,7 +1464,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.g Test for Optimality MODI Method
+    Test for Optimality: MODI (Modified Distribution) Method
   </span>
   
 
@@ -1377,7 +1539,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.a Introduction to Assignment Problem
+    Introduction to the Assignment Problem
   </span>
   
 
@@ -1398,7 +1560,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.b Hungarian Method
+    Hungarian Method for Solving the Assignment Problem
   </span>
   
 
@@ -1419,7 +1581,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.c Restricted Assignment Problems
+    Restricted Assignment Problems
   </span>
   
 
@@ -1504,7 +1666,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.a Introduction to Differentiation
+    Introduction to Differentiation for BBA Students
   </span>
   
 
@@ -1525,7 +1687,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.b Differentiation Rules
+    Rules for Differentiation in BBA Mathematics
   </span>
   
 
@@ -1546,7 +1708,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.c Methods of Differentiation
+    Methods of Differentiation in BBA Mathematics
   </span>
   
 
@@ -1567,7 +1729,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.d Differentiation of Composite Functions
+    Differentiation of Composite Functions
   </span>
   
 
@@ -1588,7 +1750,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.e Differentiation of Parametric Functions
+    Differentiation of Parametric Functions
   </span>
   
 
@@ -1609,7 +1771,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.f Second Order Derivatives
+    Second Order Derivatives
   </span>
   
 
@@ -1630,7 +1792,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.g Maxima and Minima
+    Maxima and Minima in Differentiation
   </span>
   
 
@@ -1651,7 +1813,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.h Applications to Commerce and Economics
+    Applications of Differentiation in Commerce and Economics
   </span>
   
 
@@ -5206,6 +5368,146 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-apply-vogels-approximation-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Apply Vogel's Approximation Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-calculate-the-penalties-for-each-row-and-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Calculate the penalties for each row and column.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-identify-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Identify the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-allocate-to-the-cell-with-the-lowest-cost-in-column-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Allocate to the cell with the lowest cost in column Z.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-recalculate-the-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Recalculate the penalties.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-allocate-to-the-row-or-column-with-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Allocate to the row or column with the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-allocate-to-the-cell-with-the-lowest-cost-in-column-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Allocate to the cell with the lowest cost in column X.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-recalculate-the-penalties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Recalculate the penalties.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-allocate-to-the-row-or-column-with-the-highest-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Allocate to the row or column with the highest penalty.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-allocate-to-the-cell-with-the-lowest-cost-in-column-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Allocate to the cell with the lowest cost in column Y.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-allocate-the-remaining-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Allocate the remaining units.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Allocation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5221,7 +5523,175 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
                   
 
 
-<h1 id="4e-vogel-approximation-method">4.e Vogel Approximation Method<a class="headerlink" href="#4e-vogel-approximation-method" title="Permanent link">&para;</a></h1>
+<h1 id="vogels-approximation-method-for-transportation-problems">Vogel's Approximation Method for Transportation Problems<a class="headerlink" href="#vogels-approximation-method-for-transportation-problems" title="Permanent link">&para;</a></h1>
+<p>Vogel's Approximation Method (VAM) is a heuristic used to find an initial feasible solution for transportation problems in linear programming. It aims to achieve a better initial solution by considering the penalty cost associated with not choosing the least cost route. The penalty is calculated as the difference between the lowest and second-lowest costs in each row and column, guiding the allocation process by highlighting where the greatest potential cost savings can be achieved.</p>
+<iframe src="https://www.youtube.com/embed?playlist=9fL0g_cZX9s&fs=1" width="800" height="450" allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen" frameborder="0"></iframe>
+
+<h2 id="steps-to-apply-vogels-approximation-method">Steps to Apply Vogel's Approximation Method<a class="headerlink" href="#steps-to-apply-vogels-approximation-method" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Calculate the penalty for each row and column.</strong></li>
+<li>The penalty is the difference between the two smallest costs in each row and column.</li>
+<li><strong>Identify the row or column with the highest penalty.</strong></li>
+<li>If there's a tie, break it arbitrarily.</li>
+<li><strong>Allocate as much as possible</strong> to the cell with the lowest cost in the selected row or column.</li>
+<li><strong>Adjust the supply and demand</strong> based on the allocation:</li>
+<li>Subtract the allocated amount from both the corresponding row's supply and the column's demand.</li>
+<li><strong>Cross out the row or column</strong> if the supply or demand is exhausted.</li>
+<li>If both are exhausted simultaneously, cross out one and set the remaining supply/demand of the other to zero.</li>
+<li><strong>Repeat steps 1-5</strong> until all supplies and demands are met.</li>
+</ol>
+<h2 id="example-problem">Example Problem<a class="headerlink" href="#example-problem" title="Permanent link">&para;</a></h2>
+<p>Consider three factories (A, B, C) supplying goods to three warehouses (X, Y, Z). The transportation costs per unit, supplies, and demands are given below:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+<th>Supply</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>30</td>
+</tr>
+<tr>
+<td>B</td>
+<td>5</td>
+<td>4</td>
+<td>8</td>
+<td>40</td>
+</tr>
+<tr>
+<td>C</td>
+<td>5</td>
+<td>6</td>
+<td>8</td>
+<td>20</td>
+</tr>
+<tr>
+<td><strong>Demand</strong></td>
+<td><strong>20</strong></td>
+<td><strong>50</strong></td>
+<td><strong>20</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-1-calculate-the-penalties-for-each-row-and-column">Step 1: Calculate the penalties for each row and column.<a class="headerlink" href="#step-1-calculate-the-penalties-for-each-row-and-column" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Row A</strong>: The smallest costs are 1 and 2, so the penalty is <code>2 - 1 = 1</code>.</li>
+<li><strong>Row B</strong>: The smallest costs are 4 and 5, so the penalty is <code>5 - 4 = 1</code>.</li>
+<li><strong>Row C</strong>: The smallest costs are 5 and 6, so the penalty is <code>6 - 5 = 1</code>.</li>
+<li><strong>Column X</strong>: The smallest costs are 2 and 5, so the penalty is <code>5 - 2 = 3</code>.</li>
+<li><strong>Column Y</strong>: The smallest costs are 3 and 4, so the penalty is <code>4 - 3 = 1</code>.</li>
+<li><strong>Column Z</strong>: The smallest costs are 1 and 8, so the penalty is <code>8 - 1 = 7</code>.</li>
+</ul>
+<h3 id="step-2-identify-the-highest-penalty">Step 2: Identify the highest penalty.<a class="headerlink" href="#step-2-identify-the-highest-penalty" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The highest penalty is 7 for <strong>column Z</strong>.</li>
+</ul>
+<h3 id="step-3-allocate-to-the-cell-with-the-lowest-cost-in-column-z">Step 3: Allocate to the cell with the lowest cost in column Z.<a class="headerlink" href="#step-3-allocate-to-the-cell-with-the-lowest-cost-in-column-z" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The lowest cost in column Z is 1 (A-Z).</li>
+<li>The supply at A is 30, and the demand at Z is 20.</li>
+<li>Allocate 20 units to A-Z.</li>
+<li>Update the remaining supply at A to <code>30 - 20 = 10</code> and the remaining demand at Z to <code>20 - 20 = 0</code>.</li>
+<li>Cross out column Z.</li>
+</ul>
+<h3 id="step-4-recalculate-the-penalties">Step 4: Recalculate the penalties.<a class="headerlink" href="#step-4-recalculate-the-penalties" title="Permanent link">&para;</a></h3>
+<p>After crossing out column Z, recalculate penalties for the remaining rows and columns:</p>
+<ul>
+<li><strong>Row A</strong>: The smallest costs are 2 and 3, so the penalty is <code>3 - 2 = 1</code>.</li>
+<li><strong>Row B</strong>: The smallest costs are 4 and 5, so the penalty is <code>5 - 4 = 1</code>.</li>
+<li><strong>Row C</strong>: The smallest costs are 5 and 6, so the penalty is <code>6 - 5 = 1</code>.</li>
+<li><strong>Column X</strong>: The smallest costs are 2 and 5, so the penalty is <code>5 - 2 = 3</code>.</li>
+<li><strong>Column Y</strong>: The smallest costs are 3 and 4, so the penalty is <code>4 - 3 = 1</code>.</li>
+</ul>
+<h3 id="step-5-allocate-to-the-row-or-column-with-the-highest-penalty">Step 5: Allocate to the row or column with the highest penalty.<a class="headerlink" href="#step-5-allocate-to-the-row-or-column-with-the-highest-penalty" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The highest penalty is 3 for <strong>column X</strong>.</li>
+</ul>
+<h3 id="step-6-allocate-to-the-cell-with-the-lowest-cost-in-column-x">Step 6: Allocate to the cell with the lowest cost in column X.<a class="headerlink" href="#step-6-allocate-to-the-cell-with-the-lowest-cost-in-column-x" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The lowest cost in column X is 2 (A-X).</li>
+<li>The supply at A is 10, and the demand at X is 20.</li>
+<li>Allocate 10 units to A-X.</li>
+<li>Update the remaining supply at A to <code>10 - 10 = 0</code> and the remaining demand at X to <code>20 - 10 = 10</code>.</li>
+<li>Cross out row A.</li>
+</ul>
+<h3 id="step-7-recalculate-the-penalties">Step 7: Recalculate the penalties.<a class="headerlink" href="#step-7-recalculate-the-penalties" title="Permanent link">&para;</a></h3>
+<p>After crossing out row A, recalculate penalties for the remaining rows and columns:</p>
+<ul>
+<li><strong>Row B</strong>: The smallest costs are 4 and 5, so the penalty is <code>5 - 4 = 1</code>.</li>
+<li><strong>Row C</strong>: The smallest costs are 5 and 6, so the penalty is <code>6 - 5 = 1</code>.</li>
+<li><strong>Column X</strong>: The only cost left is 5, so the penalty is 0.</li>
+<li><strong>Column Y</strong>: The smallest costs are 4 and 6, so the penalty is <code>6 - 4 = 2</code>.</li>
+</ul>
+<h3 id="step-8-allocate-to-the-row-or-column-with-the-highest-penalty">Step 8: Allocate to the row or column with the highest penalty.<a class="headerlink" href="#step-8-allocate-to-the-row-or-column-with-the-highest-penalty" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The highest penalty is 2 for <strong>column Y</strong>.</li>
+</ul>
+<h3 id="step-9-allocate-to-the-cell-with-the-lowest-cost-in-column-y">Step 9: Allocate to the cell with the lowest cost in column Y.<a class="headerlink" href="#step-9-allocate-to-the-cell-with-the-lowest-cost-in-column-y" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The lowest cost in column Y is 4 (B-Y).</li>
+<li>The supply at B is 40, and the demand at Y is 50.</li>
+<li>Allocate 40 units to B-Y.</li>
+<li>Update the remaining supply at B to <code>40 - 40 = 0</code> and the remaining demand at Y to <code>50 - 40 = 10</code>.</li>
+<li>Cross out row B.</li>
+</ul>
+<h3 id="step-10-allocate-the-remaining-units">Step 10: Allocate the remaining units.<a class="headerlink" href="#step-10-allocate-the-remaining-units" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The only remaining cell is C-Y with a demand of 10 and a supply of 20.</li>
+<li>Allocate 10 units to C-Y.</li>
+<li>Update the remaining supply at C to <code>20 - 10 = 10</code> and the remaining demand at Y to <code>10 - 10 = 0</code>.</li>
+</ul>
+<h2 id="final-allocation">Final Allocation<a class="headerlink" href="#final-allocation" title="Permanent link">&para;</a></h2>
+<p>The final allocations are as follows:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>10</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>B</td>
+<td>0</td>
+<td>40</td>
+<td>0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vogel's Approximation Method attempts to find a better initial feasible solution by considering the penalties associated with not choosing the least cost route.</li>
+<li>This method often provides a good starting solution, but further optimization using techniques like the stepping-stone method or the MODI (Modified Distribution) method may be needed to reach the optimal solution.</li>
+</ul>
 
 
 
@@ -6099,7 +6569,7 @@ shownhide.addEventListener('click', function() {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="4.d_Least_Cost_Method.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4.d Least Cost Method">
+          <a href="4.d_Least_Cost_Method.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Least Cost Method for Transportation Problems">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -6109,20 +6579,20 @@ shownhide.addEventListener('click', function() {
                 Previous
               </span>
               <div class="md-ellipsis">
-                4.d Least Cost Method
+                Least Cost Method for Transportation Problems
               </div>
             </div>
           </a>
         
         
           
-          <a href="4.f_Unbalanced_Transportation_Problem.html" class="md-footer__link md-footer__link--next" aria-label="Next: 4.f Unbalanced Transportation Problem">
+          <a href="4.f_Unbalanced_Transportation_Problem.html" class="md-footer__link md-footer__link--next" aria-label="Next: Unbalanced Transportation Problem">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                4.f Unbalanced Transportation Problem
+                Unbalanced Transportation Problem
               </div>
             </div>
             <div class="md-footer__button md-icon">

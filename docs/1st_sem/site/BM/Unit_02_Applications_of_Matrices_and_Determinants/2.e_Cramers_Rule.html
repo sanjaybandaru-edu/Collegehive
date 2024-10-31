@@ -1176,7 +1176,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.a Introduction to Transportation Problem
+    Introduction to the Transportation Problem
   </span>
   
 
@@ -1197,7 +1197,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.b Methods for Initial Solution
+    Methods for Finding Initial Solution to the Transportation Problem
   </span>
   
 
@@ -1218,7 +1218,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.c NW Corner Rule
+    North-West Corner Rule for Transportation Problems
   </span>
   
 
@@ -1239,7 +1239,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.d Least Cost Method
+    Least Cost Method for Transportation Problems
   </span>
   
 
@@ -1260,7 +1260,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.e Vogel Approximation Method
+    Vogel's Approximation Method for Transportation Problems
   </span>
   
 
@@ -1281,7 +1281,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.f Unbalanced Transportation Problem
+    Unbalanced Transportation Problem
   </span>
   
 
@@ -1302,7 +1302,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.g Test for Optimality MODI Method
+    Test for Optimality: MODI (Modified Distribution) Method
   </span>
   
 
@@ -1377,7 +1377,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.a Introduction to Assignment Problem
+    Introduction to the Assignment Problem
   </span>
   
 
@@ -1398,7 +1398,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.b Hungarian Method
+    Hungarian Method for Solving the Assignment Problem
   </span>
   
 
@@ -1419,7 +1419,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.c Restricted Assignment Problems
+    Restricted Assignment Problems
   </span>
   
 
@@ -1504,7 +1504,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.a Introduction to Differentiation
+    Introduction to Differentiation for BBA Students
   </span>
   
 
@@ -1525,7 +1525,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.b Differentiation Rules
+    Rules for Differentiation in BBA Mathematics
   </span>
   
 
@@ -1546,7 +1546,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.c Methods of Differentiation
+    Methods of Differentiation in BBA Mathematics
   </span>
   
 
@@ -1567,7 +1567,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.d Differentiation of Composite Functions
+    Differentiation of Composite Functions
   </span>
   
 
@@ -1588,7 +1588,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.e Differentiation of Parametric Functions
+    Differentiation of Parametric Functions
   </span>
   
 
@@ -1609,7 +1609,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.f Second Order Derivatives
+    Second Order Derivatives
   </span>
   
 
@@ -1630,7 +1630,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.g Maxima and Minima
+    Maxima and Minima in Differentiation
   </span>
   
 
@@ -1651,7 +1651,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.h Applications to Commerce and Economics
+    Applications of Differentiation in Commerce and Economics
   </span>
   
 
@@ -5222,6 +5222,234 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
 
 <h1 id="2e-cramers-rule">2.e Cramers Rule<a class="headerlink" href="#2e-cramers-rule" title="Permanent link">&para;</a></h1>
+<h1 id="cramers-rule-for-solving-systems-of-linear-equations">Cramer's Rule for Solving Systems of Linear Equations<a class="headerlink" href="#cramers-rule-for-solving-systems-of-linear-equations" title="Permanent link">&para;</a></h1>
+<p>Cramer's Rule is a method for solving systems of linear equations using determinants. It applies to a system of <code>n</code> linear equations with <code>n</code> unknowns, provided that the coefficient matrix has a non-zero determinant. This rule provides a straightforward way to find the values of the unknown variables by calculating determinants of matrices derived from the coefficient matrix.</p>
+<h2 id="1-cramers-rule-overview">1. Cramer’s Rule Overview<a class="headerlink" href="#1-cramers-rule-overview" title="Permanent link">&para;</a></h2>
+<p>Consider a system of linear equations:</p>
+<div class="arithmatex">\[
+a_1x + b_1y + c_1z = d_1 \\
+a_2x + b_2y + c_2z = d_2 \\
+a_3x + b_3y + c_3z = d_3
+\]</div>
+<p>This system can be represented in matrix form as:</p>
+<div class="arithmatex">\[
+AX = B
+\]</div>
+<p>Where:
+- <code>A</code> is the <strong>coefficient matrix</strong>,
+- <code>X</code> is the <strong>column matrix of unknowns</strong>,
+- <code>B</code> is the <strong>column matrix of constants</strong>.</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+a_1 &amp; b_1 &amp; c_1 \\
+a_2 &amp; b_2 &amp; c_2 \\
+a_3 &amp; b_3 &amp; c_3
+\end{bmatrix}, \quad
+X = \begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+d_1 \\
+d_2 \\
+d_3
+\end{bmatrix}
+\]</div>
+<h3 id="formula-for-cramers-rule">Formula for Cramer’s Rule<a class="headerlink" href="#formula-for-cramers-rule" title="Permanent link">&para;</a></h3>
+<p>Cramer’s Rule provides the solution for each variable <span class="arithmatex">\(x_i\)</span> as:</p>
+<div class="arithmatex">\[
+x_i = \frac{\text{det}(A_i)}{\text{det}(A)}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(\text{det}(A)\)</span> is the determinant of the coefficient matrix <code>A</code>.
+- <span class="arithmatex">\(A_i\)</span> is the matrix obtained by replacing the <span class="arithmatex">\(i\)</span>-th column of <code>A</code> with the constants matrix <code>B</code>.</p>
+<p>If <span class="arithmatex">\(\text{det}(A)\)</span> is non-zero, the system has a unique solution.</p>
+<hr />
+<h2 id="example-1-solving-a-2x2-system-using-cramers-rule">Example 1: Solving a 2x2 System Using Cramer’s Rule<a class="headerlink" href="#example-1-solving-a-2x2-system-using-cramers-rule" title="Permanent link">&para;</a></h2>
+<p>Consider the following system of linear equations:</p>
+<div class="arithmatex">\[
+2x + 3y = 5 \\
+4x + y = 6
+\]</div>
+<h3 id="step-1-write-the-system-in-matrix-form">Step 1: Write the system in matrix form<a class="headerlink" href="#step-1-write-the-system-in-matrix-form" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{bmatrix}
+2 &amp; 3 \\
+4 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+5 \\
+6
+\end{bmatrix}
+\]</div>
+<p>Here, the coefficient matrix <code>A</code> and the constants matrix <code>B</code> are:</p>
+<div class="arithmatex">\[
+A = \begin{bmatrix}
+2 &amp; 3 \\
+4 &amp; 1
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+5 \\
+6
+\end{bmatrix}
+\]</div>
+<h3 id="step-2-find-the-determinant-of-a">Step 2: Find the determinant of A<a class="headerlink" href="#step-2-find-the-determinant-of-a" title="Permanent link">&para;</a></h3>
+<p>The determinant of matrix <code>A</code> is:</p>
+<div class="arithmatex">\[
+\text{det}(A) = (2 \times 1) - (3 \times 4) = 2 - 12 = -10
+\]</div>
+<h3 id="step-3-find-the-determinant-for-each-variable">Step 3: Find the determinant for each variable<a class="headerlink" href="#step-3-find-the-determinant-for-each-variable" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Determinant for <span class="arithmatex">\(x\)</span></strong> (<span class="arithmatex">\(\text{det}(A_x)\)</span>): Replace the first column of <code>A</code> with <code>B</code>:</li>
+</ol>
+<div class="arithmatex">\[
+A_x = \begin{bmatrix}
+5 &amp; 3 \\
+6 &amp; 1
+\end{bmatrix}
+\]</div>
+<p>The determinant of <span class="arithmatex">\(A_x\)</span> is:</p>
+<div class="arithmatex">\[
+\text{det}(A_x) = (5 \times 1) - (3 \times 6) = 5 - 18 = -13
+\]</div>
+<ol>
+<li><strong>Determinant for <span class="arithmatex">\(y\)</span></strong> (<span class="arithmatex">\(\text{det}(A_y)\)</span>): Replace the second column of <code>A</code> with <code>B</code>:</li>
+</ol>
+<div class="arithmatex">\[
+A_y = \begin{bmatrix}
+2 &amp; 5 \\
+4 &amp; 6
+\end{bmatrix}
+\]</div>
+<p>The determinant of <span class="arithmatex">\(A_y\)</span> is:</p>
+<div class="arithmatex">\[
+\text{det}(A_y) = (2 \times 6) - (5 \times 4) = 12 - 20 = -8
+\]</div>
+<h3 id="step-4-solve-for-x-and-y">Step 4: Solve for <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span><a class="headerlink" href="#step-4-solve-for-x-and-y" title="Permanent link">&para;</a></h3>
+<p>Using Cramer’s Rule:</p>
+<div class="arithmatex">\[
+x = \frac{\text{det}(A_x)}{\text{det}(A)} = \frac{-13}{-10} = 1.3
+\]</div>
+<div class="arithmatex">\[
+y = \frac{\text{det}(A_y)}{\text{det}(A)} = \frac{-8}{-10} = 0.8
+\]</div>
+<p>Thus, the solution is <span class="arithmatex">\(x = 1.3\)</span> and <span class="arithmatex">\(y = 0.8\)</span>.</p>
+<hr />
+<h2 id="example-2-solving-a-3x3-system-using-cramers-rule">Example 2: Solving a 3x3 System Using Cramer’s Rule<a class="headerlink" href="#example-2-solving-a-3x3-system-using-cramers-rule" title="Permanent link">&para;</a></h2>
+<p>Consider the following system of equations:</p>
+<div class="arithmatex">\[
+x + 2y + 3z = 9 \\
+2x + 3y + 5z = 19 \\
+3x + 2y + z = 10
+\]</div>
+<h3 id="step-1-write-the-system-in-matrix-form_1">Step 1: Write the system in matrix form<a class="headerlink" href="#step-1-write-the-system-in-matrix-form_1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 3 &amp; 5 \\
+3 &amp; 2 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+9 \\
+19 \\
+10
+\end{bmatrix}
+\]</div>
+<p>Here:
+[
+A = \begin{bmatrix}
+1 &amp; 2 &amp; 3 \
+2 &amp; 3 &amp; 5 \
+3 &amp; 2 &amp; 1
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+9 \
+19 \
+10
+\end{bmatrix}
+]</p>
+<h3 id="step-2-find-the-determinant-of-a_1">Step 2: Find the determinant of A<a class="headerlink" href="#step-2-find-the-determinant-of-a_1" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\text{det}(A) = 1 \times \begin{vmatrix} 3 &amp; 5 \\ 2 &amp; 1 \end{vmatrix} - 2 \times \begin{vmatrix} 2 &amp; 5 \\ 3 &amp; 1 \end{vmatrix} + 3 \times \begin{vmatrix} 2 &amp; 3 \\ 3 &amp; 2 \end{vmatrix}
+\]</div>
+<p>[
+= 1 \times (3 \times 1 - 5 \times 2) - 2 \times (2 \times 1 - 5 \times 3) + 3 \times (2 \times 2 - 3 \times 3)
+]
+[
+= 1 \times (3 - 10) - 2 \times (2 - 15) + 3 \times (4 - 9)
+]
+[
+= 1 \times -7 - 2 \times -13 + 3 \times -5 = -7 + 26 - 15 = 4
+]</p>
+<h3 id="step-3-find-the-determinant-for-each-variable_1">Step 3: Find the determinant for each variable<a class="headerlink" href="#step-3-find-the-determinant-for-each-variable_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Determinant for <span class="arithmatex">\(x\)</span></strong> (<span class="arithmatex">\(\text{det}(A_x)\)</span>): Replace the first column of <code>A</code> with <code>B</code>:</li>
+</ol>
+<div class="arithmatex">\[
+A_x = \begin{bmatrix}
+9 &amp; 2 &amp; 3 \\
+19 &amp; 3 &amp; 5 \\
+10 &amp; 2 &amp; 1
+\end{bmatrix}
+\]</div>
+<p>[
+\text{det}(A_x) = 9 \times \begin{vmatrix} 3 &amp; 5 \ 2 &amp; 1 \end{vmatrix} - 2 \times \begin{vmatrix} 19 &amp; 5 \ 10 &amp; 1 \end{vmatrix} + 3 \times \begin{vmatrix} 19 &amp; 3 \ 10 &amp; 2 \end{vmatrix}
+]
+[
+= 9 \times (3 - 10) - 2 \times (19 - 50) + 3 \times (38 - 30)
+]
+[
+= 9 \times -7 - 2 \times -31 + 3 \times 8 = -63 + 62 + 24 = 23
+]</p>
+<ol>
+<li><strong>Determinant for <span class="arithmatex">\(y\)</span></strong> (<span class="arithmatex">\(\text{det}(A_y)\)</span>): Replace the second column of <code>A</code> with <code>B</code>:</li>
+</ol>
+<div class="arithmatex">\[
+A_y = \begin{bmatrix}
+1 &amp; 9 &amp; 3 \\
+2 &amp; 19 &amp; 5 \\
+3 &amp; 10 &amp; 1
+\end{bmatrix}
+\]</div>
+<p>After calculating, <span class="arithmatex">\(\text{det}(A_y) = 2\)</span>.</p>
+<ol>
+<li><strong>Determinant for <span class="arithmatex">\(z\)</span></strong> (<span class="arithmatex">\(\text{det}(A_z)\)</span>): Replace the third column of <code>A</code> with <code>B</code>:</li>
+</ol>
+<div class="arithmatex">\[
+A_z = \begin{bmatrix}
+1 &amp; 2 &amp; 9 \\
+2 &amp; 3 &amp; 19 \\
+3 &amp; 2 &amp; 10
+\end{bmatrix}
+\]</div>
+<p>After calculating, <span class="arithmatex">\(\text{det}(A_z) = 10\)</span>.</p>
+<h3 id="step-4-solve-for-x-y-and-z">Step 4: Solve for <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, and <span class="arithmatex">\(z\)</span><a class="headerlink" href="#step-4-solve-for-x-y-and-z" title="Permanent link">&para;</a></h3>
+<p>Using Cramer’s Rule:</p>
+<p>[
+x = \frac{\text{det}(A_x)}{\text{det}(A)} = \frac{23}{4} = 5.75
+]
+[
+y = \frac{\text{det}(A_y)}{\text{det}(A)} = \frac{2}{4} = 0.5
+]
+[
+z = \frac{\text{det}(A_z)}{\text{det}(A)} = \frac{10}{4} = 2.5
+]</p>
+<p>Thus, the solution is <span class="arithmatex">\(x = 5.75\)</span>, <span class="arithmatex">\(y = 0.5\)</span>, and <span class="arithmatex">\(z = 2.5\)</span>.</p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Cramer's Rule is a straightforward and effective method for solving small systems of linear equations using determinants. While it becomes inefficient for large systems, it provides a clear and structured way to solve systems where the determinant of the coefficient matrix is non-zero, offering insight into the relationships between variables.</p>
 
 
 
