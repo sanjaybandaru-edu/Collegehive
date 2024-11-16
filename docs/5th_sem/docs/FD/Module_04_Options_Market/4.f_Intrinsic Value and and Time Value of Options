@@ -1,0 +1,20 @@
+
+# Intrinsic Value and Time Value of an Option
+
+### Intrinsic Value:
+The immediate gain if the option is exercised.
+- **Formula**:
+  - Call Option: \( \text{Max}(S_T - K, 0) \)
+  - Put Option: \( \text{Max}(K - S_T, 0) \)
+
+### Time Value:
+The additional value of the option above its intrinsic value due to the remaining time until expiration.
+- **Formula**:
+  \[
+  \text{Time Value} = \text{Option Price} - \text{Intrinsic Value}
+  \]
+
+**Example**:
+- A call option priced at $15, with a strike price of $40 and a stock price of $50:
+  - Intrinsic Value = \( 50 - 40 = $10 \)
+  - Time Value = \( 15 - 10 = $5 \)
