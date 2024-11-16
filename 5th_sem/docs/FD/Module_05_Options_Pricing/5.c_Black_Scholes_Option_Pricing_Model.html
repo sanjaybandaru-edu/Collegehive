@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#2-black-scholes-option-pricing-model" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -43823,7 +43828,7 @@
         
   
   <span class="md-ellipsis">
-    3.b Cost of Carry Model
+    Cost of Carry Model
   </span>
   
 
@@ -43844,7 +43849,7 @@
         
   
   <span class="md-ellipsis">
-    3.c Expectation Approach
+    Expectations Approach
   </span>
   
 
@@ -43865,7 +43870,7 @@
         
   
   <span class="md-ellipsis">
-    3.d Basis Normal Backwardation and Cantango
+    Normal Backwardation and Contango
   </span>
   
 
@@ -43886,7 +43891,7 @@
         
   
   <span class="md-ellipsis">
-    3.e Margin Account Operation
+    Margin Account Operation
   </span>
   
 
@@ -43965,7 +43970,7 @@
         
   
   <span class="md-ellipsis">
-    4.a Concept of Options
+    Concept of Options
   </span>
   
 
@@ -43986,7 +43991,7 @@
         
   
   <span class="md-ellipsis">
-    4.b Development of Options Contracts
+    Development of Options Contracts
   </span>
   
 
@@ -44007,7 +44012,7 @@
         
   
   <span class="md-ellipsis">
-    4.c Types and Styles of Options
+    Types of Options
   </span>
   
 
@@ -44028,7 +44033,7 @@
         
   
   <span class="md-ellipsis">
-    4.d Options Basics
+    Options Basics
   </span>
   
 
@@ -44049,7 +44054,7 @@
         
   
   <span class="md-ellipsis">
-    4.e Option Moneyness
+    Option Moneyness
   </span>
   
 
@@ -44128,7 +44133,7 @@
         
   
   <span class="md-ellipsis">
-    5.a Factors Affecting Options Pricing
+    Factors Affecting Options Pricing
   </span>
   
 
@@ -44173,6 +44178,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5.c Black Scholes Option Pricing Model
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="5.c_Black_Scholes_Option_Pricing_Model.html" class="md-nav__link md-nav__link--active">
         
   
@@ -44182,6 +44198,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-black-scholes-option-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Black-Scholes Option Pricing Model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -44274,7 +44316,7 @@
         
   
   <span class="md-ellipsis">
-    6.a Basic Strategies
+    Options Trading Strategies
   </span>
   
 
@@ -44295,7 +44337,7 @@
         
   
   <span class="md-ellipsis">
-    6.b Spreads
+    Spreads
   </span>
   
 
@@ -44316,7 +44358,7 @@
         
   
   <span class="md-ellipsis">
-    6.c Combinations
+    Combinations
   </span>
   
 
@@ -44395,7 +44437,7 @@
         
   
   <span class="md-ellipsis">
-    7.a Interest Rate and Currency Swaps
+    Swaps and Derivatives
   </span>
   
 
@@ -61952,6 +61994,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-black-scholes-option-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Black-Scholes Option Pricing Model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -61969,7 +62028,32 @@
 
   <h1>5.c Black Scholes Option Pricing Model</h1>
 
-
+<h2 id="2-black-scholes-option-pricing-model">2. Black-Scholes Option Pricing Model<a class="headerlink" href="#2-black-scholes-option-pricing-model" title="Permanent link">&para;</a></h2>
+<p>Introduced in 1973, the Black-Scholes model provides a closed-form solution for pricing European-style options, which can only be exercised at expiration.</p>
+<p><strong>Key Features</strong>:
+- Assumes constant volatility and interest rates.
+- Does not account for dividends (though extensions of the model do).
+- Provides a formula to calculate the theoretical price of European call and put options.</p>
+<p><strong>Formula</strong>:
+[
+C = S \cdot N(d_1) - X \cdot e^{-rT} \cdot N(d_2)
+]</p>
+<p>Where:
+- <strong>C</strong>: Call option price
+- <strong>S</strong>: Current stock price
+- <strong>X</strong>: Strike price
+- <strong>r</strong>: Risk-free interest rate
+- <strong>T</strong>: Time to expiration
+- <strong>N</strong>: Cumulative distribution function of the standard normal distribution
+- [
+d_1 = \frac{\ln(S/X) + (r + \frac{\sigma^2}{2})T}{\sigma\sqrt{T}}
+]
+- [
+d_2 = d_1 - \sigma\sqrt{T}
+]
+- <strong>σ</strong>: Volatility of the underlying asset</p>
+<p><strong>Example</strong>:
+For a stock priced at $100, with a strike price of $100, time to expiration of 1 year, risk-free rate of 5%, and volatility of 20%, the Black-Scholes formula can be used to calculate the theoretical price of a European call option.</p>
 
 
 

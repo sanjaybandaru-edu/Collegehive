@@ -91,6 +91,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#option-greeks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -3625,7 +3630,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    3.b Cost of Carry Model
+    Cost of Carry Model
   </span>
   
 
@@ -3646,7 +3651,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    3.c Expectation Approach
+    Expectations Approach
   </span>
   
 
@@ -3667,7 +3672,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    3.d Basis Normal Backwardation and Cantango
+    Normal Backwardation and Contango
   </span>
   
 
@@ -3688,7 +3693,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    3.e Margin Account Operation
+    Margin Account Operation
   </span>
   
 
@@ -3767,7 +3772,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.a Concept of Options
+    Concept of Options
   </span>
   
 
@@ -3788,7 +3793,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.b Development of Options Contracts
+    Development of Options Contracts
   </span>
   
 
@@ -3809,7 +3814,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.c Types and Styles of Options
+    Types of Options
   </span>
   
 
@@ -3830,7 +3835,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.d Options Basics
+    Options Basics
   </span>
   
 
@@ -3851,7 +3856,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    4.e Option Moneyness
+    Option Moneyness
   </span>
   
 
@@ -3930,7 +3935,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    5.a Factors Affecting Options Pricing
+    Factors Affecting Options Pricing
   </span>
   
 
@@ -3996,6 +4001,17 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5.d Option Greeks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="5.d_Option_Greeks.html" class="md-nav__link md-nav__link--active">
         
   
@@ -4005,6 +4021,32 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-greeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option Greeks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4076,7 +4118,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.a Basic Strategies
+    Options Trading Strategies
   </span>
   
 
@@ -4097,7 +4139,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.b Spreads
+    Spreads
   </span>
   
 
@@ -4118,7 +4160,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    6.c Combinations
+    Combinations
   </span>
   
 
@@ -4197,7 +4239,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
         
   
   <span class="md-ellipsis">
-    7.a Interest Rate and Currency Swaps
+    Swaps and Derivatives
   </span>
   
 
@@ -14950,6 +14992,23 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#option-greeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option Greeks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -14967,7 +15026,41 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
   <h1>5.d Option Greeks</h1>
 
-
+<h2 id="option-greeks">Option Greeks<a class="headerlink" href="#option-greeks" title="Permanent link">&para;</a></h2>
+<p>The "Greeks" are measures of the sensitivity of an option's price to various factors:</p>
+<ol>
+<li><strong>Delta (Δ)</strong>: </li>
+<li>Measures the rate of change of the option's price concerning changes in the underlying asset's price.</li>
+<li>
+<p>For call options, delta ranges from 0 to 1; for put options, it ranges from -1 to 0.</p>
+</li>
+<li>
+<p><strong>Gamma (Γ)</strong>: </p>
+</li>
+<li>Measures the rate of change of delta concerning changes in the underlying asset's price.</li>
+<li>
+<p>Indicates the curvature of the option's value relative to the underlying price.</p>
+</li>
+<li>
+<p><strong>Theta (Θ)</strong>: </p>
+</li>
+<li>Measures the sensitivity of the option's price to the passage of time, also known as time decay.</li>
+<li>
+<p>Options lose value as they approach expiration, and theta quantifies this effect.</p>
+</li>
+<li>
+<p><strong>Vega (ν)</strong>: </p>
+</li>
+<li>Measures the sensitivity of the option's price to changes in the volatility of the underlying asset.</li>
+<li>
+<p>Higher volatility increases the potential for the option to end up in-the-money, thus increasing its value.</p>
+</li>
+<li>
+<p><strong>Rho (ρ)</strong>: </p>
+</li>
+<li>Measures the sensitivity of the option's price to changes in the risk-free interest rate.</li>
+<li>For call options, a rise in interest rates typically increases the option's value; for put options, it decreases the value.</li>
+</ol>
 
 
 
@@ -15871,13 +15964,13 @@ shownhide.addEventListener('click', function() {
         
         
           
-          <a href="../Module_06_Options_Trading_Strategies/6.a_Basic_Strategies.html" class="md-footer__link md-footer__link--next" aria-label="Next: 6.a Basic Strategies">
+          <a href="../Module_06_Options_Trading_Strategies/6.a_Basic_Strategies.html" class="md-footer__link md-footer__link--next" aria-label="Next: Options Trading Strategies">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                6.a Basic Strategies
+                Options Trading Strategies
               </div>
             </div>
             <div class="md-footer__button md-icon">

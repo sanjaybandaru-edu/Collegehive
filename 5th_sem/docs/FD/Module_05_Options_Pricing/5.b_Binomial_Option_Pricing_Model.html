@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#theories-of-options-pricing-models" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -43823,7 +43828,7 @@
         
   
   <span class="md-ellipsis">
-    3.b Cost of Carry Model
+    Cost of Carry Model
   </span>
   
 
@@ -43844,7 +43849,7 @@
         
   
   <span class="md-ellipsis">
-    3.c Expectation Approach
+    Expectations Approach
   </span>
   
 
@@ -43865,7 +43870,7 @@
         
   
   <span class="md-ellipsis">
-    3.d Basis Normal Backwardation and Cantango
+    Normal Backwardation and Contango
   </span>
   
 
@@ -43886,7 +43891,7 @@
         
   
   <span class="md-ellipsis">
-    3.e Margin Account Operation
+    Margin Account Operation
   </span>
   
 
@@ -43965,7 +43970,7 @@
         
   
   <span class="md-ellipsis">
-    4.a Concept of Options
+    Concept of Options
   </span>
   
 
@@ -43986,7 +43991,7 @@
         
   
   <span class="md-ellipsis">
-    4.b Development of Options Contracts
+    Development of Options Contracts
   </span>
   
 
@@ -44007,7 +44012,7 @@
         
   
   <span class="md-ellipsis">
-    4.c Types and Styles of Options
+    Types of Options
   </span>
   
 
@@ -44028,7 +44033,7 @@
         
   
   <span class="md-ellipsis">
-    4.d Options Basics
+    Options Basics
   </span>
   
 
@@ -44049,7 +44054,7 @@
         
   
   <span class="md-ellipsis">
-    4.e Option Moneyness
+    Option Moneyness
   </span>
   
 
@@ -44128,7 +44133,7 @@
         
   
   <span class="md-ellipsis">
-    5.a Factors Affecting Options Pricing
+    Factors Affecting Options Pricing
   </span>
   
 
@@ -44152,6 +44157,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5.b Binomial Option Pricing Model
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="5.b_Binomial_Option_Pricing_Model.html" class="md-nav__link md-nav__link--active">
         
   
@@ -44161,6 +44177,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theories-of-options-pricing-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theories of Options Pricing Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-binomial-option-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Binomial Option Pricing Model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -44274,7 +44325,7 @@
         
   
   <span class="md-ellipsis">
-    6.a Basic Strategies
+    Options Trading Strategies
   </span>
   
 
@@ -44295,7 +44346,7 @@
         
   
   <span class="md-ellipsis">
-    6.b Spreads
+    Spreads
   </span>
   
 
@@ -44316,7 +44367,7 @@
         
   
   <span class="md-ellipsis">
-    6.c Combinations
+    Combinations
   </span>
   
 
@@ -44395,7 +44446,7 @@
         
   
   <span class="md-ellipsis">
-    7.a Interest Rate and Currency Swaps
+    Swaps and Derivatives
   </span>
   
 
@@ -61952,6 +62003,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theories-of-options-pricing-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theories of Options Pricing Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-binomial-option-pricing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Binomial Option Pricing Model
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -61969,7 +62046,15 @@
 
   <h1>5.b Binomial Option Pricing Model</h1>
 
-
+<h2 id="theories-of-options-pricing-models">Theories of Options Pricing Models<a class="headerlink" href="#theories-of-options-pricing-models" title="Permanent link">&para;</a></h2>
+<h2 id="1-binomial-option-pricing-model">1. Binomial Option Pricing Model<a class="headerlink" href="#1-binomial-option-pricing-model" title="Permanent link">&para;</a></h2>
+<p>The binomial model provides a discrete-time framework for option valuation. It models the underlying asset's price movements over time as a binomial tree, where each node represents a possible price at a given point.</p>
+<p><strong>Key Features</strong>:
+- Models price changes in discrete time intervals.
+- Considers the possibility of early exercise (important for American options).
+- Flexible in handling various types of options and underlying assets.</p>
+<p><strong>Example</strong>:
+Consider a stock currently priced at $100. In one period, it can either move up to $110 or down to $90. The binomial model calculates the option's value by working backward from the expiration, determining the payoff at each final node, and discounting it to the present value.</p>
 
 
 
@@ -62104,7 +62189,7 @@ shownhide.addEventListener('click', function() {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="5.a_Factors_Affecting_Options_Pricing.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5.a Factors Affecting Options Pricing">
+          <a href="5.a_Factors_Affecting_Options_Pricing.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Factors Affecting Options Pricing">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -62114,7 +62199,7 @@ shownhide.addEventListener('click', function() {
                 Previous
               </span>
               <div class="md-ellipsis">
-                5.a Factors Affecting Options Pricing
+                Factors Affecting Options Pricing
               </div>
             </div>
           </a>
