@@ -404,9 +404,11 @@ a.button:hover {
 }
 
 .header-logo img {
-    width: 100px;
+    width: auto; /* Ensures the aspect ratio remains intact */
     border-radius: 10px;
     padding: 5px;
+    height: 70px; /* Adjust this value to your desired height */
+    vertical-align: middle; /* Ensures alignment if needed */
 }
 
 .menu-holder {
