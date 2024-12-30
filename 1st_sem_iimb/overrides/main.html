@@ -31,7 +31,6 @@
 
 </a>
 
-
 .
 
 Finding any issues with the notes? Report them on our <a href="https://www.instagram.com/collegehive.in/" style="color: #dd6215">
@@ -76,24 +75,13 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
   })(window, document, "clarity", "script", "pc7i8ndcwn");
 </script>
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
 
-  #chat-circle {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    background: #5A5EB9;
-    width: 80px;
-    height: 80px;  
-    border-radius: 50%;
-    color: white;
-    padding: 28px;
-    cursor: pointer;
-    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  }
+
   
   .btn#my-btn {
        background: white;
@@ -294,7 +282,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     height:100%;
   }
   
-  #chat-circle {
+  /* #chat-circle {
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -307,13 +295,30 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     cursor: pointer;
     box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     transition: all 0.3s;
-  }
-  
-  #chat-circle:hover {
+  } */
+  #chat-circle {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background: #293dab;
+    width: 150px; /* Adjusted for space for text and image */
+    height: 43px;
+    border-radius: 50px; /* Adjusted corner radius */
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px; /* Space between the image and the text */
+}
+
+#chat-circle:hover {
     transform: scale(1.1);
-  }
-  
-  .chat-box {
+}
+
+.chat-box {
     display:none;
     background: #efefef;
     position:fixed;
@@ -324,7 +329,7 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
     max-height:100vh;
     border-radius:5px;
     box-shadow: 0px 5px 35px 9px #ccc;
-  }
+}
   
   .chat-box-toggle {
     float:right;
@@ -528,8 +533,11 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
 <div id="body">
   <div id="chat-circle" class="btn btn-raised">
-    <i class="fa fa-comments"></i>
+    <span style="color: white; vertical-align: middle;">Ask Hive Chat</span>
+    <img src="https://collegehive.in/docs/ass/images/CH-logo-w.png" alt="Chat Icon" style="height: 80%; vertical-align: middle;">
+    <!-- <i class="fa fa-comments"></i> -->
    </div>
+
   <div class="chat-box">
     <div class="chat-box-header">
       Hive Chat
@@ -754,12 +762,13 @@ const joinedString = extractedContent.join(' ');
         let key = 'hello';
         let encrypted = "U2FsdGVkX192prb32pn3hjWlbz4TeZ3hXhtXYVOz7lX5HSv2mZj1Wk1C8pZFG4d4zrB820HpS2vNL7lpCBPrMAb+i8p22zSP86hfM47Elfk=";
         let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
+        // console.log(apiKey);
 
 
 
         const requestBody = {
           "messages": conversationHistory,
-          "model": "llama-3.1-70b-versatile",
+          "model": "llama-3.3-70b-specdec",
           "temperature": 0.7,
           "max_tokens": 7999,
           "top_p": 0.5,
@@ -817,103 +826,5 @@ function hideSuggestionButtons() {
 <!-- ------------- -->
 
 
-<div id="playPauseBtn" class="play">🎶</div>
 
-<audio loop id="player">
-    <source src="https://collegehive-audio.s3.ap-south-1.amazonaws.com/lofi.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-
-<style>
-#playPauseBtn {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  height: 50px; /* Added fixed height to prevent size change */
-  line-height: 50px; /* Center the emoji vertically */
-  text-align: center; /* Center the emoji horizontally */
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  outline: #000000;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  user-select: none;
-}
-
-#playPauseBtn:hover {
-  background-color: #45a049;
-}
-
-#playPauseBtn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.playing {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-}
-</style>
-
-<script>
-var player = document.getElementById('player');
-var playPauseBtn = document.getElementById('playPauseBtn');
-var isPlaying = false;
-
-playPauseBtn.addEventListener('click', function() {
-  isPlaying = !isPlaying;
-  if (isPlaying) {
-    player.play();
-    playPauseBtn.classList.add('playing');
-    playPauseBtn.textContent = '⏸️';
-  } else {
-    player.pause();
-    playPauseBtn.classList.remove('playing');
-    playPauseBtn.textContent = '🎶';
-  }
-});
-</script>
-
-
-{% endblock %}
-
-{% block footer %}
-<div id="shownhide" class="show">Hide</div>
-
-<style>
-  /* user selection diabled of shownhide button */
-  #shownhide {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  user-select: none;
-  }
-</style>
-
-<script>
-var shownhide = document.getElementById('shownhide');
-var isShown = true;
-
-shownhide.addEventListener('click', function() {
-  isShown = !isShown;
-  if (isShown) {
-    document.getElementById("playPauseBtn").style.display = "block";
-    shownhide.textContent = 'Hide';
-  } else {
-    document.getElementById("playPauseBtn").style.display = "none";
-    shownhide.textContent = 'Show';
-  }
-});  
-</script>
-
-
-{{ super() }}
 {% endblock %}
