@@ -37,21 +37,21 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
   </thead>
   <tbody>
     <tr>
-      <td>BBA 101-1</td>
-      <td><a href="EE/Module_01_History_of_Entrepreneurship/1.a_Module_Overview_30_mins.html">EE</a></td>
+      <td>EP12x</td>
+      <td><a href="EE/Module-1_Course_Overview/1.2.1_What_is_Entrepreneurship.html">Explorations in Entrepreneurship</a></td>
     </tr>
     <tr>
-      <td>BBA 102-1</td>
-      <td><a href="FSBP/Module_01_Introduction_to_Financial_Accounting/1.a_Introduction_to_the_Module.html">FSBP</a></td>
+      <td>FA11x</td>
+      <td><a href="FSBP/Module_1_Introduction_to_Financial_Accounting_and_Mechanics_of_Accounting/1.0_Introduction_to_the_Module.html">Financial Statements and Business Performance</a></td>
     </tr>
     <tr>
-      <td>BBA 103-1</td>
-      <td><a href="MF/Module_01_Basics_of_Marketing/1.a_Introduction_to_the_Module.html">Marketing Foundations</a></td>
+      <td>MK11x</td>
+      <td><a href="MF/Module 01 Basics of Marketing/1.1 Understanding Markets/1.1.1 What is a Market.html">Marketing Fundamentals</a></td>
     </tr>
   </tbody>
   <tr>
-      <td>BBA 103-1</td>
-      <td><a href="Creative/Module_01_The_Creativity_Imperative/1.a_Welcome_to_the_Module.html">Marketing Foundations</a></td>
+      <td>EP11x</td>
+      <td><a href="Creative/Module_01_The_Creativity_Imperative/1.b_Why_Creativity_Now.html">Creative Mindset for Innovation and Imagination</a></td>
     </tr>
   </tbody>
 </table>
