@@ -41,6 +41,14 @@ Hive Notes is a Student Friendly Notes that allows you to quickly go through the
       <td><a href="EE/Module-1_Course_Overview/1.2.1_What_is_Entrepreneurship.html">Explorations in Entrepreneurship</a></td>
     </tr>
     <tr>
+      <td>AE11x</td>
+      <td><a href="Eng/Podcast.html">Foundations of Business Communication</a></td>
+    </tr>
+    <tr>
+      <td>DS11x</td>
+      <td><a href="BSFE/Module 1 - Descriptive Statistics/1.1 Introduction to Descriptive Statistics.html">Business Statistics for Entrepreneurs</a></td>
+    </tr>
+    <tr>
       <td>FA11x</td>
       <td><a href="FSBP/Module_1_Introduction_to_Financial_Accounting_and_Mechanics_of_Accounting/1.0_Introduction_to_the_Module.html">Financial Statements and Business Performance</a></td>
     </tr>
