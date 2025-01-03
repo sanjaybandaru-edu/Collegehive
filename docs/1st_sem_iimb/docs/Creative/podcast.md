@@ -12,7 +12,7 @@ Module 1
 Module 2
 
 <audio controls>
-  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/Creative-2.wav" type="audio/wav">
+  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/Creativity-2.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
 
@@ -20,7 +20,7 @@ Module 2
 Module 3
 
 <audio controls>
-  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/Creative-3.wav" type="audio/wav">
+  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/Creativity-3.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
 
@@ -28,6 +28,6 @@ Module 3
 Module 4
 
 <audio controls>
-  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/creative-4.wav" type="audio/wav">
+  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/creativity-4.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
