@@ -15871,71 +15871,7 @@ function hideSuggestionButtons() {
 <!-- ------------- -->
 
 
-<div id="playPauseBtn" class="play">🎶</div>
 
-<audio loop id="player">
-    <source src="https://collegehive-audio.s3.ap-south-1.amazonaws.com/lofi.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-
-<style>
-#playPauseBtn {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  height: 50px; /* Added fixed height to prevent size change */
-  line-height: 50px; /* Center the emoji vertically */
-  text-align: center; /* Center the emoji horizontally */
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  outline: #000000;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  user-select: none;
-}
-
-#playPauseBtn:hover {
-  background-color: #45a049;
-}
-
-#playPauseBtn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.playing {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-}
-</style>
-
-<script>
-var player = document.getElementById('player');
-var playPauseBtn = document.getElementById('playPauseBtn');
-var isPlaying = false;
-
-playPauseBtn.addEventListener('click', function() {
-  isPlaying = !isPlaying;
-  if (isPlaying) {
-    player.play();
-    playPauseBtn.classList.add('playing');
-    playPauseBtn.textContent = '⏸️';
-  } else {
-    player.pause();
-    playPauseBtn.classList.remove('playing');
-    playPauseBtn.textContent = '🎶';
-  }
-});
-</script>
 
 
 
@@ -15954,35 +15890,6 @@ playPauseBtn.addEventListener('click', function() {
         
       </main>
       
-<div id="shownhide" class="show">Hide</div>
-
-<style>
-  /* user selection diabled of shownhide button */
-  #shownhide {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  user-select: none;
-  }
-</style>
-
-<script>
-var shownhide = document.getElementById('shownhide');
-var isShown = true;
-
-shownhide.addEventListener('click', function() {
-  isShown = !isShown;
-  if (isShown) {
-    document.getElementById("playPauseBtn").style.display = "block";
-    shownhide.textContent = 'Hide';
-  } else {
-    document.getElementById("playPauseBtn").style.display = "none";
-    shownhide.textContent = 'Show';
-  }
-});  
-</script>
-
-
-
         <footer class="md-footer">
   
     
@@ -16066,7 +15973,6 @@ shownhide.addEventListener('click', function() {
   </div>
 </footer>
       
-
     </div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
