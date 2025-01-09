@@ -2,13 +2,12 @@ Marketing Module Wise Podcast
 
 
 ## Module 1
-Coming Soon ...
 
-<!-- <audio controls>
-  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/Eng-Unit-1.wav" type="audio/wav">
+<audio controls>
+  <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/MF-1.wav" type="audio/wav">
   Your browser does not support the audio element.
   
-</audio> -->
+</audio>
 
 ## Module 2
 <audio controls>
@@ -42,12 +41,12 @@ Coming Soon ...
 
 
 ## Module 6
-Coming Soon ...
+<!-- Coming Soon ... -->
 
-<!-- <audio controls>
+<audio controls>
   <source src="https://github.com/sanjaybandaru-edu/audio/raw/refs/heads/main/MF-6.wav" type="audio/wav">
   Your browser does not support the audio element.
-</audio> -->
+</audio>
 
 ## Module 7
 
