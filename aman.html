@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K. Aman Thoyaj Krishna - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f0fdfa; /* Tailwind teal-50 */
+            color: #374151; /* Tailwind gray-700 */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: #111827; /* Tailwind gray-900 */
+        }
+
+        /* Animated Gradient Background - Teal/Cyan theme */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ccfbf1, #99f6e4, #5eead4, #2dd4bf); /* Cyan/Teal gradient */
+            background-size: 400% 400%;
+            animation: gradientBG 18s ease infinite;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Custom scrollbar - Teal theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ccfbf1; /* Light teal/cyan */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #14b8a6; /* Teal 500 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d9488; /* Teal 600 */
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Staggered fade-in */
+        .stagger-fade > * {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Enhanced Hover Effects */
+        .card-hover {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        .button-hover {
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .button-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+        .link-hover {
+             transition: color 0.2s ease-out, transform 0.2s ease-out;
+             display: inline-block;
+        }
+        .link-hover:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section Heading Style */
+        .section-heading {
+             display: table;
+             border-bottom: 3px solid #14b8a6; /* Teal 500 */
+        }
+
+        /* Timeline marker */
+        .timeline-marker {
+            background-color: #14b8a6; /* Teal 500 */
+            border: 4px solid #f0fdfa; /* Body background color */
+        }
+        .timeline-marker-intern {
+             background-color: #2dd4bf; /* Teal 400 */
+             border: 4px solid #f0fdfa;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-gradient-to-r from-cyan-500 to-teal-500 text-white sticky top-0 z-50 shadow-lg fade-in">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold font-montserrat drop-shadow-md">Aman Thoyaj Krishna</div>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#profile" class="hover:text-cyan-100 transition duration-300 font-medium link-hover">Profile</a>
+                <a href="#experience" class="hover:text-cyan-100 transition duration-300 font-medium link-hover">Experience</a>
+                <a href="#education" class="hover:text-cyan-100 transition duration-300 font-medium link-hover">Education</a>
+                <a href="#skills" class="hover:text-cyan-100 transition duration-300 font-medium link-hover">Skills</a>
+                <a href="#contact" class="bg-white text-teal-600 px-5 py-2 rounded-full hover:bg-teal-50 transition duration-300 font-semibold button-hover">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+                </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="profile" class="mb-20 md:mb-28 text-center fade-in" style="animation-delay: 0.1s;">
+             <img
+                src="aman.jpeg"
+                alt="Aman Thoyaj Krishna Profile Picture"
+                class="w-36 h-36 rounded-full mx-auto mb-8 object-cover shadow-xl ring-4 ring-white ring-offset-2 ring-offset-teal-50"
+                onerror="this.onerror=null; this.src='https://placehold.co/144x144/14b8a6/FFFFFF?text=AK'; this.alt='Placeholder image for Aman Thoyaj Krishna'"
+             >
+             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-montserrat">K. AMAN THOYAJ KRISHNA</h1>
+            <p class="text-lg md:text-xl text-teal-600 font-semibold mb-6 tracking-wide">Co-Founder | Talent Partner | Strategic Growth</p>
+            <p class="max-w-3xl mx-auto text-base md:text-lg leading-relaxed mb-8 text-gray-700">
+                Experienced in leading teams, recruiting top talent, and driving strategic growth for startups. Incubated ventures at <strong>NSRCEL, IIM Bangalore</strong>, scaling user bases significantly. Proven ability in client acquisition, business development, and operations management. Passionate about leveraging entrepreneurial and talent skills to foster organizational success.
+            </p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+                <span><i class="fas fa-map-marker-alt mr-1 text-teal-500"></i>Bengaluru, India</span>
+                <span><i class="fas fa-phone-alt mr-1 text-teal-500"></i>9030234152</span>
+                <span><i class="fas fa-envelope mr-1 text-teal-500"></i><a href="mailto:deepukatk@gmail.com" class="hover:text-teal-700 hover:underline">deepukatk@gmail.com</a></span>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-20 md:mb-28">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 section-heading pb-2 mx-auto">
+                <i class="fas fa-briefcase mr-2 text-teal-600"></i>Professional Journey
+            </h2>
+            <div class="relative pl-8 border-l-4 border-teal-200 stagger-fade">
+                <div class="mb-12 fade-in" style="animation-delay: 0.2s;">
+                    <div class="absolute w-6 h-6 rounded-full -left-3.5 timeline-marker"></div>
+                    <div class="ml-4 p-6 bg-white rounded-xl shadow-lg card-hover">
+                        <span class="text-xs font-semibold text-teal-800 bg-teal-100 px-3 py-1 rounded-full inline-block mb-3">August 2023 - Present</span>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900">Co-Founder, College Hive (Hiveria Enterprises LLP)</h3>
+                        <p class="text-sm text-gray-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i>Bengaluru</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 pl-5 text-sm md:text-base">
+                            <li>Incubated at <strong>NSRCEL, IIM Bangalore</strong> (Campus Founders Program Cohort 3).</li>
+                            <li>Led Operations as <strong>COO</strong>, managing a team of 25+ members.</li>
+                            <li>Managed key client relationships, fostering business growth.</li>
+                            <li>Scaled user base from <strong>200 to 6000+ students</strong> and initiated university partnerships.</li>
+                            <li>Executed POC testing for an internship product, attracting 100+ applicants and 20+ companies.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-12 fade-in" style="animation-delay: 0.3s;">
+                     <div class="absolute w-6 h-6 rounded-full -left-3.5 timeline-marker"></div>
+                     <div class="ml-4 p-6 bg-white rounded-xl shadow-lg card-hover">
+                        <span class="text-xs font-semibold text-teal-800 bg-teal-100 px-3 py-1 rounded-full inline-block mb-3">October 2024 - March 2025</span>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900">Co-Founder, Entreconnect</h3>
+                        <p class="text-sm text-gray-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i>Remote</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 pl-5 text-sm md:text-base">
+                            <li>Developed a consulting platform supporting <strong>5+ early-stage entrepreneurs</strong>.</li>
+                            <li>Hosted monthly live consulting & networking events.</li>
+                            <li>Secured strategic partnerships with <strong>NSRCEL</strong> and <strong>Outreach Network</strong>.</li>
+                            <li>Led a team of <strong>20+ members</strong> towards profitability through client acquisition and idea implementation.</li>
+                            <li>Contributed actively to getting the venture incubated at <strong>IIM Bangalore</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-12 fade-in" style="animation-delay: 0.4s;">
+                     <div class="absolute w-6 h-6 rounded-full -left-3.5 timeline-marker"></div>
+                     <div class="ml-4 p-6 bg-white rounded-xl shadow-lg card-hover">
+                        <span class="text-xs font-semibold text-teal-800 bg-teal-100 px-3 py-1 rounded-full inline-block mb-3">November 2024 – January 2025</span>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900">Talent Partner, Appli</h3>
+                        <p class="text-sm text-gray-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i>Bengaluru</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 pl-5 text-sm md:text-base">
+                            <li>Led recruitment and onboarding for <strong>10 interns</strong>.</li>
+                            <li>Managed internship program operations, mentoring interns and tracking project milestones.</li>
+                            <li>Handled intern payroll and performance tracking.</li>
+                            <li>Provided business development strategies for organizational growth.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <h3 class="text-2xl font-bold text-gray-700 mb-8 mt-16 ml-4"><i class="fas fa-user-graduate mr-2 text-teal-600"></i>Internships</h3>
+
+                <div class="mb-12 fade-in" style="animation-delay: 0.5s;">
+                    <div class="absolute w-6 h-6 rounded-full -left-3.5 timeline-marker-intern"></div>
+                     <div class="ml-4 p-6 bg-white rounded-xl shadow-lg card-hover">
+                         <span class="text-xs font-semibold text-cyan-800 bg-cyan-100 px-3 py-1 rounded-full inline-block mb-3">May 2024 – July 2024</span>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900">HR Intern (Talent Acquisition), Neuroglia Health (Marrow)</h3>
+                        <p class="text-sm text-gray-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i>Bengaluru</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 pl-5 text-sm md:text-base">
+                            <li>Managed end-to-end non-technical recruitment (sourcing, screening, interviews, onboarding).</li>
+                            <li>Successfully hired 2 full-time employees (Video Editor, Accounts Payables Associate).</li>
+                            <li>Utilized ATS platforms: <strong>Skillate</strong> & <strong>Zoho People Plus</strong>.</li>
+                            <li>Recruited across diverse domains (Video Editing, TA, Accounting).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.6s;">
+                    <div class="absolute w-6 h-6 rounded-full -left-3.5 timeline-marker-intern"></div>
+                     <div class="ml-4 p-6 bg-white rounded-xl shadow-lg card-hover">
+                        <span class="text-xs font-semibold text-cyan-800 bg-cyan-100 px-3 py-1 rounded-full inline-block mb-3">June 2023 - July 2023</span>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900">Digital Marketing Intern, Neutrinos</h3>
+                        <p class="text-sm text-gray-500 mb-3"><i class="fas fa-map-marker-alt mr-1"></i>Bengaluru</p>
+                        <ul class="list-disc list-outside text-gray-600 space-y-1.5 pl-5 text-sm md:text-base">
+                            <li>Analyzed social media data & optimized content strategies.</li>
+                            <li>Managed email databases for mass outreach campaigns.</li>
+                            <li>Compiled reports to improve audience engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-20 md:mb-28">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 section-heading pb-2 mx-auto">
+               <i class="fas fa-graduation-cap mr-2 text-teal-600"></i>Education
+            </h2>
+            <div class="overflow-x-auto bg-white rounded-xl shadow-lg p-6 fade-in card-hover" style="animation-delay: 0.7s;">
+                <table class="w-full text-left text-sm md:text-base">
+                    <thead class="bg-teal-50 text-teal-700 uppercase text-xs tracking-wider">
+                        <tr>
+                            <th class="py-3 px-4 font-semibold">Degree/Course</th>
+                            <th class="py-3 px-4 font-semibold">Institution</th>
+                            <th class="py-3 px-4 font-semibold text-center">Grade/GPA</th>
+                            <th class="py-3 px-4 font-semibold text-center">Year</th>
+                            <th class="py-3 px-4 font-semibold">Location/Mode</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-teal-100">
+                        <tr class="hover:bg-teal-50 transition duration-150">
+                            <td class="py-4 px-4 font-medium text-gray-900">BBA: Digital Business & Entrepreneurship</td>
+                            <td class="py-4 px-4"><strong>IIM Bangalore</strong></td>
+                            <td class="py-4 px-4 text-center">-</td>
+                            <td class="py-4 px-4 text-center">Exp. 2027</td>
+                            <td class="py-4 px-4">Distance Learning</td>
+                        </tr>
+                        <tr class="hover:bg-teal-50 transition duration-150">
+                            <td class="py-4 px-4 font-medium text-gray-900">BBA: Finance & International Business</td>
+                            <td class="py-4 px-4"><strong>Christ University</strong></td>
+                            <td class="py-4 px-4 text-center">3.3 / 4.0</td>
+                            <td class="py-4 px-4 text-center">2025</td>
+                            <td class="py-4 px-4">Bengaluru, India</td>
+                        </tr>
+                        <tr class="hover:bg-teal-50 transition duration-150">
+                            <td class="py-4 px-4 font-medium text-gray-900">High School (12th)</td>
+                            <td class="py-4 px-4">Sainik School Kalikiri (MoD)</td>
+                            <td class="py-4 px-4 text-center">69.2%</td>
+                            <td class="py-4 px-4 text-center">2022</td>
+                            <td class="py-4 px-4">Kalikiri, AP</td>
+                        </tr>
+                        <tr class="hover:bg-teal-50 transition duration-150">
+                            <td class="py-4 px-4 font-medium text-gray-900">Secondary (10th)</td>
+                            <td class="py-4 px-4">Sainik School Kalikiri (MoD)</td>
+                            <td class="py-4 px-4 text-center">77%</td>
+                            <td class="py-4 px-4 text-center">2020</td>
+                            <td class="py-4 px-4">Kalikiri, AP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-20 md:mb-28">
+             <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 section-heading pb-2 mx-auto">
+                 <i class="fas fa-cogs mr-2 text-teal-600"></i>Core Competencies
+            </h2>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 fade-in stagger-fade" style="animation-delay: 0.8s;">
+                 <span class="bg-teal-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 0.85s;">Team Leadership & Management</span>
+                <span class="bg-teal-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 0.9s;">Recruitment & Talent Acquisition</span>
+                <span class="bg-teal-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 0.95s;">Strategic Growth Planning</span>
+                <span class="bg-cyan-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1s;">Client Acquisition</span>
+                <span class="bg-cyan-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1.05s;">Business Development</span>
+                <span class="bg-cyan-500 text-white text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1.1s;">Startup Pitching & Presentation</span>
+                <span class="bg-teal-300 text-teal-900 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1.15s;">Operations Management</span>
+                <span class="bg-teal-300 text-teal-900 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1.2s;">Partnership Building</span>
+                <span class="bg-teal-300 text-teal-900 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-md button-hover cursor-default" style="animation-delay: 1.25s;">Consulting</span>
+                <span class="bg-gray-200 text-gray-800 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-sm button-hover cursor-default" style="animation-delay: 1.3s;">ATS Platforms (Skillate, Zoho)</span>
+                <span class="bg-gray-200 text-gray-800 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-sm button-hover cursor-default" style="animation-delay: 1.35s;">POC Testing</span>
+                <span class="bg-gray-200 text-gray-800 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-sm button-hover cursor-default" style="animation-delay: 1.4s;">Data Analysis (Social Media)</span>
+                <span class="bg-gray-100 text-gray-700 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-sm button-hover cursor-default" style="animation-delay: 1.45s;">Content Strategy</span>
+                <span class="bg-gray-100 text-gray-700 text-sm md:text-base font-medium px-4 py-2 rounded-full shadow-sm button-hover cursor-default" style="animation-delay: 1.5s;">Email Marketing</span>
+            </div>
+        </section>
+
+        <section id="achievements" class="mb-20 md:mb-28">
+             <h2 class="text-3xl font-bold text-center mb-16 text-gray-800 section-heading pb-2 mx-auto">
+                 <i class="fas fa-star mr-2 text-teal-600"></i>Highlights & Proficiencies
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-fade">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in" style="animation-delay: 1.6s;">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 flex items-center"><i class="fas fa-users mr-3 text-teal-500 text-2xl"></i>Activities</h3>
+                    <ul class="list-disc list-outside text-gray-600 space-y-2 pl-5">
+                        <li><strong>Head of Logistics, Meliora - French Club:</strong> Planned & executed 6+ cultural events.</li>
+                        <li><strong>Fundraiser, Vikas Janahitha Trust:</strong> Raised ₹2000 via community beautification project.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in" style="animation-delay: 1.7s;">
+                     <h3 class="text-xl font-bold mb-4 text-gray-900 flex items-center"><i class="fas fa-trophy mr-3 text-cyan-500 text-2xl"></i>Achievements</h3>
+                     <ul class="list-disc list-outside text-gray-600 space-y-2 pl-5">
+                          <li>Secured <strong>3rd Place</strong> in Startup X Loop Pitch Competition (CAPS, Jan 2024).</li>
+                          <li>Successfully incubated ventures at <strong>IIM Bangalore (NSRCEL)</strong>.</li>
+                     </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in" style="animation-delay: 1.8s;">
+                     <h3 class="text-xl font-bold mb-4 text-gray-900 flex items-center"><i class="fas fa-certificate mr-3 text-sky-500 text-2xl"></i>Certifications</h3>
+                     <ul class="list-disc list-outside text-gray-600 space-y-2 pl-5">
+                         <li>Project Management (NPTEL - May 2024)</li>
+                         <li>Data Visualization with PowerPoint (Coursera - May 2023)</li>
+                     </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover md:col-span-2 lg:col-span-1 fade-in" style="animation-delay: 1.9s;">
+                     <h3 class="text-xl font-bold mb-4 text-gray-900 flex items-center"><i class="fas fa-language mr-3 text-indigo-500 text-2xl"></i>Languages</h3>
+                      <ul class="list-disc list-outside text-gray-600 space-y-2 pl-5">
+                         <li>English (Proficient)</li>
+                         <li>Hindi (Advanced)</li>
+                         <li>Telugu (Intermediate)</li>
+                     </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover md:col-span-2 fade-in" style="animation-delay: 2.0s;">
+                     <h3 class="text-xl font-bold mb-4 text-gray-900 flex items-center"><i class="fas fa-link mr-3 text-rose-500 text-2xl"></i>Online Presence</h3>
+                      <div class="space-y-3">
+                          <p><strong class="font-semibold text-gray-700">College Hive:</strong> <a href="http://www.collegehive.in" target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:underline hover:text-teal-800 break-all link-hover">www.collegehive.in</a></p>
+                          <p><strong class="font-semibold text-gray-700">Entreconnect:</strong> <a href="http://www.entreconnect.in" target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:underline hover:text-teal-800 break-all link-hover">www.entreconnect.in</a></p>
+                           <p><strong class="font-semibold text-gray-700">LinkedIn:</strong> <a href="https://linkedin.com/in/Amanthoyaj" target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:underline hover:text-teal-800 break-all link-hover">linkedin.com/in/Amanthoyaj</a></p>
+                      </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center bg-gradient-to-r from-cyan-500 to-teal-600 text-white py-16 md:py-24 rounded-xl shadow-xl fade-in" style="animation-delay: 2.1s;">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 drop-shadow-md">Let's Connect!</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-cyan-50">
+                Interested in collaborating or discussing opportunities? Feel free to reach out.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                 <a href="mailto:deepukatk@gmail.com" class="inline-block bg-white text-teal-600 font-semibold px-8 py-3 rounded-full shadow-md hover:bg-teal-50 hover:shadow-lg button-hover transform">
+                     <i class="fas fa-envelope mr-2"></i> Send Email
+                 </a>
+                 <a href="https://linkedin.com/in/Amanthoyaj" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg button-hover transform">
+                     <i class="fab fa-linkedin mr-2"></i> LinkedIn Profile
+                 </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 mt-16 border-t border-teal-200 fade-in" style="animation-delay: 2.2s;">
+        <p class="text-gray-500 text-sm">&copy; 2024 K. Aman Thoyaj Krishna. Designed with Tailwind CSS & <i class="fas fa-heart text-teal-500"></i>.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight + 20;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Staggered animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const staggeredContainers = document.querySelectorAll('.stagger-fade');
+            staggeredContainers.forEach(container => {
+                const children = Array.from(container.children).filter(el => el.classList.contains('fade-in') || !el.style.animationDelay);
+                let baseDelay = parseFloat(container.style.animationDelay || '0s');
+
+                children.forEach((child, i) => {
+                     const existingDelay = parseFloat(child.style.animationDelay || '0s');
+                     const stagger = 0.1;
+                     child.style.animationDelay = `${Math.max(existingDelay, baseDelay + i * stagger)}s`;
+                });
+            });
+
+            // Optional Intersection Observer code
+            /*
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observerCallback = (entries, observer) => { // ... };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            */
+        });
+
+    </script>
+
+</body>
+</html>
