@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz without JavaScript</title>
+    <title>Test Your Knowledge Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Basic Setup & Styling --- */
+        :root {
+            --primary-color: #007bff;
+            --light-primary: #e7f3ff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --light-success: #e9f6ec;
+            --light-danger: #fdebec;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: var(--background-color);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            box-sizing: border-box;
         }
 
         .quiz-container {
@@ -40,38 +53,31 @@
 
         .quiz-header p {
             font-size: 1rem;
-            color: #6c757d;
+            color: var(--secondary-color);
             line-height: 1.6;
         }
-        
-        /* --- The Core CSS Trick --- */
-        
-        /* 1. Hide the radio buttons that control navigation */
-        .nav-radio {
-            display: none;
+
+        #quiz-body {
+            position: relative;
+            min-height: 250px; /* Adjust as needed */
+            margin: 2rem 0;
         }
 
-        /* 2. Hide all the question/result slides by default */
-        .question-slide, .results-slide {
-            display: none;
+        .question-slide {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
         }
 
-        /* 3. Show a slide ONLY if its corresponding radio button is checked */
-        /* The ~ (general sibling combinator) is the key here! */
-        #step1:checked ~ .quiz-body #slide1,
-        #step2:checked ~ .quiz-body #slide2,
-        #step3:checked ~ .quiz-body #slide3,
-        #step4:checked ~ .quiz-body #slide4,
-        #step5:checked ~ .quiz-body #slide5,
-        #step6:checked ~ .quiz-body #slide6,
-        #step7:checked ~ .quiz-body #slide7,
-        #step8:checked ~ .quiz-body #slide8,
-        #step9:checked ~ .quiz-body #slide9,
-        #step-results:checked ~ .quiz-body #slide-results {
-            display: block;
+        .question-slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
         }
-        
-        /* --- Question & Answer Styling --- */
+
         .question-slide h3 {
             font-size: 1.25rem;
             font-weight: 600;
@@ -85,70 +91,216 @@
         }
 
         .option {
+            display: flex;
+            align-items: center;
             padding: 15px;
             background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        /* --- 'Show Answer' Trick --- */
-        .show-answer-toggle {
-            display: none; /* Hide the checkbox */
+        .option:hover {
+            background-color: #f1f3f5;
         }
-        .explanation, .correct-marker {
-            display: none; /* Hide feedback by default */
+
+        .option input[type="radio"] {
+            display: none;
         }
-        
-        /* Show feedback when the 'Show Answer' checkbox is checked */
-        .show-answer-toggle:checked ~ .explanation {
-            display: block;
+
+        .option .radio-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: border-color 0.3s;
+        }
+
+        .option .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .option input[type="radio"]:checked + .radio-custom {
+            border-color: var(--primary-color);
+        }
+
+        .option input[type="radio"]:checked + .radio-custom::after {
+            transform: scale(1);
+        }
+
+        /* Solution View Styles */
+        .option.correct {
+            background-color: var(--light-success);
+            border-color: var(--success-color);
+        }
+        .option.correct .radio-custom {
+            border-color: var(--success-color);
+            background-color: var(--success-color);
+        }
+        .option.correct .radio-custom::after {
+            content: '✔';
+            color: white;
+            font-size: 12px;
+            transform: scale(1);
+            background: none;
+            width: auto;
+            height: auto;
+        }
+        .option.incorrect {
+            background-color: var(--light-danger);
+            border-color: var(--danger-color);
+        }
+        .option.incorrect .radio-custom {
+            border-color: var(--danger-color);
+            background-color: var(--danger-color);
+        }
+        .option.incorrect .radio-custom::after {
+            content: '✖';
+            color: white;
+            font-size: 12px;
+            transform: scale(1);
+            background: none;
+            width: auto;
+            height: auto;
+        }
+
+        .explanation {
             margin-top: 15px;
             padding: 15px;
-            background-color: #e9f6ec;
-            border: 1px solid #c3e6cb;
+            background-color: #f1f3f5;
             border-radius: 8px;
             font-size: 0.9rem;
-        }
-        .show-answer-toggle:checked ~ .options-container .correct-answer {
-            background-color: #d4edda;
-            border-color: #28a745;
-        }
-        .show-answer-toggle:checked ~ .options-container .correct-marker {
-            display: inline;
-            margin-right: 10px;
-            color: #155724;
-            font-weight: bold;
+            line-height: 1.5;
         }
 
-        /* --- Button and Navigation Styling --- */
-        .nav-button {
-            display: inline-block;
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        #pagination {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ced4da;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background-color: #0056b3;
+        }
+
+        .nav-arrow:disabled {
+            background-color: var(--secondary-color);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        #next-btn.finish-btn {
+            width: auto;
+            padding: 0 20px;
+            border-radius: 20px;
+        }
+        #next-btn.finish-btn svg { display: none; }
+
+
+        /* Results Screen */
+        #results-container {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .hidden { display: none !important; }
+
+        .score-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
+        .progress-bar-container {
+            width: 200px;
+            height: 10px;
+            background-color: var(--border-color);
+            border-radius: 5px;
+        }
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: var(--success-color);
+            border-radius: 5px;
+            transition: width 0.5s ease-in-out;
+        }
+        .star { font-size: 1.5rem; }
+        .score-text { font-weight: 600; font-size: 1.2rem;}
+
+        .results-buttons button {
             padding: 12px 24px;
+            border: none;
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            text-align: center;
-            transition: transform 0.2s;
-            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .nav-button:hover {
+
+        .results-buttons button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        
-        .nav-button-primary {
-            background-color: #007bff;
-            color: white;
-        }
-        .nav-button-secondary {
-            background-color: #6c757d;
+
+        #solution-btn {
+            background-color: var(--primary-color);
             color: white;
             margin-right: 10px;
         }
-        
-        .nav-button-group {
-            display: flex;
-            justify-content: space-between;
+
+        #restart-btn {
+            background-color: #f1f3f5;
+            color: var(--text-color);
         }
     </style>
 </head>
@@ -157,89 +309,300 @@
     <div class="quiz-container">
         <div class="quiz-header">
             <h1>Test your knowledge!</h1>
-            <p>This is a quiz simulation using only HTML and CSS. No score will be calculated. Click "Show Answer" on each question to see the correct solution.</p>
+            <p>Don't know where to start? <br> Don't hesitate to test yourself with the quiz below to get a first overview of the tool and assess your knowledge of the topic.</p>
         </div>
 
-        <!-- Hidden radio buttons to control navigation state -->
-        <input type="radio" class="nav-radio" id="step1" name="quiz-nav" checked>
-        <input type="radio" class="nav-radio" id="step2" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step3" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step4" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step5" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step6" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step7" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step8" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step9" name="quiz-nav">
-        <input type="radio" class="nav-radio" id="step-results" name="quiz-nav">
+        <div id="quiz-body">
+             <!-- Questions will be injected here by JavaScript -->
+        </div>
 
-        <div class="quiz-body">
-            
-            <!-- Question 1 -->
-            <div class="question-slide" id="slide1">
-                <h3>What skills are required to become a professional chocolatier?</h3>
-                <input type="checkbox" id="show-answer-1" class="show-answer-toggle">
-                <div class="options-container">
-                    <div class="option"><span class="correct-marker">✔</span>None</div>
-                    <div class="option"><span class="correct-marker">✔</span>Professional chocolate-making and management skills</div>
-                    <div class="option correct-answer"><span class="correct-marker">✔</span>Basic management skills</div>
-                </div>
-                <div class="explanation"><strong>Explanation:</strong> No specific authorisation is required. However, entrepreneurs must demonstrate their basic management skills when registering a commercial SME.</div>
-                <div class="nav-button-group">
-                    <label for="show-answer-1" class="nav-button nav-button-secondary">Show Answer</label>
-                    <label for="step2" class="nav-button nav-button-primary">Next</label>
-                </div>
+        <div class="quiz-footer">
+            <div id="pagination">
+                <!-- Pagination dots will be injected here -->
             </div>
-
-            <!-- Question 2 -->
-            <div class="question-slide" id="slide2">
-                <h3>What major company recently opened a chocolate-making school in Wieze?</h3>
-                <input type="checkbox" id="show-answer-2" class="show-answer-toggle">
-                <div class="options-container">
-                    <div class="option"><span class="correct-marker">✔</span>Leonidas</div>
-                    <div class="option"><span class="correct-marker">✔</span>Belcolade</div>
-                    <div class="option correct-answer"><span class="correct-marker">✔</span>Callebaut</div>
-                </div>
-                <div class="explanation"><strong>Explanation:</strong> Callebaut recently opened the Chocolate Academy in Wieze, which is the largest educational centre in their network of sixteen centres worldwide.</div>
-                <div class="nav-button-group">
-                    <div>
-                        <label for="step1" class="nav-button nav-button-secondary">Previous</label>
-                        <label for="show-answer-2" class="nav-button nav-button-secondary">Show Answer</label>
-                    </div>
-                    <label for="step3" class="nav-button nav-button-primary">Next</label>
-                </div>
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="nav-arrow" aria-label="Previous Question">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                 <button id="next-btn" class="nav-arrow" aria-label="Next Question">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
+        </div>
 
-            <!-- ... imagine questions 3 through 8 are here in the same format ... -->
-            
-            <!-- Question 9 (Last Question) -->
-            <div class="question-slide" id="slide9">
-                <h3>What is the greatest obstacle to exporting Belgian chocolate to Poland?</h3>
-                <input type="checkbox" id="show-answer-9" class="show-answer-toggle">
-                <div class="options-container">
-                    <div class="option"><span class="correct-marker">✔</span>Purchasing power</div>
-                    <div class="option"><span class="correct-marker">✔</span>Climate</div>
-                    <div class="option correct-answer"><span class="correct-marker">✔</span>Local customs checks</div>
+        <div id="results-container" class="hidden">
+            <h2>Your results:</h2>
+            <div class="score-display">
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
                 </div>
-                <div class="explanation"><strong>Explanation:</strong> Sweet products are among the most closely monitored processed food products by national authorities, which often requires taking action with local customs.</div>
-                 <div class="nav-button-group">
-                    <div>
-                        <label for="step8" class="nav-button nav-button-secondary">Previous</label>
-                        <label for="show-answer-9" class="nav-button nav-button-secondary">Show Answer</label>
-                    </div>
-                    <label for="step-results" class="nav-button nav-button-primary">Finish Quiz</label>
-                </div>
+                <span class="star">⭐</span>
+                <span class="score-text">0 / 9</span>
             </div>
-
-            <!-- Results Slide -->
-            <div class="results-slide" id="slide-results">
-                <h3>Quiz Complete!</h3>
-                <p>You have reached the end of the quiz. Since this version uses only HTML and CSS, we cannot calculate your score.</p>
-                <p>Click below to go back and review the questions and their answers.</p>
-                <label for="step1" class="nav-button nav-button-primary">Review Answers</label>
+            <div class="results-buttons">
+                <button id="solution-btn">View Solution</button>
+                <button id="restart-btn">Restart</button>
             </div>
-
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quizData = [
+                {
+                    question: "What skills are required to become a professional chocolatier?",
+                    answers: ["None", "Professional chocolate-making and management skills", "Basic management skills"],
+                    correctAnswer: 2,
+                    explanation: "No specific authorisation is required. However, entrepreneurs must demonstrate their basic management skills when registering a commercial SME."
+                },
+                {
+                    question: "What major company recently opened a chocolate-making school in Wieze?",
+                    answers: ["Leonidas", "Belcolade", "Callebaut"],
+                    correctAnswer: 2,
+                    explanation: "Callebaut recently opened the Chocolate Academy in Wieze, which is the largest educational centre in their network of sixteen centres worldwide."
+                },
+                {
+                    question: "What was the most-visited shopping street in the Brussels Region (in 2018)?",
+                    answers: ["Rue du marché aux herbes", "Rue de la colline", "Boulevard Anspach", "Rue neuve", "Rue des fripiers"],
+                    correctAnswer: 3,
+                    explanation: "Rue Neuve was the most-visited street in the Brussels-Capital Region with (on average) nearly 43,000 shoppers a day in 2018."
+                },
+                {
+                    question: "What was the change in the number of chocolaterie-confectionery shops in the BCR from 1997 to 2017?",
+                    answers: ["-9%", "+10%", "+67%", "-25%", "+42%"],
+                    correctAnswer: 2,
+                    explanation: "The number of chocolaterie-confectionery points of sale grew by 66.6% from 1997 (117 shops) to 2017 (195 shops)."
+                },
+                {
+                    question: "Which European residents consume the most chocolate per year on average?",
+                    answers: ["Estonians", "Belgians", "Swiss", "Germans"],
+                    correctAnswer: 3,
+                    explanation: "Germans eat the most chocolate in Europe: 11.09 kg per year on average. Belgians come in seventh place (6.42 kg)."
+                },
+                {
+                    question: "What is the favourite chocolate among 18- to 34-year-old consumers in Belgium?",
+                    answers: ["Black chocolate", "White chocolate", "Milk chocolate"],
+                    correctAnswer: 2,
+                    explanation: "62% of Belgians 18 to 34 years old prefer milk chocolate. By contrast, among older people (over 55), dark chocolate is in the lead."
+                },
+                {
+                    question: "What are the characteristics of the PRAS (Regional Land Use Plan)?",
+                    answers: ["It is permanently tied to the building occupant", "It is tied to the building for ten years", "It is permanently tied to the building", "It is tied to the building occupant for ten years"],
+                    correctAnswer: 2,
+                    explanation: "The planning permit is tied only to the building and not to the operator’s person. It is permanently valid."
+                },
+                {
+                    question: "How many partners are needed to create a public limited company (SA/NV)?",
+                    answers: ["At least three", "At least one", "At least two"],
+                    correctAnswer: 2,
+                    explanation: "For an SA (Public limited company) or an SPRL (Private limited company), a minimum of two partners are required."
+                },
+                {
+                    question: "What is the greatest obstacle to exporting Belgian chocolate to Poland?",
+                    answers: ["Purchasing power", "Climate", "Local customs checks"],
+                    correctAnswer: 2,
+                    explanation: "Sweet products are among the most closely monitored processed food products by national authorities, which often requires taking action with local customs."
+                }
+            ];
+
+            const quizBody = document.getElementById('quiz-body');
+            const paginationContainer = document.getElementById('pagination');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const resultsContainer = document.getElementById('results-container');
+            const quizFooter = document.querySelector('.quiz-footer');
+            const quizHeader = document.querySelector('.quiz-header');
+
+            const solutionBtn = document.getElementById('solution-btn');
+            const restartBtn = document.getElementById('restart-btn');
+            const progressBar = document.querySelector('.progress-bar');
+            const scoreText = document.querySelector('.score-text');
+
+            let currentQuestionIndex = 0;
+            let userAnswers = new Array(quizData.length).fill(null);
+            let isReviewMode = false;
+
+            function buildQuiz() {
+                quizBody.innerHTML = '';
+                paginationContainer.innerHTML = '';
+
+                quizData.forEach((data, index) => {
+                    // Create question slide
+                    const slide = document.createElement('div');
+                    slide.className = 'question-slide';
+                    slide.dataset.index = index;
+
+                    const questionText = document.createElement('h3');
+                    questionText.textContent = data.question;
+                    slide.appendChild(questionText);
+
+                    const optionsContainer = document.createElement('div');
+                    optionsContainer.className = 'options-container';
+
+                    data.answers.forEach((answer, answerIndex) => {
+                        const optionLabel = document.createElement('label');
+                        optionLabel.className = 'option';
+                        
+                        const radioInput = document.createElement('input');
+                        radioInput.type = 'radio';
+                        radioInput.name = `question-${index}`;
+                        radioInput.value = answerIndex;
+
+                        const radioCustom = document.createElement('span');
+                        radioCustom.className = 'radio-custom';
+
+                        const answerText = document.createElement('span');
+                        answerText.textContent = answer;
+
+                        optionLabel.appendChild(radioInput);
+                        optionLabel.appendChild(radioCustom);
+                        optionLabel.appendChild(answerText);
+                        optionsContainer.appendChild(optionLabel);
+
+                        radioInput.addEventListener('change', () => {
+                            userAnswers[currentQuestionIndex] = parseInt(radioInput.value);
+                            updateNavButtons();
+                        });
+                    });
+
+                    slide.appendChild(optionsContainer);
+                    quizBody.appendChild(slide);
+
+                    // Create pagination dot
+                    const dot = document.createElement('span');
+                    dot.className = 'dot';
+                    dot.dataset.index = index;
+                    paginationContainer.appendChild(dot);
+                });
+            }
+
+            function showQuestion(index) {
+                document.querySelectorAll('.question-slide').forEach(slide => slide.classList.remove('active'));
+                document.querySelector(`.question-slide[data-index='${index}']`).classList.add('active');
+
+                document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+                document.querySelector(`.dot[data-index='${index}']`).classList.add('active');
+                
+                currentQuestionIndex = index;
+                updateNavButtons();
+            }
+            
+            function updateNavButtons() {
+                prevBtn.disabled = currentQuestionIndex === 0;
+                
+                const nextBtnIcon = nextBtn.querySelector('svg');
+                const nextBtnText = nextBtn.querySelector('.finish-text');
+                if (nextBtnText) nextBtnText.remove(); 
+
+                if(currentQuestionIndex === quizData.length - 1) {
+                    nextBtn.classList.add('finish-btn');
+                    const span = document.createElement('span');
+                    span.className = 'finish-text';
+                    span.textContent = "Finish";
+                    nextBtn.appendChild(span);
+                } else {
+                    nextBtn.classList.remove('finish-btn');
+                }
+
+                nextBtn.disabled = userAnswers[currentQuestionIndex] === null && !isReviewMode;
+            }
+
+            function handleNext() {
+                if (currentQuestionIndex < quizData.length - 1) {
+                    showQuestion(currentQuestionIndex + 1);
+                } else {
+                    finishQuiz();
+                }
+            }
+
+            function handlePrev() {
+                if (currentQuestionIndex > 0) {
+                    showQuestion(currentQuestionIndex - 1);
+                }
+            }
+            
+            function finishQuiz() {
+                let score = 0;
+                userAnswers.forEach((answer, index) => {
+                    if (answer === quizData[index].correctAnswer) {
+                        score++;
+                    }
+                });
+                
+                quizBody.classList.add('hidden');
+                quizFooter.classList.add('hidden');
+                quizHeader.style.marginBottom = '0';
+                resultsContainer.classList.remove('hidden');
+
+                scoreText.textContent = `${score} / ${quizData.length}`;
+                const percentage = (score / quizData.length) * 100;
+                progressBar.style.width = `${percentage}%`;
+            }
+            
+            function showSolution() {
+                isReviewMode = true;
+                resultsContainer.classList.add('hidden');
+                quizHeader.style.marginBottom = '';
+                quizBody.classList.remove('hidden');
+                quizFooter.classList.remove('hidden');
+
+                document.querySelectorAll('.question-slide').forEach((slide, index) => {
+                    const data = quizData[index];
+                    const userAnswer = userAnswers[index];
+                    const correctIndex = data.correctAnswer;
+                    
+                    const options = slide.querySelectorAll('.option');
+                    options.forEach((option, optionIndex) => {
+                        const radio = option.querySelector('input');
+                        radio.disabled = true;
+
+                        if (optionIndex === correctIndex) {
+                            option.classList.add('correct');
+                        } else if (optionIndex === userAnswer) {
+                            option.classList.add('incorrect');
+                        }
+                    });
+
+                    // Add explanation
+                    const explanationDiv = document.createElement('div');
+                    explanationDiv.className = 'explanation';
+                    explanationDiv.innerHTML = `<strong>Explanation:</strong> ${data.explanation}`;
+                    slide.querySelector('.options-container').appendChild(explanationDiv);
+                });
+
+                // Restore chosen answers on radios
+                userAnswers.forEach((answer, index) => {
+                    if (answer !== null) {
+                        const radio = document.querySelector(`input[name="question-${index}"][value="${answer}"]`);
+                        if (radio) radio.checked = true;
+                    }
+                });
+
+                showQuestion(0);
+            }
+
+            function restartQuiz() {
+                currentQuestionIndex = 0;
+                userAnswers.fill(null);
+                isReviewMode = false;
+                
+                resultsContainer.classList.add('hidden');
+                quizFooter.classList.remove('hidden');
+                quizHeader.style.marginBottom = '';
+                quizBody.classList.remove('hidden');
+                
+                buildQuiz();
+                showQuestion(0);
+            }
+
+            nextBtn.addEventListener('click', handleNext);
+            prevBtn.addEventListener('click', handlePrev);
+            solutionBtn.addEventListener('click', showSolution);
+            restartBtn.addEventListener('click', restartQuiz);
+            
+            buildQuiz();
+            showQuestion(0);
+        });
+    </script>
 </body>
 </html>
