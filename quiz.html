@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz without JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Basic Setup & Styling --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .quiz-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-header p {
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        /* --- The Core CSS Trick --- */
+        
+        /* 1. Hide the radio buttons that control navigation */
+        .nav-radio {
+            display: none;
+        }
+
+        /* 2. Hide all the question/result slides by default */
+        .question-slide, .results-slide {
+            display: none;
+        }
+
+        /* 3. Show a slide ONLY if its corresponding radio button is checked */
+        /* The ~ (general sibling combinator) is the key here! */
+        #step1:checked ~ .quiz-body #slide1,
+        #step2:checked ~ .quiz-body #slide2,
+        #step3:checked ~ .quiz-body #slide3,
+        #step4:checked ~ .quiz-body #slide4,
+        #step5:checked ~ .quiz-body #slide5,
+        #step6:checked ~ .quiz-body #slide6,
+        #step7:checked ~ .quiz-body #slide7,
+        #step8:checked ~ .quiz-body #slide8,
+        #step9:checked ~ .quiz-body #slide9,
+        #step-results:checked ~ .quiz-body #slide-results {
+            display: block;
+        }
+        
+        /* --- Question & Answer Styling --- */
+        .question-slide h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+
+        /* --- 'Show Answer' Trick --- */
+        .show-answer-toggle {
+            display: none; /* Hide the checkbox */
+        }
+        .explanation, .correct-marker {
+            display: none; /* Hide feedback by default */
+        }
+        
+        /* Show feedback when the 'Show Answer' checkbox is checked */
+        .show-answer-toggle:checked ~ .explanation {
+            display: block;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e9f6ec;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .show-answer-toggle:checked ~ .options-container .correct-answer {
+            background-color: #d4edda;
+            border-color: #28a745;
+        }
+        .show-answer-toggle:checked ~ .options-container .correct-marker {
+            display: inline;
+            margin-right: 10px;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        /* --- Button and Navigation Styling --- */
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-button-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .nav-button-secondary {
+            background-color: #6c757d;
+            color: white;
+            margin-right: 10px;
+        }
+        
+        .nav-button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>Test your knowledge!</h1>
+            <p>This is a quiz simulation using only HTML and CSS. No score will be calculated. Click "Show Answer" on each question to see the correct solution.</p>
+        </div>
+
+        <!-- Hidden radio buttons to control navigation state -->
+        <input type="radio" class="nav-radio" id="step1" name="quiz-nav" checked>
+        <input type="radio" class="nav-radio" id="step2" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step3" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step4" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step5" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step6" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step7" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step8" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step9" name="quiz-nav">
+        <input type="radio" class="nav-radio" id="step-results" name="quiz-nav">
+
+        <div class="quiz-body">
+            
+            <!-- Question 1 -->
+            <div class="question-slide" id="slide1">
+                <h3>What skills are required to become a professional chocolatier?</h3>
+                <input type="checkbox" id="show-answer-1" class="show-answer-toggle">
+                <div class="options-container">
+                    <div class="option"><span class="correct-marker">✔</span>None</div>
+                    <div class="option"><span class="correct-marker">✔</span>Professional chocolate-making and management skills</div>
+                    <div class="option correct-answer"><span class="correct-marker">✔</span>Basic management skills</div>
+                </div>
+                <div class="explanation"><strong>Explanation:</strong> No specific authorisation is required. However, entrepreneurs must demonstrate their basic management skills when registering a commercial SME.</div>
+                <div class="nav-button-group">
+                    <label for="show-answer-1" class="nav-button nav-button-secondary">Show Answer</label>
+                    <label for="step2" class="nav-button nav-button-primary">Next</label>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-slide" id="slide2">
+                <h3>What major company recently opened a chocolate-making school in Wieze?</h3>
+                <input type="checkbox" id="show-answer-2" class="show-answer-toggle">
+                <div class="options-container">
+                    <div class="option"><span class="correct-marker">✔</span>Leonidas</div>
+                    <div class="option"><span class="correct-marker">✔</span>Belcolade</div>
+                    <div class="option correct-answer"><span class="correct-marker">✔</span>Callebaut</div>
+                </div>
+                <div class="explanation"><strong>Explanation:</strong> Callebaut recently opened the Chocolate Academy in Wieze, which is the largest educational centre in their network of sixteen centres worldwide.</div>
+                <div class="nav-button-group">
+                    <div>
+                        <label for="step1" class="nav-button nav-button-secondary">Previous</label>
+                        <label for="show-answer-2" class="nav-button nav-button-secondary">Show Answer</label>
+                    </div>
+                    <label for="step3" class="nav-button nav-button-primary">Next</label>
+                </div>
+            </div>
+
+            <!-- ... imagine questions 3 through 8 are here in the same format ... -->
+            
+            <!-- Question 9 (Last Question) -->
+            <div class="question-slide" id="slide9">
+                <h3>What is the greatest obstacle to exporting Belgian chocolate to Poland?</h3>
+                <input type="checkbox" id="show-answer-9" class="show-answer-toggle">
+                <div class="options-container">
+                    <div class="option"><span class="correct-marker">✔</span>Purchasing power</div>
+                    <div class="option"><span class="correct-marker">✔</span>Climate</div>
+                    <div class="option correct-answer"><span class="correct-marker">✔</span>Local customs checks</div>
+                </div>
+                <div class="explanation"><strong>Explanation:</strong> Sweet products are among the most closely monitored processed food products by national authorities, which often requires taking action with local customs.</div>
+                 <div class="nav-button-group">
+                    <div>
+                        <label for="step8" class="nav-button nav-button-secondary">Previous</label>
+                        <label for="show-answer-9" class="nav-button nav-button-secondary">Show Answer</label>
+                    </div>
+                    <label for="step-results" class="nav-button nav-button-primary">Finish Quiz</label>
+                </div>
+            </div>
+
+            <!-- Results Slide -->
+            <div class="results-slide" id="slide-results">
+                <h3>Quiz Complete!</h3>
+                <p>You have reached the end of the quiz. Since this version uses only HTML and CSS, we cannot calculate your score.</p>
+                <p>Click below to go back and review the questions and their answers.</p>
+                <label for="step1" class="nav-button nav-button-primary">Review Answers</label>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
