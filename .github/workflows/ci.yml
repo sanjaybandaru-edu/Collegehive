@@ -21,7 +21,7 @@ jobs:
 
       - run: pip install mkdocs-material pillow cairosvg mkdocs-awesome-pages-plugin mike mkdocs-charts-plugin
       # Build MkDocs projects in subdirectories
-      - run: cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build &&cd ../1st_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
+      # - run: cd docs/2nd_sem && mkdocs build && cd ../3rd_sem && mkdocs build &&cd ../1st_sem && mkdocs build && cd ../4th_sem && mkdocs build && cd ../.. && mkdocs build
       # create sitemap for SEO
       - run: python3 docs/sitemap.py
       # Deploy to GitHub Pages

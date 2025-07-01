@@ -15153,822 +15153,15 @@ Finding any issues with the notes? Report them on our <a href="https://www.insta
 
                 
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-
-
-
-  
-  .btn#my-btn {
-       background: white;
-      padding-top: 13px;
-      padding-bottom: 12px;
-      border-radius: 45px;
-      padding-right: 40px;
-      padding-left: 40px;
-      color: #5865C3;
-  }
-  #chat-overlay {
-      background: rgba(255,255,255,0.1);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      display: none;
-  }
-  
-  
-  .chat-box {
-    display:none;
-    background: #efefef;
-    position:fixed;
-    right:30px;
-    bottom:50px;  
-    width:500px;
-    max-width: 85vw;
-    max-height:90vh;
-    border-radius:5px;  
-  /*   box-shadow: 0px 5px 35px 9px #464a92; */
-    box-shadow: 0px 5px 35px 9px #212596;
-  }
-  .chat-box-toggle {
-    float:right;
-    margin-right:15px;
-    cursor:pointer;
-  }
-  .chat-box-header {
-    background: #5A5EB9;
-    height:70px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px; 
-    color:white;
-    text-align:center;
-    font-size:20px;
-    padding-top:17px;
-  }
-  .chat-box-body {
-    position: relative;  
-    height:450px;  
-    height:auto;
-    border:1px solid #ccc;  
-    overflow: hidden;
-  }
-  .chat-box-body:after {
-    content: "";
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=');
-    opacity: 0.1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height:100%;
-    position: absolute;
-    z-index: -1;   
-  }
-  #chat-input {
-    background: #f4f7f9;
-    width:100%; 
-    position:relative;
-    height:47px;  
-    padding-top:10px;
-    padding-right:50px;
-    padding-bottom:10px;
-    padding-left:15px;
-    border:none;
-    resize:none;
-    outline:none;
-    border:1px solid #ccc;
-    color:#888;
-    border-top:none;
-    border-bottom-right-radius:5px;
-    border-bottom-left-radius:5px;
-    overflow:hidden;  
-  }
-  .chat-input > form {
-      margin-bottom: 0;
-  }
-  #chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #ccc;
-  }
-  #chat-input::-moz-placeholder { /* Firefox 19+ */
-    color: #ccc;
-  }
-  #chat-input:-ms-input-placeholder { /* IE 10+ */
-    color: #ccc;
-  }
-  #chat-input:-moz-placeholder { /* Firefox 18- */
-    color: #ccc;
-  }
-  .chat-submit {  
-    position:absolute;
-    bottom:3px;
-    right:10px;
-    background: transparent;
-    box-shadow:none;
-    border:none;
-    border-radius:50%;
-    color:#5A5EB9;
-    width:35px;
-    height:35px;  
-  }
-  .chat-logs {
-    padding:15px; 
-    height:370px;
-    overflow-y:scroll;
-  }
-  
-  .chat-logs::-webkit-scrollbar-track
-  {
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      background-color: #F5F5F5;
-  }
-  
-  .chat-logs::-webkit-scrollbar
-  {
-      width: 5px;  
-      background-color: #F5F5F5;
-  }
-  
-  .chat-logs::-webkit-scrollbar-thumb
-  {
-      background-color: #5A5EB9;
-  }
-  
-  
-  
-  @media only screen and (max-width: 500px) {
-     .chat-logs {
-          height:40vh;
-      }
-  }
-  
-  .chat-msg.user > .msg-avatar img {
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    float:left;
-    width:15%;
-  }
-  .chat-msg.self > .msg-avatar img {
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    float:right;
-    width:15%;
-  }
-  .cm-msg-text {
-    background:white;
-    padding:10px 15px 10px 15px;  
-    color:#666;
-    max-width:75%;
-    float:left;
-    margin-left:10px; 
-    position:relative;
-    margin-bottom:20px;
-    border-radius:30px;
-    font-size: 14px; 
-  }
-  .chat-msg {
-    clear:both;    
-  }
-  .chat-msg.self > .cm-msg-text {  
-    float:right;
-    margin-right:10px;
-    background: #5A5EB9;
-    color:white;
-  }
-  .cm-msg-button>ul>li {
-    list-style:none;
-    float:left;
-    width:50%;
-  }
-  .cm-msg-button {
-      clear: both;
-      margin-bottom: 70px;
-  }
-
-  #center-text {          
-    display: flex;
-    flex: 1;
-    flex-direction:column; 
-    justify-content: center;
-    align-items: center;  
-    height:100%;
-  }
-  
-  /* #chat-circle {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    background: #5A5EB9;
-    width: 60px;
-    height: 60px;  
-    border-radius: 50%;
-    color: white;
-    padding: 20px;
-    cursor: pointer;
-    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    transition: all 0.3s;
-  } */
-  #chat-circle {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    background: #293dab;
-    width: 150px; /* Adjusted for space for text and image */
-    height: 43px;
-    border-radius: 50px; /* Adjusted corner radius */
-    color: white;
-    padding: 8px;
-    cursor: pointer;
-    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px; /* Space between the image and the text */
-}
-
-#chat-circle:hover {
-    transform: scale(1.1);
-}
-
-.chat-box {
-    display:none;
-    background: #efefef;
-    position:fixed;
-    right:30px;
-    bottom:50px;  
-    width:350px;
-    max-width: 85vw;
-    max-height:100vh;
-    border-radius:5px;
-    box-shadow: 0px 5px 35px 9px #ccc;
-}
-  
-  .chat-box-toggle {
-    float:right;
-    margin-right:15px;
-    cursor:pointer;
-  }
-  
-  .chat-box-header {
-    background: #5A5EB9;
-    height:70px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px; 
-    color:white;
-    text-align:center;
-    font-size:20px;
-    padding-top:17px;
-  }
-  
-  .chat-box-body {
-    position: relative;  
-    height:370px;  
-    height:auto;
-    border:1px solid #ccc;  
-    overflow: hidden;
-  }
-  
-  .chat-box-body:after {
-    content: "";
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=');
-    opacity: 0.1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height:100%;
-    position: absolute;
-    z-index: -1;   
-  }
-
-  #chat-input {
-    background: #f4f7f9;
-    width:100%;
-    position:relative;
-    height:47px;
-    padding-top:10px;
-    padding-right:50px;
-    padding-bottom:10px;
-    padding-left:15px;
-    border:none;
-    resize:none;
-    outline:none;
-    border:1px solid #ccc;
-    color:#888;
-    border-top:none;
-    border-bottom-right-radius:5px;
-    border-bottom-left-radius:5px;
-    overflow:hidden;
-    }
-    .chat-input > form {
-    margin-bottom: 0;
-    }
-    #chat-input::-webkit-input-placeholder { /* Chrome/Opera/Safari /
-    color: #ccc;
-    }
-    #chat-input::-moz-placeholder { / Firefox 19+ /
-    color: #ccc;
-    }
-    #chat-input:-ms-input-placeholder { / IE 10+ /
-    color: #ccc;
-    }
-    #chat-input:-moz-placeholder { / Firefox 18- */
-    color: #ccc;
-    }
-    .chat-submit {
-    position:absolute;
-    bottom:3px;
-    right:10px;
-    background: transparent;
-    box-shadow:none;
-    border:none;
-    border-radius:50%;
-    color:#5A5EB9;
-    width:35px;
-    height:35px;
-    transition: all 0.3s;
-    }
-    .chat-submit:hover {
-    transform: scale(1.1);
-    }
-    .chat-logs {
-    padding:15px;
-    height:370px;
-    overflow-y:scroll;
-    }
-    .chat-logs::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-    }
-    .chat-logs::-webkit-scrollbar {
-    width: 5px;
-    background-color: #F5F5F5;
-    }
-    .chat-logs::-webkit-scrollbar-thumb {
-    background-color: #5A5EB9;
-    }
-    @media only screen and (max-width: 500px) {
-    .chat-logs {
-    height:40vh;
-    }
-    }
-    .chat-msg.user > .msg-avatar img {
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    float:left;
-    width:15%;
-    }
-    .chat-msg.self > .msg-avatar img {
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    float:right;
-    width:15%;
-    }
-    .cm-msg-text {
-    background:white;
-    padding:10px 15px 10px 15px;
-    color:#666;
-    max-width:100%;
-    float:left;
-    margin-left:10px;
-    position:relative;
-    margin-bottom:20px;
-    border-radius:30px;
-    }
-    .chat-msg {
-    clear:both;
-    }
-    .chat-msg.self > .cm-msg-text {
-    float:right;
-    margin-right:10px;
-    background: #5A5EB9;
-    color:white;
-    }
-    .cm-msg-button>ul>li {
-    list-style:none;
-    float:left;
-    width:50%;
-    }
-    .cm-msg-button {
-    clear: both;
-    margin-bottom: 70px;
-    }
-    .suggestion-buttons {
-  position: absolute;
-  width: 100%;
-  bottom: 50px; /* Adjust as needed to place above the input field */
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around; /* This will space out your buttons evenly */
-}
-
-.suggestion-buttons button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  border: none;
-  background-color: #5A5EB9;
-  color: white;
-  border-radius: 40px; /* Rounded corners */
-  font-size: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.suggestion-buttons button:hover {
-  background-color: #777;
-}
-
-.clear-chat {
-  position: absolute;
-  right: 300px;
-  top: 7%;  
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.clear-chat:hover {
-  background-color: rgba(255,255,255,0.2);
-}
-
-
-  </style>
-
-<div id="body">
-  <div id="chat-circle" class="btn btn-raised">
-    <span style="color: white; vertical-align: middle;">Ask Hive Chat</span>
-    <img src="https://collegehive.in/docs/ass/images/CH-logo-w.png" alt="Chat Icon" style="height: 80%; vertical-align: middle;">
-    <!-- <i class="fa fa-comments"></i> -->
-   </div>
-
-  <div class="chat-box">
-    <div class="chat-box-header">
-      Hive Chat
-      <span class="chat-box-toggle"><i class="fa fa-times"></i></span>
-      <span id="clear-chat" class="clear-chat"><i class="fa fa-trash"></i></span>
-
-    </div>
-    <div class="chat-box-body">
-      <div class="chat-logs">
-        <div id="cm-msg-1" class="chat-msg user">
-          <span class="msg-avatar">
-            <img src="https://collegehive.in/docs/ass/images/download%20-%20Copy.png" />
-          </span>
-
-          <div class="cm-msg-text">
-            Hi, I'm Hive Chat, an AI assistant created by CollegeHive.<br>
-            How can I help you today?<br>
-
-      
-
-          </div>
-        </div>
-
-      </div><!--chat-log -->
-    </div>
-    <div class="chat-input">
-      <div id="suggestion-buttons" class="suggestion-buttons">
-        <button onclick="chooseSuggestion('Give a simple example for this')">Give a simple example for this</button>
-        <button onclick="chooseSuggestion('Explain it in simple terms')">Explain it in simple terms</button>        
-      </div>
-      
-      
-      <input type="text" id="chat-input" placeholder="Type a message..." />
-      <button type="submit" class="chat-submit" id="chat-submit"><i class="fa fa-paper-plane"></i></button>
-    </div>
-  </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-
-  <script>
-
-
-
-let custom_instruction = `
-I am Hive Chat, an AI assistant created by CollegeHive, a platform providing notes founded by Sanjay Bandaru, Aman Thoyaj, and other students from Christ University. I help users with their queries, maintaining a professional, polite, and respectful demeanor.
-(Mention only if needed about collegehive)
-Here's what you can expect from me:
-
-I will provide proper explanations and clear understanding of topic to help you fully understand concepts but with brevity and concise 
-I will not respond to inappropriate, offensive, or unethical content. If necessary, I will disengage politely.
-I won't give output in markdown syntax means (*,#) wont be in output , output will contain \n if necessary.
-Any Output will be less than 500 words
-
-VERY IMPORTANT POINTS TO REMEMBER:
-[[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
-
-
-CollegeHive is the Student Community Platform where it multiple Services which students needs. Under Collegehive : Hive Notes and Forum are Operating now.
-Hive Notes is a notes-providing platform where students can access these notes to prepare for semester exams. offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
-
-I am here to provide helpful information briefly and concisely, adhering to the platform's standards and a respectful, ethical approach.`
-    
-// let custdom_instruction = `
-//     I am Hive Chat, an AI assistant created by CollegeHive, a notes-providing platform founded by Sanjay Bandaru, Aman Thoyaj, and other aspirational students from Christ University. My primary role is to assist users with information related to the platform and the notes offered, while maintaining a professional, polite, and respectful demeanor.
-//     (Mention only if needed)
-//     Key points:
-//     - I will communicate in simple, clear English for easy understanding.
-//     - I will provide explanations and clarifications when needed, ensuring a clear understanding of concepts.
-//     - I will reject any user queries that involve inappropriate, offensive, or unethical content.
-//     - I will maintain a polite and respectful tone at all times, even when users behave inappropriately or make unreasonable demands. In such cases, I will politely disengage from the conversation.
-//     - My goal is to assist users within the bounds of my capabilities and the platform's guidelines.
-//     - Dont give Output in Markdown format and any points, cause it is should be plain text.
-//     - Make Sure Output is less than 150 words
-
-//     VERY IMPORTANT POINTS TO REMEMBER:
-//     [[[[[if USER Didnt ask about explanation ,then give response in one sentence and dont give any explanation.]]]]]
-
-//     About CollegeHive and Hive Notes:
-//     - CollegeHive is a notes-providing platform that offers quality and concise notes for BBA students, prepared by a dedicated team based on the Program Course Plan.
-//     - Hive Notes is the platform where these notes are available for students to access and study before their semester exams.
-//     - The notes are meticulously prepared by a specialized team to ensure they are comprehensive and easy to understand.
-//     I will strive to provide helpful information to users in a professional, brief, and concise manner, while adhering to the platform's guidelines and maintaining a respectful and ethical approach. `
-  
-let conversationHistory = [
-  {
-    "role": "system",
-    "content": custom_instruction}
-  
-];
-
-document.getElementById('clear-chat').addEventListener('click', function() {
-  // Clear the chat messages from the logs except the first log
-  $('.chat-logs').html($('.chat-logs').children().first());
-  console.log('Chat history cleared');
-  // Optionally reset the conversationHistory if you're tracking the chat state
-  conversationHistory = [
-  {
-    "role": "system",
-    "content": custom_instruction}
-  
-];
-
-  // once history is cleared, show the suggestion buttons again
-  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString });
-
-  $('.suggestion-buttons').show();
-});
-
-const article = document.querySelector('article.md-content__inner.md-typeset');
-
-// Create an array to store the extracted content
-const extractedContent = [];
-
-// Helper function to extract text content from an element
-function extractTextContent(element) {
-  if (element.tagName.toLowerCase() === 'table') {
-    // Handle tables separately
-    extractedContent.push(`<table>${element.outerHTML}</table>`);
-  } else if (element.tagName.toLowerCase() === 'ul' || element.tagName.toLowerCase() === 'ol') {
-    // Handle unordered and ordered lists
-    const listItems = Array.from(element.querySelectorAll('li')).map(li => li.textContent);
-    extractedContent.push(`<${element.tagName.toLowerCase()}>${listItems.join('')}</${element.tagName.toLowerCase()}>`);
-  } else {
-    extractedContent.push(element.textContent);
-  }
-}
-
-// Traverse the article element and extract content from h2, h3, p, table, ul, ol, and li elements
-const elements = article.querySelectorAll('h2, h3, p, table, ul, ol, li');
-elements.forEach(element => {
-  extractTextContent(element);
-});
-const joinedString = extractedContent.join(' ');
-// console.log(joinedString);
-
-  conversationHistory.push({ "role": "user", "content": "This is the current page content."+joinedString });
-
-    $(function() {
-      var INDEX = 0;
-
-  // Submit message on Enter key press
-  $("#chat-input").keydown(function(e) {
-    if (e.which === 13) {
-      e.preventDefault();
-      var msg = $(this).val();
-      if (msg.trim() !== '') {
-        generate_message(msg, 'self');
-        $(this).val('');
-        sendMessageToGrok(msg);
-      }
-    }
-  });
-
-  $("#chat-submit").click(function(e) {
-    e.preventDefault();
-    var msg = $("#chat-input").val();
-    if (msg.trim() === '') {
-      return false;
-    }
-    generate_message(msg, 'self');
-    $("#chat-input").val('');
-    sendMessageToGrok(msg);
-  });
-  function scrollToBottom() {
-        var chatLogs = $(".chat-logs");
-        if (chatLogs.length > 0) {
-            // Ensures that at least one element exists
-            var lastChatLog = $(".chat-logs").last(); // Targets the last chat log container
-            var previousToLastChatLog = lastChatLog.prev(); // Targets the previous chat log container
-            var scrollHeight = previousToLastChatLog.prop('scrollHeight');
-            if (scrollHeight) {
-                lastChatLog.animate({ scrollTop: scrollHeight }, 1000);
-            } else {
-                console.log("Scroll height is undefined.");
-            }
-        } else {
-            console.log("No chat logs found.");
-        }
-    }
-
-
-      function generate_message(msg, type) {
-        INDEX++;
-        var str = "";
-        str += "<div id='cm-msg-" + INDEX + "' class=\"chat-msg " + type + "\">";
-        str += " <span class=\"msg-avatar\">";
-        if (type === 'user'){
-          str += " <img src=\'https://collegehive.in/docs/ass/images/download%20-%20Copy.png' />";}
-        else{
-          str += " <img src=\'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' />";}
-        str += " </span>";
-        str += " <div class=\"cm-msg-text\">";
-        str += msg.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>");
-        str += " </div>";
-        str += " </div>";
-        $(".chat-logs").append(str);
-        $("#cm-msg-" + INDEX).hide().fadeIn(300);
-        setTimeout(function() {
-        scrollToBottom();
-
-    }, 1000);      }
-
-      function sendMessageToGrok(message) {
-        conversationHistory.push({ "role": "user", "content": message });
-        // const apiUrl = "https://api.openai.com/v1/chat/completions"; 
-        // let key = 'hello';
-        // let encrypted = "U2FsdGVkX1+3f5vRtcToFcUFDx+bgRkkQL8t/PBYZEhVtUCWO4VbW9xBeIb+hSnVD9WJVjX9E1NvggNR8LQK4vo+SAF8tS7ufbF1aBaMlUM=";
-        // let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // const requestBody = {
-        //   "messages": conversationHistory,
-        //   "model": "gpt-4-turbo-2024-04-09",
-        //   "temperature": 0.7,
-        //   // "max_tokens": 32768,
-        //   "top_p": 0.5,
-        //   "stream": false,
-        //   "stop": null
-        // };
-
-        const apiUrl = "https://api.groq.com/openai/v1/chat/completions";
-        let key = 'hello';
-        let encrypted = "U2FsdGVkX192prb32pn3hjWlbz4TeZ3hXhtXYVOz7lX5HSv2mZj1Wk1C8pZFG4d4zrB820HpS2vNL7lpCBPrMAb+i8p22zSP86hfM47Elfk=";
-        let apiKey = CryptoJS.AES.decrypt(encrypted, key).toString(CryptoJS.enc.Utf8);
-        // console.log(apiKey);
-
-
-
-        const requestBody = {
-          "messages": conversationHistory,
-          "model": "llama3-70b-8192",
-          "temperature": 0.7,
-          "max_tokens": 7999,
-          "top_p": 0.5,
-          "stream": false,
-          "stop": null
-        };
-        hideSuggestionButtons();
-
-        $.ajax({
-          url: apiUrl,
-          type: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-          },
-          data: JSON.stringify(requestBody),
-          success: function(response) {
-            const grokResponse = response.choices[0].message.content;
-            conversationHistory.push({ "role": "assistant", "content": grokResponse});
-            generate_message(grokResponse, 'user');
-            
-
-          },
-          error: function(error) {
-            console.error("Error:", error);
-          }
-        });
-      }
-
-          $("#chat-circle").click(function() {
-        $("#chat-circle").toggle('scale');
-        $(".chat-box").toggle('scale');
-      });
-
-      $(".chat-box-toggle").click(function() {
-        $("#chat-circle").toggle('scale');
-        $(".chat-box").toggle('scale');
-      });
-    });
-
-
-    function chooseSuggestion(text) {
-  document.getElementById('chat-input').value = text;
-  document.getElementById('suggestion-buttons').style.display = 'none'; // This will hide the suggestions after choosing one
-}
-
-// Call this function after the chatbot sends its first response
-function hideSuggestionButtons() {
-  document.getElementById('suggestion-buttons').style.display = 'none';
-}
-
-
-  </script>
-
-<!-- ------------- -->
-
-
-<div id="playPauseBtn" class="play">🎶</div>
-
-<audio loop id="player">
-    <source src="https://collegehive-audio.s3.ap-south-1.amazonaws.com/lofi.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-
-<style>
-#playPauseBtn {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  height: 50px; /* Added fixed height to prevent size change */
-  line-height: 50px; /* Center the emoji vertically */
-  text-align: center; /* Center the emoji horizontally */
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  outline: #000000;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  user-select: none;
-}
-
-#playPauseBtn:hover {
-  background-color: #45a049;
-}
-
-#playPauseBtn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.playing {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-}
-</style>
-
-<script>
-var player = document.getElementById('player');
-var playPauseBtn = document.getElementById('playPauseBtn');
-var isPlaying = false;
-
-playPauseBtn.addEventListener('click', function() {
-  isPlaying = !isPlaying;
-  if (isPlaying) {
-    player.play();
-    playPauseBtn.classList.add('playing');
-    playPauseBtn.textContent = '⏸️';
-  } else {
-    player.pause();
-    playPauseBtn.classList.remove('playing');
-    playPauseBtn.textContent = '🎶';
-  }
-});
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "pc7i8ndcwn");
 </script>
+
+
 
 
 
@@ -15987,32 +15180,560 @@ playPauseBtn.addEventListener('click', function() {
         
       </main>
       
-<div id="shownhide" class="show">Hide</div>
 
-<style>
-  /* user selection diabled of shownhide button */
-  #shownhide {
-  display: inline-block;
-  width: 50px; /* Added fixed width to prevent size change */
-  user-select: none;
-  }
-</style>
 
-<script>
-var shownhide = document.getElementById('shownhide');
-var isShown = true;
 
-shownhide.addEventListener('click', function() {
-  isShown = !isShown;
-  if (isShown) {
-    document.getElementById("playPauseBtn").style.display = "block";
-    shownhide.textContent = 'Hide';
-  } else {
-    document.getElementById("playPauseBtn").style.display = "none";
-    shownhide.textContent = 'Show';
-  }
-});  
-</script>
+ <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- Markdown & Sanitizer Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+
+    <!-- Syntax Highlighting for Code Blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- ======================================================= -->
+    <!-- ============== DEPENDENCIES END ======================= -->
+    <!-- ======================================================= -->
+
+    <style>
+    /* ======================================================= */
+    /* ============== CHATBOT STYLES START =================== */
+    /* ======================================================= */
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+        --chat-primary-color: #5A5EB9;
+        --chat-primary-light: #7a7fe3;
+        --chat-font-color: #333;
+        --chat-bubble-user-bg: #E3E5FF;
+        --chat-bubble-bot-bg: #FFFFFF;
+        --chat-border-radius-md: 16px;
+        --chat-border-radius-lg: 20px;
+    }
+
+    /* --- The Launcher Button --- */
+    #hive-launcher {
+        position: fixed; bottom: 20px; right: 20px; background-color: var(--chat-primary-color);
+        color: white; border: none; border-radius: 9999px; padding: 12px 20px;
+        display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif;
+        font-size: 16px; font-weight: 500; cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1000;
+    }
+    #hive-launcher:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+
+    /* --- The Chatbox Container --- */
+    #hive-chatbox {
+        position: fixed; bottom: 20px; right: 20px; width: 400px;
+        max-width: 90vw; height: 70vh; max-height: 650px;
+        border-radius: var(--chat-border-radius-lg); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        background: rgba(245, 245, 247, 0.8); backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex; flex-direction: column; overflow: hidden; z-index: 1001;
+        font-family: 'Inter', sans-serif; opacity: 0;
+        transform: scale(0.95) translateY(10px); transform-origin: bottom right;
+    }
+
+    /* --- Chatbox Header --- */
+    .chat-header {
+        padding: 1rem 1.25rem; border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex; justify-content: space-between; align-items: center;
+        flex-shrink: 0; background-color: rgba(255, 255, 255, 0.7);
+    }
+    .chat-header h3 { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--chat-font-color); }
+    .header-buttons { display: flex; align-items: center; gap: 8px; }
+    .header-btn {
+        background: none; border: none; cursor: pointer; padding: 4px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        transition: background-color 0.2s; color: #555;
+    }
+    .header-btn:hover { background-color: rgba(0, 0, 0, 0.1); color: #000; }
+
+    /* --- Chat Logs & Messages --- */
+    #chat-logs {
+        flex-grow: 1; padding: 1rem; overflow-y: auto;
+        display: flex; flex-direction: column; gap: 1rem; min-height: 0;
+    }
+    #chat-logs::-webkit-scrollbar { width: 6px; }
+    #chat-logs::-webkit-scrollbar-track { background: transparent; }
+    #chat-logs::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+
+    /* .message {
+        display: flex; flex-direction: row; gap: 10px; max-width: 95%;
+        position: relative;
+    }
+    .message .avatar {
+        width: 32px; height: 32px; border-radius: 50%; display: flex;
+        align-items: center; justify-content: center; flex-shrink: 0;
+        margin-top: 5px;
+    }
+
+    .bot-message { align-self: flex-start; }
+    .bot-message .avatar { background-color: var(--chat-primary-color); color: white; }
+
+    .user-message { align-self: flex-end; flex-direction: row-reverse; }
+    .user-message .avatar { background-color: #D1D5DB; } */
+
+
+      /* --- New, Updated CSS --- */
+    .message {
+        display: flex;
+        flex-direction: column; /* CHANGED: Stack items vertically */
+        gap: 8px;              /* UPDATED: Space between avatar and bubble */
+        max-width: 90%;        /* UPDATED: Slightly less width for better padding */
+        position: relative;
+    }
+    .message .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        /* margin-top has been removed */
+    }
+    
+    .bot-message {
+        align-self: flex-start;
+        align-items: flex-start; /* ADDED: Align avatar/bubble to the left */
+    }
+    .bot-message .avatar { background-color: var(--chat-primary-color); color: white; }
+
+    
+    .user-message {
+        align-self: flex-end;
+        align-items: flex-end;   /* ADDED: Align avatar/bubble to the right */
+        /* flex-direction: row-reverse has been removed */
+    }
+    .user-message .avatar { background-color: #D1D5DB; } */
+
+
+    .user-message .message-content {
+        background-color: var(--chat-primary-color); color: white;
+        text-align: justify;
+
+    }
+    
+    .bot-message .message-content {
+        background-color: var(--chat-bubble-bot-bg); color: var(--chat-font-color);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .typing-indicator span {
+        height: 8px; width: 8px; background-color: #9E9EA1; border-radius: 50%;
+        display: inline-block; animation: bounce 1.4s infinite ease-in-out both;
+    }
+    .typing-indicator span:nth-of-type(1) { animation-delay: -0.32s; }
+    .typing-indicator span:nth-of-type(2) { animation-delay: -0.16s; }
+    @keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }
+
+    /* ============================================= */
+    /* === SCOPED RICH CONTENT STYLING START ========= */
+    /* ============================================= */
+
+    .message .message-content {
+        padding: 14px 20px; border-radius: var(--chat-border-radius-md);
+        line-height: 1.6; font-size: 0.7rem; word-wrap: break-word;
+    }
+
+    /* These selectors ensure styles ONLY apply inside message bubbles */
+    .message-content > *:first-child { margin-top: 0; }
+    .message-content > *:last-child { margin-bottom: 0; }
+
+    /* Scoped rule for paragraphs */
+    .message-content p { margin: 0 0 0.75em 0; }
+    .message-content p:last-child { margin-bottom: 0; }
+
+    /* Scoped rule for lists */
+    .message-content ul, .message-content ol {
+        margin: 0.5em 0 1em 0; padding-left: 25px;
+    }
+    .message-content li { margin-bottom: 0.5em;font-size: 13px;  }
+
+    /* Scoped rule for bold text */
+    .message-content strong, .message-content b {
+        color: var(--chat-primary-color);
+        font-weight: 600;
+    }
+
+    /* Scoped rule for horizontal rule */
+    .message-content hr {
+        border: none; height: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        margin: 1.5em 5px;
+    }
+
+    /* Scoped rule for code blocks */
+    .message-content pre {
+        margin: 1em 0; border-radius: 8px; position: relative;
+        white-space: pre-wrap; word-break: break-all;
+    }
+    .message-content pre code.hljs { padding: 1rem; font-size: 0.9em; border-radius: 8px; }
+
+    .copy-code-btn {
+        position: absolute; top: 8px; right: 8px; background-color: rgba(255,255,255,0.1);
+        color: white; border: none; padding: 4px 8px; border-radius: 6px;
+        cursor: pointer; font-size: 0.8em; opacity: 0.7; transition: all 0.2s;
+        display: flex; align-items: center; gap: 4px;
+    }
+    .copy-code-btn:hover { opacity: 1; background-color: rgba(255,255,255,0.2); }
+
+    /* =========================================== */
+    /* === SCOPED RICH CONTENT STYLING END ========= */
+    /* =========================================== */
+
+    /* --- Input Area --- */
+    .chat-input-area {
+        padding: 1rem 1.25rem; border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.5); flex-shrink: 0;
+    }
+    #suggestion-chips { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .chip {
+        background-color: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.1);
+        color: var(--chat-primary-color); padding: 6px 12px; border-radius: 9999px;
+        font-size: 0.85em; cursor: pointer; transition: all 0.2s;
+    }
+    .chip:hover { background-color: white; border-color: var(--chat-primary-color); }
+
+    .input-wrapper {
+        display: flex; align-items: flex-end; gap: 10px; background-color: white;
+        border-radius: var(--chat-border-radius-md); padding: 8px 12px;
+        border: 1px solid rgba(0,0,0,0.1); transition: border-color 0.2s;
+    }
+    .input-wrapper:focus-within { border-color: var(--chat-primary-color); }
+
+    #chat-input {
+        flex-grow: 1; border: none; outline: none; background: none; resize: none;
+        font-family: 'Inter', sans-serif; font-size: 1rem; max-height: 100px;
+        line-height: 1.5; color: var(--chat-font-color);
+    }
+    #chat-input::placeholder { color: #999; }
+
+    #chat-send-btn {
+        background-color: var(--chat-primary-color); border: none; border-radius: 10px;
+        width: 36px; height: 36px; display: flex; align-items: center;
+        justify-content: center; cursor: pointer; color: white;
+        flex-shrink: 0; transition: background-color 0.2s;
+    }
+    #chat-send-btn:hover { background-color: var(--chat-primary-light); }
+    #chat-send-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+    </style>
+
+    
+
+    <!-- Chatbot Component -->
+    <button id="hive-launcher"><i data-lucide="message-circle"></i><span class="launcher-text">Ask Hive</span></button>
+    <div id="hive-chatbox" style="display: none;">
+        <div class="chat-header">
+            <h3>Hive Chat</h3>
+            <div class="header-buttons">
+                <button id="chat-clear-btn" class="header-btn" title="Clear Chat"><i data-lucide="trash-2"></i></button>
+                <button id="chat-close-btn" class="header-btn" title="Close Chat"><i data-lucide="x"></i></button>
+            </div>
+        </div>
+        <div id="chat-logs"></div>
+        <div class="chat-input-area">
+            <div id="suggestion-chips"></div>
+            <div class="input-wrapper">
+                <textarea id="chat-input" placeholder="Ask anything..." rows="1"></textarea>
+                <button id="chat-send-btn"><i data-lucide="arrow-up"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- SECTION 1: CONSTANTS AND STATE MANAGEMENT ---
+        const geminiHexApiKey = "41497a61537941467a37366d424e315a667a6d3754667068543151634c4d2d4c70706443763745"; // This is a placeholder
+        const decodedApiKey = hexDecode(geminiHexApiKey);
+
+        // --- NEW: AI Prompt updated to remove headings ---
+        const custom_instruction = `
+I am Hive Chat, an AI assistant from CollegeHive. My goal is to provide clear, helpful, and well-structured explanations.
+
+**My Personality:**
+- I am friendly, professional, and encouraging.
+- I use emojis sparingly to add a touch of personality and to highlight key points. 😊
+
+**Formatting Guide (VERY IMPORTANT):**
+You MUST format your responses using simple Markdown for readability.
+- **Bold Text:** Use '**' to emphasize key terms or for titles/emphasis. Example: The **Malthusian Trap** is a key concept.
+- **Lists:** Use bulleted lists ('* ' or '- ') for points.
+- **Separators:** Use '---' to create a horizontal rule that visually separates distinct sections.
+- **Paragraphs:** Use a single empty line between paragraphs to create space.
+
+**Content Rules:**
+- Keep answers concise but comprehensive. Break down complex topics into smaller, digestible parts using the formatting rules above.
+- I will not respond to inappropriate, offensive, or unethical content.
+- All output should be under 1500 words.
+
+**Initial Context:**
+The user is on a page with the following content. Use this as your primary context for the conversation:
+""
+`;
+
+        let conversationHistory = [];
+        const uiState = { isOpen: false, isLoading: false };
+        const initialSuggestions = ["Give a simple example for this", "Explain it in simple terms"];
+
+        // --- SECTION 2: ELEMENT SELECTORS ---
+        const launcher = document.getElementById('hive-launcher');
+        const chatbox = document.getElementById('hive-chatbox');
+        const closeBtn = document.getElementById('chat-close-btn');
+        const clearBtn = document.getElementById('chat-clear-btn');
+        const chatLogs = document.getElementById('chat-logs');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('chat-send-btn');
+        const suggestionChipsContainer = document.getElementById('suggestion-chips');
+
+        // --- SECTION 3: CORE HELPER FUNCTIONS ---
+        function hexDecode(hexString) {
+            let decodedString = '';
+            for (let i = 0; i < hexString.length; i += 2) {
+                decodedString += String.fromCharCode(parseInt(hexString.substring(i, i + 2), 16));
+            }
+            return decodedString;
+        }
+        const sanitizeHTML = (str) => {
+            const temp = document.createElement('div');
+            temp.textContent = str;
+            return temp.innerHTML;
+        };
+        
+        // --- SECTION 4: PAGE CONTENT SCRAPING ---
+        const article = document.querySelector('article.md-content__inner.md-typeset');
+
+
+        // Create an array to store the extracted content
+        const extractedContent = [];
+
+        // Helper function to extract text content from an element
+        function extractTextContent(element) {
+          if (element.tagName.toLowerCase() === 'table') {
+            // Handle tables separately
+            extractedContent.push(`<table>${element.outerHTML}</table>`);
+          } else if (element.tagName.toLowerCase() === 'ul' || element.tagName.toLowerCase() === 'ol') {
+            // Handle unordered and ordered lists
+            const listItems = Array.from(element.querySelectorAll('li')).map(li => li.textContent);
+            extractedContent.push(`<${element.tagName.toLowerCase()}>${listItems.join('')}</${element.tagName.toLowerCase()}>`);
+          } else {
+            extractedContent.push(element.textContent);
+          }
+        }
+
+        // Traverse the article element and extract content from h2, h3, p, table, ul, ol, and li elements
+        const elements = article.querySelectorAll('h2, h3, p, table, ul, ol, li');
+        elements.forEach(element => {
+          extractTextContent(element);
+        });
+        const joinedString = extractedContent.join(' ');
+        getPageContent = joinedString;
+
+
+
+
+
+
+
+        // --- SECTION 5: UI & DOM MANIPULATION ---
+        const toggleChatbox = () => {
+            uiState.isOpen = !uiState.isOpen;
+            if (uiState.isOpen) {
+                launcher.style.display = 'none';
+                chatbox.style.display = 'flex';
+                gsap.to(chatbox, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' });
+                chatInput.focus();
+            } else {
+                gsap.to(chatbox, { scale: 0.95, opacity: 0, y: 10, duration: 0.3, ease: 'power3.in', onComplete: () => {
+                    chatbox.style.display = 'none';
+                    launcher.style.display = 'flex';
+                }});
+            }
+        };
+
+        const scrollToBottom = () => { chatLogs.scrollTop = chatLogs.scrollHeight; };
+
+
+        const appendMessage = (type, content) => {
+        const messageEl = document.createElement('div');
+        messageEl.className = `message ${type}-message`;
+        
+        const avatarIconName = (type === 'bot') ? 'bot' : 'user-2';
+        
+        messageEl.innerHTML = `
+            <div class="avatar"><i data-lucide="${avatarIconName}"></i></div>
+            <div class="message-content">${content}</div>
+        `;
+        
+        chatLogs.appendChild(messageEl);
+        lucide.createIcons();
+        scrollToBottom();
+        return messageEl;
+    };
+
+
+        const showTypingIndicator = () => {
+            const typingEl = document.createElement('div');
+            typingEl.id = 'typing-indicator';
+            typingEl.className = 'message bot-message';
+            typingEl.innerHTML = `
+                <div class="avatar"><i data-lucide="bot"></i></div>
+                <div class="message-content typing-indicator"><span></span><span></span><span></span></div>
+            `;
+            chatLogs.appendChild(typingEl);
+            lucide.createIcons();
+            scrollToBottom();
+        };
+
+        const hideTypingIndicator = () => {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        };
+        
+        const renderMessageContent = (element, markdownText) => {
+            const rawHtml = marked.parse(markdownText, { gfm: true, breaks: true });
+            element.innerHTML = DOMPurify.sanitize(rawHtml);
+            
+            element.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+                const pre = block.parentElement;
+                if (pre.querySelector('.copy-code-btn')) return;
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-code-btn';
+                copyBtn.innerHTML = `<i data-lucide="copy"></i><span>Copy</span>`;
+                pre.appendChild(copyBtn);
+            });
+
+            lucide.createIcons();
+            scrollToBottom();
+        };
+
+        const renderSuggestions = () => {
+            suggestionChipsContainer.style.display = 'flex';
+            suggestionChipsContainer.innerHTML = '';
+            initialSuggestions.forEach(text => {
+                const chip = document.createElement('div');
+                chip.className = 'chip';
+                chip.innerText = text;
+                suggestionChipsContainer.appendChild(chip);
+            });
+        };
+        const hideSuggestions = () => { suggestionChipsContainer.style.display = 'none'; };
+
+        // --- SECTION 6: API COMMUNICATION ---
+        const sendMessageToGemini = (message) => {
+            conversationHistory.push({ "role": "user", "content": message });
+            
+            const geminiContents = [];
+            let systemInstructionText = conversationHistory.find(m => m.role === "system")?.content || "";
+            systemInstructionText = systemInstructionText.replace("", getPageContent);
+            const historyForApi = conversationHistory.filter(m => m.role !== "system");
+
+            historyForApi.forEach((item, index) => {
+                const role = item.role === "assistant" ? "model" : "user";
+                let textContent = item.content;
+                if (index === 0) {
+                    textContent = systemInstructionText + "\n\nUser Question: " + textContent;
+                }
+                geminiContents.push({ "role": role, "parts": [{ "text": textContent }] });
+            });
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${decodedApiKey}`;
+            const requestBody = { "contents": geminiContents, "generationConfig": { "temperature": 0.7, "maxOutputTokens": 1500, "topP": 0.5 } };
+            
+            $.ajax({
+                url: apiUrl,
+                type: "POST",
+                headers: { "Content-Type": "application/json" },
+                data: JSON.stringify(requestBody),
+                success: function(response) {
+                    hideTypingIndicator();
+                    const geminiResponse = response.candidates[0]?.content?.parts[0]?.text || "I'm sorry, I couldn't get a response.";
+                    conversationHistory.push({ "role": "assistant", "content": geminiResponse });
+                    
+                    const botMessageEl = appendMessage('bot', '');
+                    const botContentEl = botMessageEl.querySelector('.message-content');
+                    renderMessageContent(botContentEl, geminiResponse);
+                },
+                error: function(xhr) {
+                    console.error("Gemini API Error:", xhr.responseText);
+                    hideTypingIndicator();
+                    appendMessage('bot', 'I apologize, but I\'m having trouble connecting right now.');
+                },
+                complete: function() {
+                    uiState.isLoading = false;
+                    sendBtn.disabled = false;
+                    chatInput.focus();
+                }
+            });
+        };
+
+        // --- SECTION 7: CORE LOGIC & EVENT HANDLERS ---
+        const handleSendMessage = () => {
+            const messageText = chatInput.value.trim();
+            if (!messageText || uiState.isLoading) return;
+            
+            appendMessage('user', sanitizeHTML(messageText));
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+            uiState.isLoading = true;
+            sendBtn.disabled = true;
+            hideSuggestions();
+            showTypingIndicator();
+            sendMessageToGemini(messageText);
+        };
+
+        const resetChat = () => {
+            chatLogs.innerHTML = '';
+            initializeHistoryAndChat();
+        };
+
+        const initializeHistoryAndChat = () => {
+            conversationHistory = [ { "role": "system", "content": custom_instruction } ];
+            appendMessage('bot', 'Hi! I\'m Hive Chat. How can I help you understand the content on this page? 😊');
+            renderSuggestions();
+        };
+
+        // --- 8. EVENT LISTENER BINDINGS ---
+        launcher.addEventListener('click', toggleChatbox);
+        closeBtn.addEventListener('click', toggleChatbox);
+        clearBtn.addEventListener('click', resetChat);
+        sendBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } });
+        chatInput.addEventListener('input', () => { chatInput.style.height = 'auto'; chatInput.style.height = `${chatInput.scrollHeight}px`; });
+
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.chip')) {
+                chatInput.value = e.target.closest('.chip').innerText;
+                handleSendMessage();
+            }
+            if (e.target.closest('.copy-code-btn')) {
+                const copyBtn = e.target.closest('.copy-code-btn');
+                const pre = copyBtn.parentElement;
+                const code = pre.querySelector('code');
+                navigator.clipboard.writeText(code.innerText).then(() => {
+                    const originalText = copyBtn.innerHTML;
+                    copyBtn.innerHTML = `<i data-lucide="check"></i><span>Copied!</span>`;
+                    lucide.createIcons();
+                    setTimeout(() => { copyBtn.innerHTML = originalText; lucide.createIcons(); }, 2000);
+                });
+            }
+        });
+
+        // --- 9. INITIALIZATION ---
+        lucide.createIcons();
+        initializeHistoryAndChat();
+    });
+    </script>
 
 
 
